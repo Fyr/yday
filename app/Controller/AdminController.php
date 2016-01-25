@@ -8,8 +8,8 @@ class AdminController extends AppController {
 
 	public function _beforeInit() {
 	    // auto-add included modules - did not included if child controller extends AdminController
-	    $this->components = array_merge(array('Auth', 'Core.PCAuth', 'Table.PCTableGrid'), $this->components);
-	    $this->helpers = array_merge(array('Html', 'Table.PHTableGrid', 'Form.PHForm'), $this->helpers);
+	    $this->components = array_merge(array('Auth', 'Core.PCAuth', 'Flash'), $this->components);
+	    $this->helpers = array_merge(array('Html', 'Form', 'Form.PHForm', 'Core.PHTime'), $this->helpers);
 	}
 	
 	public function beforeFilter() {

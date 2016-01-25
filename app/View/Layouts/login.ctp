@@ -39,8 +39,7 @@
 <body class=" login">
 <!-- BEGIN LOGO -->
 <div class="logo">
-	<a href="index.html">
-		<img src="http://<?=Configure::read('domain.url')?>/assets/pages/img/logo-big.png" alt="" /> </a>
+	<a href="index.html"><img src="/img/logo.png" alt="" style="height: 60px;" /></a>
 </div>
 <!-- END LOGO -->
 <!-- BEGIN LOGIN -->
