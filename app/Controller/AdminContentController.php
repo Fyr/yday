@@ -2,7 +2,6 @@
 App::uses('AdminController', 'Controller');
 class AdminContentController extends AdminController {
     public $name = 'AdminContent';
-	public $components = array('Paginator');
     public $uses = array('Page', 'News');
 
 	public $paginate = array(
@@ -16,6 +15,7 @@ class AdminContentController extends AdminController {
 	);
 
     public function index() {
+		$this->PCTableGrid->paginate('Page');
 		$aRows = $this->Paginator->paginate('Page');
 		$this->set('aRows', $aRows);
 		// fdebug($aRows);
