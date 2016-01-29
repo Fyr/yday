@@ -18,9 +18,36 @@ class AppController extends Controller {
 		// $this->Settings->initData();
 	}
 
+	public function loadModel($modelClass = null, $id = null) {
+		if ($modelClass === null) {
+			$modelClass = $this->modelClass;
+		}
+
+		$this->uses = ($this->uses) ? (array)$this->uses : array();
+		if (!in_array($modelClass, $this->uses, true)) {
+			$this->uses[] = $modelClass;
+		}
+
+		list($plugin, $modelClass) = pluginSplit($modelClass, true);
+
+		$this->{$modelClass} = ClassRegistry::init(array(
+			'class' => $plugin . $modelClass, 'alias' => $modelClass, 'id' => $id
+		));
+		if (!$this->{$modelClass}) {
+			throw new MissingModelException($modelClass);
+		}
+		return $this->{$modelClass};
+	}
+
+
 	public function isAuthorized($user) {
 		$this->set('currUser', $user);
 		return Hash::get($user, 'active');
+	}
+
+	public function redirect404() {
+		// return $this->redirect(array('controller' => 'pages', 'action' => 'notExists'), 404);
+		throw new NotFoundException();
 	}
 
 }

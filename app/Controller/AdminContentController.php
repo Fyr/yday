@@ -5,37 +5,67 @@ class AdminContentController extends AdminController {
     public $uses = array('Article');
 
 	public $paginate = array(
+		'conditions' => array(),
 		'fields' => array('created', 'title', 'slug', 'published', 'featured', 'sorting'),
 		'order' => array('sorting' => 'asc'),
 		'limit' => 20
 	);
 
+	protected $parent_id = '', $parentModel = 'Article';
+
 	public function beforeRender() {
 		parent::beforeRender();
 		$this->set('objectType', $this->getModel());
+		$this->set('parent_id', $this->parent_id);
+
+		$model = $this->loadModel($this->parentModel);
+		$parentArticle = ($this->parent_id) ? $model->findById($this->parent_id) : array();
+		$this->set('parentArticle', $parentArticle);
 	}
 
 	protected function getModel() {
 		return $this->uses[0];
 	}
 
-    public function index() {
+    public function index($parent_id = '') {
+		if ($parent_id) {
+			$this->parent_id = $parent_id;
+			$this->paginate['conditions'][$this->getModel().'.parent_id'] = $parent_id;
+		}
 		$this->PCTableGrid->paginate($this->getModel());
     }
+
+	protected function beforeSave($id) {
+	}
+
+	protected function afterSave($id) {
+	}
     
-	public function edit($id = 0) {
+	public function edit($id = 0, $parent_id = '') {
 		$model = $this->getModel();
 		if ($this->request->is(array('put', 'post'))) {
 			if ($id) {
 				$this->request->data($model.'.id', $id);
+			} else {
+				$this->request->data($model.'.object_type', $model);
+				$this->request->data($model.'.parent_id', $parent_id);
 			}
+			$this->beforeSave($id);
 			if ($this->{$model}->saveAll($this->request->data)) {
 				$this->Flash->success(__('Record has been successfully saved'));
 				$id = $this->{$model}->id;
+				$this->afterSave($id);
 				return $this->redirect(array('action' => 'edit', $id));
 			}
 		} else {
 			$this->request->data = $this->{$model}->findById($id);
+			if ($id) {
+				$this->parent_id = $this->request->data($model.'.parent_id');
+			} else {
+				$this->parent_id = $parent_id;
+				$this->request->data($model.'.parent_id', $parent_id);
+				$this->request->data($model.'.sorting', '0');
+			}
 		}
 	}
 
@@ -43,6 +73,6 @@ class AdminContentController extends AdminController {
 		$model = $this->getModel();
 		$this->Flash->success(__('Record has been successfully deleted'));
 		$this->{$model}->delete($id);
-		$this->redirect(array('action' => 'index'));
+		return $this->redirect(array('action' => 'index'));
 	}
 }

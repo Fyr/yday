@@ -7,7 +7,7 @@ class Article extends AppModel {
 		'title' => 'notempty'
 	);
 
-	protected $objectType = 'Article';
+	protected $objectType = '';
 
 	/**
 	 * Auto-add object type in find conditions

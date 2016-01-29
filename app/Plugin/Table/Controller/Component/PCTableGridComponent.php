@@ -167,7 +167,7 @@ class PCTableGridComponent extends Component {
 		$this->_->paginate[$modelName] = $this->paginate;
 		$filters = ($filters) ? $filters : $this->_->params['named'];
 		$this->setFilter($filters);
-		// fdebug($this->paginate, 'paginate.log');
+//		fdebug($this->paginate, 'paginate.log');
 		$this->Paginator->settings = $this->paginate;
 		$aRowset = $this->Paginator->paginate($modelName, $this->getFilter());
 		// $aRowset = $this->_->paginate($modelName, $this->getFilter());

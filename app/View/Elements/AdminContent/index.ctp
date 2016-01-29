@@ -17,7 +17,7 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="btn-group">
-								<a class="btn green" href="<?=$this->Html->url(array('action' => 'edit'))?>">
+								<a class="btn green" href="<?=$this->Html->url(array('action' => 'edit', 0, $parent_id))?>">
 									<i class="fa fa-plus"></i> <?=$this->ObjectType->getTitle('create', $objectType)?>
 								</a>
 							</div>

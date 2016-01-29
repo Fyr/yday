@@ -50,10 +50,10 @@
 <?
 	$aMenu = array(
 		array('label' => __('Static content'), 'icon' => 'icon-layers', 'url' => '', 'submenu' => array(
-			array('label' => __('Pages'), 'url' => array('controller' => 'AdminContent', 'action' => 'index')),
+			array('label' => __('Pages'), 'url' => array('controller' => 'AdminPages', 'action' => 'index')),
 			array('label' => __('News'), 'url' => array('controller' => 'AdminNews', 'action' => 'index')),
 			array('label' => __('FAQ'), 'url' => array('controller' => 'AdminFaq', 'action' => 'index')),
-			array('label' => __('Blocks'), 'url' => array('controller' => 'AdminBlocks', 'action' => 'index')),
+			//array('label' => __('Blocks'), 'url' => array('controller' => 'AdminBlocks', 'action' => 'index')),
 		)),
 		array('label' => __('eCommerce'), 'icon' => 'icon-basket', 'url' => '', 'submenu' => array(
 			array('label' => __('Categories'), 'url' => array('controller' => 'AdminContent', 'action' => 'index')),

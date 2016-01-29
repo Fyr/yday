@@ -10,22 +10,25 @@ class ObjectTypeHelper extends AppHelper {
                 'Page' => __('Static pages'),
                 'News' => __('News'),
                 'Faq' => __('FAQ'),
+                'PageBlock' => __('Static page blocks'),
             ),
             'create' => array(
-                'Article' => __('Create Article'),
-                'Page' => __('Create Static page'),
-                'News' => __('Create News article'),
+                'Article' => __('Create article'),
+                'Page' => __('Create static page'),
+                'News' => __('Create news article'),
                 'Faq' => __('Create FAQ section'),
+                'PageBlock' => __('Create static page block'),
             ),
             'edit' => array(
-                'Article' => __('Edit Article'),
-                'Page' => __('Edit Static page'),
-                'News' => __('Edit News article'),
+                'Article' => __('Edit article'),
+                'Page' => __('Edit static page'),
+                'News' => __('Edit news article'),
                 'Faq' => __('Edit FAQ section'),
+                'PageBlock' => __('Edit static page block'),
             ),
             'view' => array(
-            	'Article' => __('View Article'),
-            	'News' => __('View News article'),
+            	'Article' => __('View article'),
+            	'News' => __('View news article'),
             	'Product' => __('View product'),
             )
         );
