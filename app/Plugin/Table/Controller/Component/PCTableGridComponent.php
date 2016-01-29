@@ -40,12 +40,14 @@ class PCTableGridComponent extends Component {
 			return array($order => $dir);
 		}
 		if (isset($this->paginate['order'])) {
-			/*
 			if (is_array($this->paginate['order'])) {
-				
+				list($field) = array_keys($this->paginate['order']);
+				list($dir) = array_values($this->paginate['order']);
+				if (strpos('.', $field) === false) {
+					$field = $this->model->alias.'.'.$field;
+				}
+				$this->paginate['order'] = array($field => strtolower($dir));
 			}
-			return $this->_normalizeField($this->model->alias, $this->paginate['order']);
-			*/
 			return $this->paginate['order'];
 		}
 		if (in_array($this->model->alias.'.modified', $this->paginate['fields'])) {
@@ -165,7 +167,8 @@ class PCTableGridComponent extends Component {
 		$this->_->paginate[$modelName] = $this->paginate;
 		$filters = ($filters) ? $filters : $this->_->params['named'];
 		$this->setFilter($filters);
-		fdebug($this->paginate, 'paginate.log');
+		// fdebug($this->paginate, 'paginate.log');
+		$this->Paginator->settings = $this->paginate;
 		$aRowset = $this->Paginator->paginate($modelName, $this->getFilter());
 		// $aRowset = $this->_->paginate($modelName, $this->getFilter());
 		// $this->paginate[$modelName]['_rowset'] = $aRowset;

@@ -9,16 +9,19 @@ class ObjectTypeHelper extends AppHelper {
                 'Article' => __('Articles'),
                 'Page' => __('Static pages'),
                 'News' => __('News'),
+                'Faq' => __('FAQ'),
             ),
             'create' => array(
                 'Article' => __('Create Article'),
                 'Page' => __('Create Static page'),
                 'News' => __('Create News article'),
+                'Faq' => __('Create FAQ section'),
             ),
             'edit' => array(
                 'Article' => __('Edit Article'),
                 'Page' => __('Edit Static page'),
                 'News' => __('Edit News article'),
+                'Faq' => __('Edit FAQ section'),
             ),
             'view' => array(
             	'Article' => __('View Article'),

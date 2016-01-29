@@ -47,78 +47,67 @@
 			<li class="heading">
 				<h3 class="uppercase"><?=__('Admin area')?></h3>
 			</li>
-			<li class="nav-item  ">
-				<a href="javascript:;" class="nav-link nav-toggle">
-					<i class="icon-layers"></i>
-					<span class="title"><?=__('Static content')?></span>
-					<span class="arrow"></span>
-				</a>
-				<ul class="sub-menu">
-					<li class="nav-item">
-						<a href="<?=$this->Html->url(array('controller' => 'AdminContent', 'action' => 'index'))?>" class="nav-link ">
-							<span class="title"><?=__('Pages')?></span>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a href="<?=$this->Html->url(array('controller' => 'AdminContent', 'action' => 'index'))?>" class="nav-link ">
-							<span class="title"><?=__('News')?></span>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a href="<?=$this->Html->url(array('controller' => 'AdminContent', 'action' => 'index'))?>" class="nav-link ">
-							<span class="title"><?=__('FAQ')?></span>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a href="<?=$this->Html->url(array('controller' => 'AdminContent', 'action' => 'index'))?>" class="nav-link ">
-							<span class="title"><?=__('Blocks')?></span>
-						</a>
-					</li>
-				</ul>
-			</li>
-			<li class="nav-item  ">
-				<a href="javascript:;" class="nav-link nav-toggle">
-					<i class="icon-basket"></i>
-					<span class="title"><?=__('eCommerce')?></span>
-					<span class="arrow"></span>
-				</a>
-				<ul class="sub-menu">
-					<li class="nav-item  ">
-						<a href="javascript:;" class="nav-link ">
-							<span class="title"><?=__('Categories')?></span>
-						</a>
-					</li>
-					<li class="nav-item  ">
-						<a href="javascript:;" class="nav-link ">
-							<span class="title"><?=__('Products')?></span>
-						</a>
-					</li>
-				</ul>
-			</li>
+<?
+	$aMenu = array(
+		array('label' => __('Static content'), 'icon' => 'icon-layers', 'url' => '', 'submenu' => array(
+			array('label' => __('Pages'), 'url' => array('controller' => 'AdminContent', 'action' => 'index')),
+			array('label' => __('News'), 'url' => array('controller' => 'AdminNews', 'action' => 'index')),
+			array('label' => __('FAQ'), 'url' => array('controller' => 'AdminFaq', 'action' => 'index')),
+			array('label' => __('Blocks'), 'url' => array('controller' => 'AdminBlocks', 'action' => 'index')),
+		)),
+		array('label' => __('eCommerce'), 'icon' => 'icon-basket', 'url' => '', 'submenu' => array(
+			array('label' => __('Categories'), 'url' => array('controller' => 'AdminContent', 'action' => 'index')),
+			array('label' => __('Products'), 'url' => array('controller' => 'AdminNews', 'action' => 'index')),
+		)),
+		array('label' => __('Settings'), 'icon' => 'icon-wrench', 'url' => '', 'submenu' => array(
+			array('label' => __('System'), 'url' => array('controller' => 'AdminContent', 'action' => 'index')),
+			array('label' => __('Contacts'), 'url' => array('controller' => 'AdminNews', 'action' => 'index')),
+			array('label' => __('Prices'), 'url' => array('controller' => 'AdminNews', 'action' => 'index')),
+		)),
+	);
+
+	foreach($aMenu as $item) {
+		$icon = (isset($item['icon']) && $item['icon']) ? '<i class="'.$item['icon'].'"></i>' : '';
+		$label = '<span class="title">'.$item['label'].'</span>';
+?>
 			<li class="nav-item">
+<?
+		if (!isset($item['submenu'])) {
+?>
+				<a href="<?=$this->Html->url($item['url'])?>" class="nav-link">
+					<?=$icon?>
+					<?=$label?>
+				</a>
+<?
+		} else {
+?>
 				<a href="javascript:;" class="nav-link nav-toggle">
-					<i class="icon-wrench"></i>
-					<span class="title"><?=__('Settings')?></span>
+					<?=$icon?>
+					<?=$label?>
 					<span class="arrow"></span>
 				</a>
 				<ul class="sub-menu">
+<?
+			foreach($item['submenu'] as $_item) {
+				$icon = (isset($_item['icon']) && $_item['icon']) ? '<i class="'.$_item['icon'].'"></i>' : '';
+				$label = '<span class="title">'.$_item['label'].'</span>';
+?>
 					<li class="nav-item">
-						<a href="javascript:;" class="nav-link ">
-							<span class="title"><?=__('System')?></span>
+						<a href="<?=$this->Html->url($_item['url'])?>" class="nav-link">
+							<span class="title"><?=$label?></span>
 						</a>
 					</li>
-					<li class="nav-item">
-						<a href="javascript:;" class="nav-link ">
-							<span class="title"><?=__('Contacts')?></span>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a href="javascript:;" class="nav-link ">
-							<span class="title"><?=__('Prices')?></span>
-						</a>
-					</li>
+<?
+			}
+?>
 				</ul>
+<?
+		}
+?>
 			</li>
+<?
+	}
+?>
 		</ul>
 		<!-- END SIDEBAR MENU -->
 		<!-- END SIDEBAR MENU -->

@@ -10,7 +10,6 @@ Configure::write('Dispatcher.filters', array(
 ));
 
 App::uses('CakeLog', 'Log');
-
 CakeLog::config('debug', array(
 	'engine' => 'File',
 	'types' => array('notice', 'info', 'debug'),
@@ -22,12 +21,16 @@ CakeLog::config('error', array(
 	'file' => 'error',
 ));
 
+// Configure::write('Config.language', 'rus');
+
 /* -= Custom settings =- */
 Configure::write('domain', array(
 	'url' => $_SERVER['SERVER_NAME'],
 	'title' => 'YourDay.dev'
 ));
-
+Configure::write('media', array(
+	'path' => $_SERVER['DOCUMENT_ROOT'].'/files/'
+));
 function fdebug($data, $logFile = 'tmp.log', $lAppend = true) {
 	file_put_contents($logFile, mb_convert_encoding(print_r($data, true), 'cp1251', 'utf8'), ($lAppend) ? FILE_APPEND : null);
 }

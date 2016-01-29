@@ -37,7 +37,7 @@
 			}
 		}
 ?>
-			<td>
+			<td nowrap="nowrap">
 <?
 		echo $this->Html->link('<i class="fa fa-edit"></i> '.__('Edit'), array('action' => 'edit', $id), array(
 				'class' => 'btn btn-outline dark btn-sm blue',

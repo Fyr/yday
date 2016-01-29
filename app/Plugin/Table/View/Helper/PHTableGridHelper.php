@@ -44,8 +44,11 @@ class PHTableGridHelper extends AppHelper {
 		$_paginate = $this->viewVar('_paginate.'.$modelName);
 		$_paginate['_model'] = $modelName;
 		// $container_id = 'grid_'.$modelName;
-
-		return $this->_View->element('Table.table', compact('_paginate'));
+		$rowset = $this->viewVar('_paginate.'.$modelName.'._rowset');
+		if ($rowset) {
+			return $this->_View->element('Table.table', compact('_paginate'));
+		}
+		return $this->_View->element('Table.no_records', compact('_paginate'));
 	}
 
 }

@@ -36,8 +36,12 @@
 	<link href="http://<?=Configure::read('domain.url')?>/assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css" rel="stylesheet" type="text/css" />
 	<link href="http://<?=Configure::read('domain.url')?>/assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css" rel="stylesheet" type="text/css" />
 	<link href="http://<?=Configure::read('domain.url')?>/assets/global/plugins/bootstrap-summernote/summernote.css" rel="stylesheet" type="text/css" />
+
+	<link href="http://<?=Configure::read('domain.url')?>/assets/global/plugins/jquery-file-upload/blueimp-gallery/blueimp-gallery.min.css" rel="stylesheet" type="text/css" />
+	<link href="http://<?=Configure::read('domain.url')?>/assets/global/plugins/jquery-file-upload/css/jquery.fileupload.css" rel="stylesheet" type="text/css" />
+	<link href="http://<?=Configure::read('domain.url')?>/assets/global/plugins/jquery-file-upload/css/jquery.fileupload-ui.css" rel="stylesheet" type="text/css" />
+
 	<!-- END PAGE LEVEL PLUGINS -->
-	<!-- BEGIN THEME GLOBAL STYLES -->
 
 	<?=$this->Html->meta('icon')?>
 <?
@@ -123,7 +127,10 @@
 <!--script src="http://<?=Configure::read('domain.url')?>/assets/global/scripts/datatable.js" type="text/javascript"></script-->
 <!--script src="http://<?=Configure::read('domain.url')?>/assets/global/plugins/datatables/datatables.min.js" type="text/javascript"></script-->
 <!--script src="http://<?=Configure::read('domain.url')?>/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script-->
-<script src="http://<?=Configure::read('domain.url')?>/assets/pages/scripts/table-datatables-fixedheader.min.js" type="text/javascript"></script>
+<!--script src="http://<?=Configure::read('domain.url')?>/assets/pages/scripts/table-datatables-fixedheader.min.js" type="text/javascript"></script-->
+<script src="http://<?=Configure::read('domain.url')?>/assets/global/plugins/jquery-file-upload/js/vendor/jquery.ui.widget.js" type="text/javascript"></script>
+<script src="http://<?=Configure::read('domain.url')?>/assets/global/plugins/jquery-file-upload/js/jquery.iframe-transport.js" type="text/javascript"></script>
+<script src="http://<?=Configure::read('domain.url')?>/assets/global/plugins/jquery-file-upload/js/jquery.fileupload.js" type="text/javascript"></script>
 <?
 	echo $this->fetch('script');
 ?>
