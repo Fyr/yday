@@ -1,0 +1,290 @@
+msgid "Username"
+msgstr "Пользователь"
+
+msgid "Invalid username or password, try again"
+msgstr "Неправильное имя пользователя или пароль"
+
+msgid "Jan"
+msgstr "Янв"
+
+msgid "Feb"
+msgstr "Фев"
+
+msgid "Mar"
+msgstr "Мар"
+
+msgid "Apr"
+msgstr "Апр"
+
+msgid "May"
+msgstr "Май"
+
+msgid "Jun"
+msgstr "Июн"
+
+msgid "Jul"
+msgstr "Июл"
+
+msgid "Aug"
+msgstr "Авг"
+
+msgid "Sep"
+msgstr "Сен"
+
+msgid "Oct"
+msgstr "Окт"
+
+msgid "Nov"
+msgstr "Ноя"
+
+msgid "Dec"
+msgstr "Дек"
+
+msgid "Today"
+msgstr "Сегодня"
+
+msgid "Yesterday"
+msgstr "Вчера"
+
+msgid "Text"
+msgstr "Текст"
+
+msgid "You must log in to access this page"
+msgstr "Вы должны авторизоваться"
+
+msgid "Your session has been expired. Please, relogin to perform this action"
+msgstr "Авторизация истекла. Пож-ста, авторизуйтесь снова"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Back"
+msgstr "Назад"
+
+msgid "Apply"
+msgstr "Применить"
+
+msgid "Upload files..."
+msgstr "Загрузка файлов..."
+
+msgid "Edit"
+msgstr "Редактировать"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "Uploaded"
+msgstr "Загружено"
+
+msgid "File name"
+msgstr "Имя файла"
+
+msgid "File size"
+msgstr "Обьем файла"
+
+msgid "Links"
+msgstr "Ссылки"
+
+msgid "Add record"
+msgstr "Добавить запись"
+
+msgid "Edit record"
+msgstr "Редактировать запись"
+
+msgid "Delete record"
+msgstr "Удалить запись"
+
+msgid "Dashboard"
+msgstr "Главная"
+
+msgid "User name"
+msgstr "Имя пользователя"
+
+msgid "Password"
+msgstr "Пароль"
+
+msgid "Remember me"
+msgstr "Запомнить"
+
+msgid "Login"
+msgstr "Вход"
+
+msgid "Utils"
+msgstr "Утилиты"
+
+msgid "Generate static labels"
+msgstr "Сгенерировать стат.метки"
+
+msgid "Clean image cache"
+msgstr "Очистить кэш изображений"
+
+msgid "Processing query..."
+msgstr "Обработка запроса..."
+
+msgid "Log out"
+msgstr "Выход"
+
+msgid "Sort Order"
+msgstr "Сортировка"
+
+msgid "Upload"
+msgstr "Загрузить"
+
+msgid "Select file"
+msgstr "Выберите файл"
+
+msgid "Slug"
+msgstr "Адрес"
+
+msgid "Sorting"
+msgstr "Сортировка"
+
+msgid "Created"
+msgstr "Создано"
+
+msgid "Decimals"
+msgstr "Кол-во цифр для дробн.части"
+
+msgid "Div Float"
+msgstr "Символ-разделитель для дробн.части"
+
+msgid "Div Int"
+msgstr "Символ-разделитель для цел.части"
+
+msgid "System"
+msgstr "Система"
+
+msgid "Updated"
+msgstr "Обновлено"
+
+msgid "Download"
+msgstr "Скачать"
+
+msgid "Featured"
+msgstr "Особое"
+
+msgid "Record has been successfully saved"
+msgstr "Запись успешно сохранена"
+
+msgid "Record has been successfully deleted"
+msgstr "Запись успешно удалена"
+
+msgid "No records found"
+msgstr "Записей не найдено"
+
+msgid "Actions"
+msgstr "Действия"
+
+msgid "Show filter settings"
+msgstr "Показать настройки фильтра"
+
+msgid "Delete checked records"
+msgstr "Удалить помеченные записи"
+
+msgid "Question"
+msgstr "Вопрос"
+
+msgid "Answer"
+msgstr "Ответ"
+
+msgid "General"
+msgstr "Общее"
+
+msgid "Blocks"
+msgstr "Блоки"
+
+msgid "Status"
+msgstr "Статус"
+
+msgid "Cancel"
+msgstr "Отмена"
+
+msgid "Admin area"
+msgstr "Панель админа"
+
+msgid "Static content"
+msgstr "Контент"
+
+msgid "Pages"
+msgstr "Страницы"
+
+msgid "News"
+msgstr "Новости"
+
+msgid "FAQ"
+msgstr "FAQ"
+
+msgid "eCommerce"
+msgstr "Продукция"
+
+msgid "Categories"
+msgstr "Категории"
+
+msgid "Products"
+msgstr "Товары"
+
+msgid "Settings"
+msgstr "Настройки"
+
+msgid "Contacts"
+msgstr "Контакты"
+
+msgid "Prices"
+msgstr "Цены"
+
+msgid "Articles"
+msgstr "Статьи"
+
+msgid "Static pages"
+msgstr "Статические страницы"
+
+msgid "Static page blocks"
+msgstr "Блоки статических страниц"
+
+msgid "Create article"
+msgstr "Создать статью"
+
+msgid "Create static page"
+msgstr "Создать стат.страницу"
+
+msgid "Create news article"
+msgstr "Создать новость"
+
+msgid "Create FAQ section"
+msgstr "Создать раздел FAQ"
+
+msgid "Create static page block"
+msgstr "Создать блок стат.страницы"
+
+msgid "Edit article"
+msgstr "Редактировать статью"
+
+msgid "Edit static page"
+msgstr "Редактировать стат.страницу"
+
+msgid "Edit news article"
+msgstr "Редактировать новость"
+
+msgid "Edit FAQ section"
+msgstr "Редактировать секцию FAQ"
+
+msgid "Edit static page block"
+msgstr "Редактировать блок стат.страницы"
+
+msgid "View article"
+msgstr "Просмотр статьи"
+
+msgid "View news article"
+msgstr "Просмотр новости"
+
+msgid "View product"
+msgstr "Просмотр товара"
+
+msgid "Title"
+msgstr "Название"
+
+msgid "Published"
+msgstr "Опубликовано"
+
+msgid "Media"
+msgstr "Медиа"
