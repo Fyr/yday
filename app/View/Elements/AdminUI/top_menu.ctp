@@ -4,7 +4,7 @@
 		<!-- BEGIN LOGO -->
 		<div class="page-logo">
 			<a href="index.html">
-				<img src="/img/logo.png" alt="logo" class="logo-default" style="height: 30px; position: relative; top: -7px;" />
+				<img src="/img/logo-white.png" alt="logo" class="logo-default" style="height: 30px; position: relative; top: -7px;" />
 			</a>
 			<div class="menu-toggler sidebar-toggler"> </div>
 		</div>

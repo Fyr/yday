@@ -39,7 +39,7 @@
 <body class=" login">
 <!-- BEGIN LOGO -->
 <div class="logo">
-	<a href="index.html"><img src="/img/logo.png" alt="" style="height: 60px;" /></a>
+	<a href="index.html"><img src="/img/logo-white.png" alt="" style="height: 60px;" /></a>
 </div>
 <!-- END LOGO -->
 <!-- BEGIN LOGIN -->

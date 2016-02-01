@@ -18,6 +18,14 @@ class AppController extends Controller {
 		// $this->Settings->initData();
 	}
 
+	public function beforeRender() {
+		$this->beforeRenderLayout();
+	}
+
+	protected function beforeRenderLayout() {
+
+	}
+
 	public function loadModel($modelClass = null, $id = null) {
 		if ($modelClass === null) {
 			$modelClass = $this->modelClass;

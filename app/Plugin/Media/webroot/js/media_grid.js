@@ -59,7 +59,7 @@ MediaGrid = function(config) {
 		if (self.data && self.data.length) {
 			self.showInfo(self.getID(self.data[0]));
 		} else {
-			$('.media-info', $self).html('No media data');
+			$('.media-info', $self).html(mediaLocale.noData);
 		}
 	}
 	
@@ -70,7 +70,7 @@ MediaGrid = function(config) {
 			    html+= self.renderThumb(self.data[i]);
 			}
 		} else {
-			html = Format.tag('div', {class: 'alert well-large'}, 'No media files found')
+			html = Format.tag('div', {class: 'alert well-large'}, mediaLocale.noFiles);
 		}
 		return html;
 	}

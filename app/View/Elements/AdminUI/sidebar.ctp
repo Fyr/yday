@@ -57,20 +57,23 @@
 		)),
 		array('label' => __('eCommerce'), 'icon' => 'icon-basket', 'url' => '', 'submenu' => array(
 			array('label' => __('Categories'), 'url' => array('controller' => 'AdminContent', 'action' => 'index')),
-			array('label' => __('Products'), 'url' => array('controller' => 'AdminNews', 'action' => 'index')),
+			array('label' => __('Products'), 'url' => array('controller' => 'AdminContent', 'action' => 'index')),
 		)),
 		array('label' => __('Settings'), 'icon' => 'icon-wrench', 'url' => '', 'submenu' => array(
 			array('label' => __('System'), 'url' => array('controller' => 'AdminContent', 'action' => 'index')),
-			array('label' => __('Contacts'), 'url' => array('controller' => 'AdminNews', 'action' => 'index')),
-			array('label' => __('Prices'), 'url' => array('controller' => 'AdminNews', 'action' => 'index')),
+			array('label' => __('Contacts'), 'url' => array('controller' => 'AdminContent', 'action' => 'index')),
+			array('label' => __('Prices'), 'url' => array('controller' => 'AdminContent', 'action' => 'index')),
 		)),
 	);
 
+	$menuID = 0;
+	$currMenu = 0;
 	foreach($aMenu as $item) {
+		$menuID++;
 		$icon = (isset($item['icon']) && $item['icon']) ? '<i class="'.$item['icon'].'"></i>' : '';
 		$label = '<span class="title">'.$item['label'].'</span>';
 ?>
-			<li class="nav-item">
+			<li id="menu<?=$menuID?>" class="nav-item">
 <?
 		if (!isset($item['submenu'])) {
 ?>
@@ -89,10 +92,14 @@
 				<ul class="sub-menu">
 <?
 			foreach($item['submenu'] as $_item) {
+				$menuID++;
+				if ($this->request->controller == $_item['url']['controller']) {
+					$currMenu = $menuID;
+				}
 				$icon = (isset($_item['icon']) && $_item['icon']) ? '<i class="'.$_item['icon'].'"></i>' : '';
 				$label = '<span class="title">'.$_item['label'].'</span>';
 ?>
-					<li class="nav-item">
+					<li id="menu<?=$menuID?>" class="nav-item">
 						<a href="<?=$this->Html->url($_item['url'])?>" class="nav-link">
 							<span class="title"><?=$label?></span>
 						</a>
@@ -114,3 +121,21 @@
 	</div>
 	<!-- END SIDEBAR -->
 </div>
+<?
+	if ($this->request->controller == 'AdminPageBlocks') {
+		$currMenu = 2;
+	}
+	if ($currMenu) {
+?>
+<script>
+	$(function(){
+		var $currMenu = $('#menu<?=$currMenu?>');
+		$currMenu.addClass('active');
+		$currMenu.addClass('open');
+		$currMenu.parent().closest('li').addClass('active');
+		$currMenu.parent().closest('li').addClass('open');
+	});
+</script>
+<?
+	}
+?>

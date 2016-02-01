@@ -18,7 +18,7 @@
 		);
 ?>
 			<label class="checkbox-inline">
-				<?=$this->Form->input($model.'.'.$field, $options)?> <?=ucfirst(__($field))?>
+				<?=$this->Form->input($model.'.'.$field, $options)?> <?=__(ucfirst($field))?>
 			</label>
 <?
 	}
