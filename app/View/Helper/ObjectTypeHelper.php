@@ -11,6 +11,10 @@ class ObjectTypeHelper extends AppHelper {
                 'News' => __('News'),
                 'Faq' => __('FAQ'),
                 'PageBlock' => __('Static page blocks'),
+                'Category' => __('Categories'),
+                'CategoryBlock' => __('Category blocks'),
+                'Product' => __('Products'),
+                'ProductBlock' => __('Product blocks'),
             ),
             'create' => array(
                 'Article' => __('Create article'),
@@ -18,6 +22,10 @@ class ObjectTypeHelper extends AppHelper {
                 'News' => __('Create news article'),
                 'Faq' => __('Create FAQ section'),
                 'PageBlock' => __('Create static page block'),
+                'Category' => __('Create category'),
+                'CategoryBlock' => __('Create category block'),
+                'Product' => __('Create product'),
+                'ProductBlock' => __('Create product block'),
             ),
             'edit' => array(
                 'Article' => __('Edit article'),
@@ -25,6 +33,10 @@ class ObjectTypeHelper extends AppHelper {
                 'News' => __('Edit news article'),
                 'Faq' => __('Edit FAQ section'),
                 'PageBlock' => __('Edit static page block'),
+                'Category' => __('Edit category'),
+                'CategoryBlock' => __('Edit category block'),
+                'Product' => __('Edit product'),
+                'ProductBlock' => __('Edit product block'),
             ),
             'view' => array(
             	'Article' => __('View article'),

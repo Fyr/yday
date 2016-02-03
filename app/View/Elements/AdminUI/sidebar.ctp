@@ -56,8 +56,8 @@
 			//array('label' => __('Blocks'), 'url' => array('controller' => 'AdminBlocks', 'action' => 'index')),
 		)),
 		array('label' => __('eCommerce'), 'icon' => 'icon-basket', 'url' => '', 'submenu' => array(
-			array('label' => __('Categories'), 'url' => array('controller' => 'AdminContent', 'action' => 'index')),
-			array('label' => __('Products'), 'url' => array('controller' => 'AdminContent', 'action' => 'index')),
+			array('label' => __('Categories'), 'url' => array('controller' => 'AdminCategories', 'action' => 'index')),
+			array('label' => __('Products'), 'url' => array('controller' => 'AdminProducts', 'action' => 'index')),
 		)),
 		array('label' => __('Settings'), 'icon' => 'icon-wrench', 'url' => '', 'submenu' => array(
 			array('label' => __('System'), 'url' => array('controller' => 'AdminContent', 'action' => 'index')),
@@ -124,6 +124,8 @@
 <?
 	if ($this->request->controller == 'AdminPageBlocks') {
 		$currMenu = 2;
+	} elseif ($this->request->controller == 'AdminCategoryBlocks') {
+		$currMenu = 6;
 	}
 	if ($currMenu) {
 ?>

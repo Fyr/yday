@@ -2,9 +2,9 @@
 App::uses('AppController', 'Controller');
 App::uses('AdminController', 'Controller');
 App::uses('AdminContentController', 'Controller');
-class AdminPageBlocksController extends AdminContentController {
-    public $name = 'AdminPageBlocks';
-    public $uses = array('PageBlock');
+class AdminCategoryBlocksController extends AdminContentController {
+    public $name = 'AdminCategoryBlocks';
+    public $uses = array('CategoryBlock');
 
     public $paginate = array(
         'fields' => array('title', 'published', 'sorting'),
