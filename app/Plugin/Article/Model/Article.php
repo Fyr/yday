@@ -22,19 +22,6 @@ class Article extends AppModel {
 		return $query;
 	}
 
-	public function loadModel($modelClass = null, $id = null) {
-		list($plugin, $modelClass) = pluginSplit($modelClass, true);
-
-		$this->{$modelClass} = ClassRegistry::init(array(
-			'class' => $plugin . $modelClass, 'alias' => $modelClass, 'id' => $id
-		));
-		if (!$this->{$modelClass}) {
-			throw new MissingModelException($modelClass);
-		}
-
-		return $this->{$modelClass};
-	}
-
 	private function _getObjectConditions($objectType = '', $objectID = '') {
 		$conditions = array();
 		if ($objectType) {
@@ -46,7 +33,7 @@ class Article extends AppModel {
 		return compact('conditions');
 	}
 
-	public function getObjectOptions($objectType = '', $objectID = '', $order = array()) {
+	public function getObjectOptions($objectType = '', $objectID = '', $order = 'sorting') {
 		$conditions = array_values($this->_getObjectConditions($objectType, $objectID));
 		return $this->find('list', compact('conditions', 'order'));
 	}
@@ -55,7 +42,7 @@ class Article extends AppModel {
 		return $this->find('first', $this->_getObjectConditions($objectType, $objectID));
 	}
 
-	public function getObjectList($objectType = '', $objectID = '', $order = array()) {
+	public function getObjectList($objectType = '', $objectID = '', $order = 'sorting') {
 		$conditions = array_values($this->_getObjectConditions($objectType, $objectID));
 		return $this->find('all', compact('conditions', 'order'));
 	}

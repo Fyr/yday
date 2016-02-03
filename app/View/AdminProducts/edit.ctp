@@ -2,7 +2,7 @@
     $id = $this->request->data($objectType.'.id');
     $title = $this->ObjectType->getTitle('index', $objectType);
     $breadcrumbs = array(
-        __('eCommerce') => 'javascript:;',
+        __('Dashboard') => array('controller' => 'Admin', 'action' => 'index'),
         $title => array('action' => 'index'),
         __('Edit') => ''
     );
@@ -24,6 +24,7 @@
             $this->element('AdminUI/checkboxes')
             .$this->element('Article.edit_title')
             .$this->element('Article.edit_slug')
+            .$this->PHForm->input('parent_id', array('options' => $aCategoryOptions, 'label' => array('class' => 'col-md-3 control-label', 'text' => __('Category'))))
             .$this->PHForm->input('sorting', array('class' => 'form-control input-small'))
         ),
         __('Text') => $this->element('Article.edit_body')
