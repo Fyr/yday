@@ -4,9 +4,13 @@
  * Customizes default HTML inputs
  */
 App::uses('FormHelper', 'View/Helper');
-App::uses('FieldTypes', 'Form.Vendor');
-class PHFormHelper extends FormHelper {
+App::uses('PHFormHelper', 'View/Helper');
+class PHFormFieldHelper extends PHFormHelper {
 	// var $helpers = array('Form', 'Html');
+	public function render($form, $values = array()) {
+
+	}
+	/*
 	public function create($model, $options = array()) {
 		$options['class'] = (isset($options['class']) && $options['class']) ? $options['class'] : 'form-horizontal';
 		$options['inputDefaults'] = (isset($options['inputDefaults']) && $options['inputDefaults']) ? $options['inputDefaults'] : array(
@@ -58,7 +62,7 @@ class PHFormHelper extends FormHelper {
 	public function inlineCheckboxes($checkboxes) {
 
 	}
-	
+	*/
 	/**
 	 * Create a input with CKEditor
 	 *
@@ -79,23 +83,4 @@ class PHFormHelper extends FormHelper {
         return parent::input($fieldName, $options);
     }
 	 */
-
-	public function renderForm($form, $values = array()) {
-		$html = '';
-		$aDefaultOptions = array(
-			FieldTypes::STRING => array(),
-			FieldTypes::INT => array('class' => 'form-control input-small'),
-			FieldTypes::CHECKBOX => array('type' => 'checkbox')
-		);
-		foreach($form as $field) {
-			$id = $field['PMFormField']['id'];
-			$type = $field['PMFormField']['field_type'];
-			$options = $aDefaultOptions[$type];
-			$options['name'] = 'data[PMFormValue]['.$id.']';
-			$options['value'] = Hash::get($values, $id);
-			$options['label'] = array('text' => $field['PMFormField']['label'], 'class' => 'col-md-3 control-label');
-			$html.= $this->input('PMFormValue.value', $options);
-		}
-		return $html;
-	}
 }

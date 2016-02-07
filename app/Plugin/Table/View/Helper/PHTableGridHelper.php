@@ -37,15 +37,19 @@ class PHTableGridHelper extends AppHelper {
 		return array_combine($aKeys, $aCols);
 	}
 
+	public function getDefaultRowset($modelName) {
+		return $this->viewVar('_paginate.'.$modelName.'._rowset');
+	}
+
 	public function render($modelName, $options = array()) {
 		//$this->Html->css(array('/Table/css/grid', '/Icons/css/icons'), array('inline' => false));
 		$this->Html->script(array('/Table/js/grid'), array('inline' => false));
 
 		$_paginate = $this->viewVar('_paginate.'.$modelName);
 		$_paginate['_model'] = $modelName;
-		// $container_id = 'grid_'.$modelName;
-		$rowset = $this->viewVar('_paginate.'.$modelName.'._rowset');
-		if ($rowset) {
+		$_paginate['_columns'] = (isset($options['columns'])) ? $options['columns'] : $this->getDefaultColumns($modelName);
+		$_paginate['_rowset'] = (isset($options['rowset'])) ? $options['rowset'] : $this->getDefaultRowset($modelName);
+		if ($_paginate['_rowset']) {
 			return $this->_View->element('Table.table', compact('_paginate', 'options'));
 		}
 		return $this->_View->element('Table.no_records', compact('_paginate', 'options'));

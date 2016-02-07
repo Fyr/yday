@@ -63,6 +63,7 @@
 			array('label' => __('System'), 'url' => array('controller' => 'AdminContent', 'action' => 'index')),
 			array('label' => __('Contacts'), 'url' => array('controller' => 'AdminContent', 'action' => 'index')),
 			array('label' => __('Prices'), 'url' => array('controller' => 'AdminContent', 'action' => 'index')),
+			array('label' => __('Tech.params'), 'url' => array('controller' => 'AdminForms', 'action' => 'index')),
 		)),
 	);
 
@@ -124,7 +125,7 @@
 <?
 	if ($this->request->controller == 'AdminPageBlocks') {
 		$currMenu = 2;
-	} elseif ($this->request->controller == 'AdminCategoryBlocks') {
+	} elseif (in_array($this->request->controller,  array('AdminCategoryBlocks', 'AdminParamGroups', 'AdminParams'))) {
 		$currMenu = 6;
 	}
 	if ($currMenu) {

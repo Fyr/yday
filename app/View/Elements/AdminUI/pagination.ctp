@@ -2,7 +2,7 @@
 	<div class="col-md-5 col-sm-5">
 		<div class="dataTables_info">
 <?
-	echo $this->Paginator->counter('Showing {:start} to {:end} of {:count} records');
+	echo $this->Paginator->counter(__('Showing {:start} to {:end} of {:count} records'));
 ?>
 		</div>
 	</div>

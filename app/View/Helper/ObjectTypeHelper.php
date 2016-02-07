@@ -15,6 +15,8 @@ class ObjectTypeHelper extends AppHelper {
                 'CategoryBlock' => __('Category blocks'),
                 'Product' => __('Products'),
                 'ProductBlock' => __('Product blocks'),
+                'ParamGroup' => __('Tech.param groups'),
+                'PMFormField' => __('Tech.params'),
             ),
             'create' => array(
                 'Article' => __('Create article'),
@@ -26,6 +28,8 @@ class ObjectTypeHelper extends AppHelper {
                 'CategoryBlock' => __('Create category block'),
                 'Product' => __('Create product'),
                 'ProductBlock' => __('Create product block'),
+                'ParamGroup' => __('Create tech.param group'),
+                'PMFormField' => __('Create tech.param'),
             ),
             'edit' => array(
                 'Article' => __('Edit article'),
@@ -37,6 +41,8 @@ class ObjectTypeHelper extends AppHelper {
                 'CategoryBlock' => __('Edit category block'),
                 'Product' => __('Edit product'),
                 'ProductBlock' => __('Edit product block'),
+                'ParamGroup' => __('Edit tech.param group'),
+                'PMFormField' => __('Edit tech.param'),
             ),
             'view' => array(
             	'Article' => __('View article'),

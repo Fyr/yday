@@ -11,7 +11,7 @@ class AdminContentController extends AdminController {
 		'limit' => 20
 	);
 
-	protected $parent_id = '', $parentModel = 'Article';
+	protected $parent_id = '', $parentModel = 'Article', $parentArticle = array();
 
 	public function beforeRender() {
 		parent::beforeRender();
@@ -19,12 +19,13 @@ class AdminContentController extends AdminController {
 		$this->set('parent_id', $this->parent_id);
 
 		$model = $this->loadModel($this->parentModel);
-		$parentArticle = ($this->parent_id) ? $model->findById($this->parent_id) : array();
-		$this->set('parentArticle', $parentArticle);
+		$this->parentArticle = ($this->parent_id) ? $model->findById($this->parent_id) : array();
+		$this->set('parentArticle', $this->parentArticle);
 	}
 
 	protected function getModel() {
-		return $this->uses[0];
+		list($plugin, $model) = pluginSplit($this->uses[0]);
+		return $model;
 	}
 
     public function index($parent_id = '') {

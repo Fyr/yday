@@ -22,7 +22,11 @@
 */?>
 <?
 	if (!isset($backURL)) {
-		$backURL = array('action' => 'index');
+		if (isset($parent_id) && $parent_id) {
+			$backURL = array('action' => 'index', $parent_id);
+		} else {
+			$backURL = array('action' => 'index');
+		}
 	}
 ?>
 
