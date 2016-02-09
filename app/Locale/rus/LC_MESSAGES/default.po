@@ -288,3 +288,63 @@ msgstr "Опубликовано"
 
 msgid "Media"
 msgstr "Медиа"
+
+msgid "Start admin page"
+msgstr "rus:Start admin page!"
+
+msgid "Category"
+msgstr "Категория"
+
+msgid "Supply pack"
+msgstr "Комплект поставки"
+
+msgid "Groups"
+msgstr "Группы"
+
+msgid "Params"
+msgstr "Параметры"
+
+msgid "Tech.params"
+msgstr "Тех.параметры"
+
+msgid "Category blocks"
+msgstr "Блоки для категорий"
+
+msgid "Product blocks"
+msgstr "Блоки для товаров"
+
+msgid "Tech.param groups"
+msgstr "Группы тех.параметров"
+
+msgid "Create category"
+msgstr "Создать категорию"
+
+msgid "Create category block"
+msgstr "Создать блок для категории"
+
+msgid "Create product"
+msgstr "Создать товар"
+
+msgid "Create product block"
+msgstr "Создать блок для товара"
+
+msgid "Create tech.param group"
+msgstr "Создать группу тех.параметров"
+
+msgid "Edit category"
+msgstr "Редактировать категорию"
+
+msgid "Edit category block"
+msgstr "Редактировать блок для категории"
+
+msgid "Edit product"
+msgstr "Редактировть товар"
+
+msgid "Edit product block"
+msgstr "Редактировать блок для товара"
+
+msgid "Edit tech.param group"
+msgstr "Редактировать группу тех.параметров"
+
+msgid "Showing {:start} to {:end} of {:count} records"
+msgstr "Показано {:start} - {:end} из {:count} записей"

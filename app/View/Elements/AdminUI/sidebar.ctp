@@ -127,6 +127,8 @@
 		$currMenu = 2;
 	} elseif (in_array($this->request->controller,  array('AdminCategoryBlocks', 'AdminParamGroups', 'AdminParams'))) {
 		$currMenu = 6;
+	} elseif ($this->request->controller == 'AdminProductBlocks') {
+		$currMenu = 7;
 	}
 	if ($currMenu) {
 ?>

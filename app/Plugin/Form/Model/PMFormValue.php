@@ -5,9 +5,11 @@ class PMFormValue extends AppModel {
 
 	public function saveValues($object_type, $parent_id, $data) {
 		$this->deleteAll(compact('object_type', 'parent_id'));
-		foreach($data as $field_id => $value) {
-			$this->clear();
-			$this->save(compact('object_type', 'parent_id', 'field_id', 'value'));
+		if ($data) {
+			foreach ($data as $field_id => $value) {
+				$this->clear();
+				$this->save(compact('object_type', 'parent_id', 'field_id', 'value'));
+			}
 		}
 	}
 

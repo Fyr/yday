@@ -7,13 +7,14 @@ class AdminProductsController extends AdminContentController {
     public $uses = array('Product', 'Category', 'ParamGroup', 'Form.PMFormField', 'Form.PMFormValue');
 
     public $paginate = array(
-        'fields' => array('title', 'slug', 'published', 'featured', 'sorting'),
+        'fields' => array('parent_id', 'title', 'slug', 'published', 'featured', 'sorting'),
         'order' => array('sorting' => 'desc'),
         'limit' => 20
     );
 
     public function beforeRender() {
         parent::beforeRender();
+        $this->set('aCategoryOptions', $this->Category->getObjectOptions());
     }
 
     protected function afterSave($id) {
@@ -23,7 +24,6 @@ class AdminProductsController extends AdminContentController {
     public function edit($id = 0, $parent_id = '') {
         parent::edit($id, $parent_id);
 
-        $this->set('aCategoryOptions', $this->Category->getObjectOptions());
         $aParamGroups = $this->ParamGroup->findAllByParentId($this->parent_id, null, 'sorting');
         $aParamGroups = Hash::combine($aParamGroups, '{n}.ParamGroup.id', '{n}');
 

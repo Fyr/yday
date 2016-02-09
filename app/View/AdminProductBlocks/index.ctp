@@ -2,7 +2,7 @@
     $title = $this->ObjectType->getTitle('index', $objectType);
     $breadcrumbs = array(
         __('eCommerce') => 'javascript:;',
-        $this->ObjectType->getTitle('index', 'Product') => array('controller' => 'AdminProduct', 'action' => 'index'),
+        $this->ObjectType->getTitle('index', 'Product') => array('controller' => 'AdminProducts', 'action' => 'index'),
         Hash::get($parentArticle, 'Article.title') => 'javascript:;',
         $title => ''
     );

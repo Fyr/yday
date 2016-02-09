@@ -36,7 +36,7 @@
     }
 
     echo $this->element('AdminUI/tabs', compact('tabs'));
-    echo $this->element('AdminUI/form_actions');
+    echo $this->element('AdminUI/form_actions', array('backURL' => array('action' => 'index')));
     echo $this->PHForm->end();
 ?>
         </div>
