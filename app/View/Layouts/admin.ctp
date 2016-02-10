@@ -69,7 +69,7 @@
 		<!-- BEGIN CONTENT BODY -->
 		<div class="page-content">
 			<!-- BEGIN THEME PANEL -->
-			<?=$this->element('AdminUI/theme_panel')?>
+			<?// $this->element('AdminUI/theme_panel')?>
 			<!-- END THEME PANEL -->
 
 			<?=$this->fetch('content')?>

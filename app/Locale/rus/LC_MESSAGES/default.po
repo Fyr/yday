@@ -348,3 +348,13 @@ msgstr "Редактировать группу тех.параметров"
 
 msgid "Showing {:start} to {:end} of {:count} records"
 msgstr "Показано {:start} - {:end} из {:count} записей"
+
+msgid "Price prefix"
+msgstr "Префикс цены"
+
+msgid "Price postfix"
+msgstr "Постфикс цены"
+
+msgid "Decimal point"
+msgstr "Разделитель разрядов"
+

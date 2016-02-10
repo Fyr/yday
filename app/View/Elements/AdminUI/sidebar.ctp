@@ -59,11 +59,14 @@
 			array('label' => __('Categories'), 'url' => array('controller' => 'AdminCategories', 'action' => 'index')),
 			array('label' => __('Products'), 'url' => array('controller' => 'AdminProducts', 'action' => 'index')),
 		)),
+		array('label' => __('Song packs'), 'icon' => 'icon-playlist', 'url' => '', 'submenu' => array(
+			array('label' => __('Song PDF-packs'), 'url' => array('controller' => 'AdminSongPacks', 'action' => 'index')),
+			array('label' => __('Subscription plans'), 'url' => array('controller' => 'AdminSubscrPlans', 'action' => 'index')),
+		)),
 		array('label' => __('Settings'), 'icon' => 'icon-wrench', 'url' => '', 'submenu' => array(
-			array('label' => __('System'), 'url' => array('controller' => 'AdminContent', 'action' => 'index')),
-			array('label' => __('Contacts'), 'url' => array('controller' => 'AdminContent', 'action' => 'index')),
-			array('label' => __('Prices'), 'url' => array('controller' => 'AdminContent', 'action' => 'index')),
-			array('label' => __('Tech.params'), 'url' => array('controller' => 'AdminForms', 'action' => 'index')),
+			array('label' => __('System'), 'url' => array('controller' => 'AdminSettings', 'action' => 'index')),
+			array('label' => __('Contacts'), 'url' => array('controller' => 'AdminSettings', 'action' => 'contacts')),
+			array('label' => __('Prices'), 'url' => array('controller' => 'AdminSettings', 'action' => 'prices')),
 		)),
 	);
 
@@ -129,6 +132,9 @@
 		$currMenu = 6;
 	} elseif ($this->request->controller == 'AdminProductBlocks') {
 		$currMenu = 7;
+	} elseif ($this->request->controller == 'AdminSettings') {
+		$submenu = array('index' => 12, 'contacts' => 13, 'prices' => 14);
+		$currMenu = $submenu[$this->request->action];
 	}
 	if ($currMenu) {
 ?>
