@@ -14,7 +14,8 @@ class PHFormHelper extends FormHelper {
 			'class' => 'form-control',
 			'label' => array('class' => 'col-md-3 control-label'),
 			'between' => '<div class="col-md-9">',
-			'after' => '</div>'
+			'after' => '</div>',
+			//'error' => array('attributes' => array('wrap' => 'div', 'class' => 'col-md-9'))
 		);
 		
 		// Fix validation errors translation

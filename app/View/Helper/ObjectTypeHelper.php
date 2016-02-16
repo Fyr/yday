@@ -20,6 +20,7 @@ class ObjectTypeHelper extends AppHelper {
                 'SongPack' => __('Song PDF-packs'),
                 'SubscrPlan' => __('Subscription plans'),
                 'ProductPack' => __('Product packs'),
+                'User' => __('User profiles'),
             ),
             'create' => array(
                 'Article' => __('Create article'),
@@ -36,6 +37,7 @@ class ObjectTypeHelper extends AppHelper {
                 'SongPack' => __('Create PDF-pack'),
                 'SubscrPlan' => __('Create subscription plan'),
                 'ProductPack' => __('Create product pack'),
+                'User' => __('Create user'),
             ),
             'edit' => array(
                 'Article' => __('Edit article'),
@@ -52,6 +54,7 @@ class ObjectTypeHelper extends AppHelper {
                 'SongPack' => __('Edit PDF-pack'),
                 'SubscrPlan' => __('Edit subscription plan'),
                 'ProductPack' => __('Edit product pack'),
+                'User' => __('Edit user'),
             ),
             'view' => array(
             	'Article' => __('View article'),

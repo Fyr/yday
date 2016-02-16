@@ -49,6 +49,23 @@
 	echo $this->fetch('css');
 ?>
 	<script src="http://<?=Configure::read('domain.url')?>/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function(){
+	// Fixes for forms
+	$('.form-group.error').addClass('has-error');
+	$('.error-message').each(function(){
+		var err = $(this).html();
+		$(this).parent().find('.col-md-9').append('<span class="small help-block error">' + err + '</span>');
+		$(this).remove();
+	});
+
+	$('.form-group input, .form-group textarea').focus(function(){
+		var $parent = $(this).closest('.form-group');
+		$parent.removeClass('has-error').removeClass('error');
+		$parent.find('.help-block.error').remove();
+	});
+});
+</script>
 </head>
 <!-- END HEAD -->
 

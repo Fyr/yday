@@ -139,6 +139,8 @@
 	} elseif ($this->request->controller == 'AdminSettings') {
 		$submenu = array('index' => 15, 'contacts' => 16, 'prices' => 17);
 		$currMenu = $submenu[$this->request->action];
+	} elseif ($this->request->controller == 'AdminUsers') {
+		$currMenu = ($this->request->action == 'edit' && $this->request->pass[0] == 1) ? 13 : 12;
 	}
 	if ($currMenu) {
 ?>

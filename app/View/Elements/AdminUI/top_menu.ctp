@@ -26,7 +26,7 @@
 					</a>
 					<ul class="dropdown-menu dropdown-menu-default">
 						<li>
-							<a href="page_user_profile_1.html">
+							<a href="<?=$this->Html->url(array('controller' => 'AdminUsers', 'action' => 'edit', 1))?>">
 								<i class="icon-user"></i> My Profile
 							</a>
 						</li>
