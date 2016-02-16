@@ -2,34 +2,35 @@
 App::uses('AppController', 'Controller');
 App::uses('AdminController', 'Controller');
 App::uses('AdminContentController', 'Controller');
-class AdminProductsController extends AdminContentController {
-    public $name = 'AdminProducts';
-    public $uses = array('Product', 'Category', 'ParamGroup', 'Form.PMFormField', 'Form.PMFormValue');
+class AdminProductPacksController extends AdminContentController {
+    public $name = 'AdminProductPacks';
+    public $uses = array('ProductPack', 'Product', 'ParamGroup', 'Form.PMFormField', 'Form.PMFormValue');
 
     public $paginate = array(
-        'fields' => array('parent_id', 'title', 'slug', 'published', 'featured', 'sorting'),
-        'order' => array('sorting' => 'desc'),
+        'fields' => array('title', 'sorting'),
+        'order' => array('sorting' => 'asc'),
         'limit' => 20
     );
 
-    public function beforeRender() {
-        parent::beforeRender();
-        $this->set('aCategoryOptions', $this->Category->getObjectOptions());
-    }
+    protected $parentModel = 'Product';
 
     protected function afterSave($id) {
-        $this->PMFormValue->saveValues('ProductParam', $id, $this->request->data('PMFormValue'));
+        $this->PMFormValue->saveValues('ProductPackParam', $id, $this->request->data('PMFormValue'));
     }
 
     public function edit($id = 0, $parent_id = '') {
         parent::edit($id, $parent_id);
 
-        $conditions = array('parent_id' => $this->parent_id, 'featured' => 0);
+        // find all groups of params by category of product
+        $product = $this->Product->findById($this->parent_id);
+        $cat_id = $product['Product']['parent_id'];
+        $conditions = array('parent_id' => $cat_id, 'featured' => 1);
         $order = 'sorting';
         $aParamGroups = $this->ParamGroup->find('all', compact('conditions', 'order'));
         $aParamGroups = Hash::combine($aParamGroups, '{n}.ParamGroup.id', '{n}');
         $this->set('aFormGroups', $aParamGroups);
 
+        // find all params by groups
         $conditions = array('object_type' => 'PMFormField', 'parent_id' => array_keys($aParamGroups));
         $order = 'sorting';
         $aParams = $this->PMFormField->find('all', compact('conditions', 'order'));
@@ -39,11 +40,12 @@ class AdminProductsController extends AdminContentController {
         }
         $this->set('aForms', $aParams);
 
+        // get all values of params
         $aValues = array();
         if ($this->request->is(array('put', 'post'))) {
             $aValues = $this->request->data('PMFormValue');
         } elseif ($id) {
-            $aValues = $this->PMFormValue->getValues('ProductParam', $id);
+            $aValues = $this->PMFormValue->getValues('ProductPackParam', $id);
         }
         $this->set('aValues', $aValues);
     }

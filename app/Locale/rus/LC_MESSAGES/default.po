@@ -290,7 +290,7 @@ msgid "Media"
 msgstr "Медиа"
 
 msgid "Start admin page"
-msgstr "rus:Start admin page!"
+msgstr "Стартовая страница админа"
 
 msgid "Category"
 msgstr "Категория"
@@ -338,13 +338,19 @@ msgid "Edit category block"
 msgstr "Редактировать блок для категории"
 
 msgid "Edit product"
-msgstr "Редактировть товар"
+msgstr "Редактировать товар"
 
 msgid "Edit product block"
 msgstr "Редактировать блок для товара"
 
 msgid "Edit tech.param group"
 msgstr "Редактировать группу тех.параметров"
+
+msgid "Create tech.param"
+msgstr "Создать тех.параметр"
+
+msgid "Edit tech.param"
+msgstr "Редактировать тех.параметр"
 
 msgid "Showing {:start} to {:end} of {:count} records"
 msgstr "Показано {:start} - {:end} из {:count} записей"
@@ -357,4 +363,46 @@ msgstr "Постфикс цены"
 
 msgid "Decimal point"
 msgstr "Разделитель разрядов"
+
+msgid "Field type"
+msgstr "Тип поля"
+
+msgid "Label"
+msgstr "Метка"
+
+msgid "Settings have been successfully saved"
+msgstr "Настройки были успешно сохранены"
+
+msgid "Product packs"
+msgstr "Комплектация товаров"
+
+msgid "Company name"
+msgstr "Наименование компании"
+
+msgid "Song packs"
+msgstr "Пакеты обновлений"
+
+msgid "Song PDF-packs"
+msgstr "PDF пакеты обновлений"
+
+msgid "Subscription plans"
+msgstr "Подписки на обновления"
+
+msgid "Create PDF-pack"
+msgstr "Создать PDF-пакет обновлений"
+
+msgid "Create subscription plan"
+msgstr "Создать план подписки"
+
+msgid "Create product pack"
+msgstr "Создать комплектацию"
+
+msgid "Edit PDF-pack"
+msgstr "Редактировать PDF-пакет обновлений"
+
+msgid "Edit subscription plan"
+msgstr "Редактировать план подписки"
+
+msgid "Edit product pack"
+msgstr "Редактировать комплектацию"
 

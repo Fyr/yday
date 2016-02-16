@@ -26,7 +26,7 @@
     echo $this->PHForm->create('PMFormField');
 
     echo $this->PHForm->input('label');
-    echo $this->PHForm->input('field_type', array('options' => $aFieldTypes));
+    echo $this->PHForm->input('field_type', array('options' => $aFieldTypes, 'label' => array('class' => 'col-md-3 control-label', 'text' => __('Field type'))));
     echo $this->PHForm->input('sorting', array('class' => 'form-control input-small'));
 
     echo $this->element('AdminUI/form_actions');

@@ -91,8 +91,14 @@ class PHFormHelper extends FormHelper {
 			$id = $field['PMFormField']['id'];
 			$type = $field['PMFormField']['field_type'];
 			$options = $aDefaultOptions[$type];
+			$options['id'] = 'PMFormValue'.$id;
 			$options['name'] = 'data[PMFormValue]['.$id.']';
-			$options['value'] = Hash::get($values, $id);
+			if ($type == FieldTypes::CHECKBOX) {
+				$options['value'] = 1;
+				$options['checked'] = Hash::get($values, $id) && true;
+			} else {
+				$options['value'] = Hash::get($values, $id);
+			}
 			$options['label'] = array('text' => $field['PMFormField']['label'], 'class' => 'col-md-3 control-label');
 			$html.= $this->input('PMFormValue.value', $options);
 		}

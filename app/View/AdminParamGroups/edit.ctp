@@ -23,7 +23,7 @@
     echo $this->PHForm->create($objectType);
     echo $this->PHForm->input('title');
     echo $this->PHForm->input('sorting', array('class' => 'form-control input-small'));
-
+    echo $this->PHForm->input('featured', array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Product packs'))));
     echo $this->element('AdminUI/form_actions', array('backURL' => $indexURL));
     echo $this->PHForm->end();
 ?>

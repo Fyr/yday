@@ -18,7 +18,8 @@ class ObjectTypeHelper extends AppHelper {
                 'ParamGroup' => __('Tech.param groups'),
                 'PMFormField' => __('Tech.params'),
                 'SongPack' => __('Song PDF-packs'),
-                'SubscrPlan' => __('Subscription plans')
+                'SubscrPlan' => __('Subscription plans'),
+                'ProductPack' => __('Product packs'),
             ),
             'create' => array(
                 'Article' => __('Create article'),
@@ -33,7 +34,8 @@ class ObjectTypeHelper extends AppHelper {
                 'ParamGroup' => __('Create tech.param group'),
                 'PMFormField' => __('Create tech.param'),
                 'SongPack' => __('Create PDF-pack'),
-                'SubscrPlan' => __('Create subscription plan')
+                'SubscrPlan' => __('Create subscription plan'),
+                'ProductPack' => __('Create product pack'),
             ),
             'edit' => array(
                 'Article' => __('Edit article'),
@@ -48,7 +50,8 @@ class ObjectTypeHelper extends AppHelper {
                 'ParamGroup' => __('Edit tech.param group'),
                 'PMFormField' => __('Edit tech.param'),
                 'SongPack' => __('Edit PDF-pack'),
-                'SubscrPlan' => __('Edit subscription plan')
+                'SubscrPlan' => __('Edit subscription plan'),
+                'ProductPack' => __('Edit product pack'),
             ),
             'view' => array(
             	'Article' => __('View article'),

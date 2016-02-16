@@ -49,7 +49,9 @@ class AdminContentController extends AdminController {
 				$this->request->data($model.'.id', $id);
 			} else {
 				$this->request->data($model.'.object_type', $model);
-				$this->request->data($model.'.parent_id', $parent_id);
+				if ($parent_id) {
+					$this->request->data($model . '.parent_id', $parent_id);
+				}
 			}
 			$this->beforeSave($id);
 			if ($this->{$model}->saveAll($this->request->data)) {
