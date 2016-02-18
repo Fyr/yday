@@ -42,9 +42,8 @@
 	<link href="http://<?=Configure::read('domain.url')?>/assets/global/plugins/jquery-file-upload/css/jquery.fileupload-ui.css" rel="stylesheet" type="text/css" />
 
 	<!-- END PAGE LEVEL PLUGINS -->
-
-	<?=$this->Html->meta('icon')?>
 <?
+	echo $this->Html->meta('icon');
 	echo $this->fetch('meta');
 	echo $this->fetch('css');
 ?>

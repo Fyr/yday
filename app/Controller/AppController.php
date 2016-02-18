@@ -23,7 +23,8 @@ class AppController extends Controller {
 	}
 
 	protected function beforeRenderLayout() {
-
+		$this->loadModel('Product');
+		$this->set('aProducts', $this->Product->find('all'));
 	}
 
 	public function loadModel($modelClass = null, $id = null) {
