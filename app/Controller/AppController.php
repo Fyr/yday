@@ -14,8 +14,8 @@ class AppController extends Controller {
 
 	protected function _afterInit() {
 		// after construct actions here
-		// $this->loadModel('Settings');
-		// $this->Settings->initData();
+		$this->loadModel('Settings');
+		$this->Settings->initData();
 	}
 
 	public function beforeRender() {

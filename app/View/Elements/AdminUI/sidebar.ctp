@@ -71,6 +71,7 @@
 			array('label' => __('System'), 'url' => array('controller' => 'AdminSettings', 'action' => 'index')),
 			array('label' => __('Contacts'), 'url' => array('controller' => 'AdminSettings', 'action' => 'contacts')),
 			array('label' => __('Prices'), 'url' => array('controller' => 'AdminSettings', 'action' => 'prices')),
+			array('label' => __('Mobile apps'), 'url' => array('controller' => 'AdminSettings', 'action' => 'apps'))
 		)),
 	);
 
@@ -137,7 +138,7 @@
 	} elseif (in_array($this->request->controller, array('AdminProductBlocks', 'AdminProductPacks'))) {
 		$currMenu = 7;
 	} elseif ($this->request->controller == 'AdminSettings') {
-		$submenu = array('index' => 15, 'contacts' => 16, 'prices' => 17);
+		$submenu = array('index' => 15, 'contacts' => 16, 'prices' => 17, 'apps' => 18);
 		$currMenu = $submenu[$this->request->action];
 	} elseif ($this->request->controller == 'AdminUsers') {
 		$currMenu = ($this->request->action == 'edit' && $this->request->pass[0] == 1) ? 13 : 12;

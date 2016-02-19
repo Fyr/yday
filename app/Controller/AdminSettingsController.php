@@ -25,4 +25,7 @@ class AdminSettingsController extends AdminController {
     
     public function prices() {
     }
+
+    public function apps() {
+    }
 }
