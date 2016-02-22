@@ -33,6 +33,7 @@
 </head>
 <body>
 <?=$this->element('SiteUI/navbar')?>
+<div class="innerPage"></div>
 <div class="container">
 	<?=$this->fetch('content')?>
 </div>

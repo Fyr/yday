@@ -5,10 +5,15 @@ class NewsController extends AppController {
 	public $name = 'News';
 	public $uses = array('News');
 
-	public function index() {
+	public function index($page = 1) {
 		$conditions = array('published' => 1);
 		$order = 'sorting';
-		$this->set('aNews', $this->News->find('all', compact('conditions', 'order')));
+		$limit = 6;
+		$this->set('aNews', $this->News->find('all', compact('conditions', 'order', 'limit', 'page')));
+		if ($this->request->is('ajax')) {
+			// $this->layout = 'ajax';
+			$this->render('/Elements/news', 'ajax');
+		}
 	}
 
 	public function view($slug) {

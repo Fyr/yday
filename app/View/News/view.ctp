@@ -1,5 +1,16 @@
-<?=$this->element('SiteUI/title', array('title' => $article['News']['title']))?>
+<?
+	$this->ArticleVars->init($article, $url, $title, $teaser, $src, 'noresize');
+	echo $this->element('SiteUI/title', compact('title'));
+?>
 <div class="article">
+<?
+	if ($src) {
+?>
+	<img class="pull-left" src="<?=$src?>" alt="<?=$title?>" style="width: 50%" />
+<?
+	}
+?>
+	<div class="date"><span>22.01.2015</span> Егения Прохорова</div>
 	<?=$this->ArticleVars->body($article)?>
 </div>
 <div class="oneTitle">Другие караоке новости:</div>
