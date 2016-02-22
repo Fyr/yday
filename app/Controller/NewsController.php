@@ -4,6 +4,7 @@ App::uses('News', 'Model');
 class NewsController extends AppController {
 	public $name = 'News';
 	public $uses = array('News');
+	// public $helpers = array('Core.PHTime');
 
 	public function index($page = 1) {
 		$conditions = array('published' => 1);

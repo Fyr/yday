@@ -10,7 +10,7 @@
 <?
 	}
 ?>
-	<div class="date"><span>22.01.2015</span> Егения Прохорова</div>
+	<div class="date"><span><?=date('d.m.Y', strtotime($article['News']['modified']))?></span> <?=$article['News']['author']?></div>
 	<?=$this->ArticleVars->body($article)?>
 </div>
 <div class="oneTitle">Другие караоке новости:</div>

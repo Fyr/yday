@@ -56,6 +56,16 @@ class PHFormHelper extends FormHelper {
 		return parent::button($fieldName, $options);
 	}
 
+	public function date($fieldName, $options = array()) {
+		$this->Html->script('vendor/xdate', array('inline' => false));
+		$this->setEntity('_'.$fieldName);
+		$options = $this->_parseOptions($options);
+		$options['between'].= '<div class="input-group input-small date date-picker">';
+		$button = '<span class="input-group-btn"><button type="button" class="btn default"><i class="fa fa-calendar"></i></button></span>';
+		$options['after'] = $this->hidden($fieldName).$button.'</div>'.$options['after'];
+		return $this->input('_'.$fieldName, $options);
+	}
+
 	public function inlineCheckboxes($checkboxes) {
 
 	}

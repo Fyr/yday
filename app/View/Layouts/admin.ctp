@@ -41,6 +41,11 @@
 	<link href="http://<?=Configure::read('domain.url')?>/assets/global/plugins/jquery-file-upload/css/jquery.fileupload.css" rel="stylesheet" type="text/css" />
 	<link href="http://<?=Configure::read('domain.url')?>/assets/global/plugins/jquery-file-upload/css/jquery.fileupload-ui.css" rel="stylesheet" type="text/css" />
 
+	<link href="http://<?=Configure::read('domain.url')?>/assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
+	<link href="http://<?=Configure::read('domain.url')?>/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />
+	<link href="http://<?=Configure::read('domain.url')?>/assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css" />
+	<link href="http://<?=Configure::read('domain.url')?>/assets/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" />
+
 	<!-- END PAGE LEVEL PLUGINS -->
 <?
 	echo $this->Html->meta('icon');
@@ -63,6 +68,23 @@ $(function(){
 		$parent.removeClass('has-error').removeClass('error');
 		$parent.find('.help-block.error').remove();
 	});
+
+	$('.date-picker input[type=hidden]').each(function(){
+		var val = Date.fromSqlDate($(this).val()).fullDate('rus');
+		$(this).parent().find('input[type=text]').val(val);
+	});
+
+	$('.date-picker').datepicker({
+		format: 'dd.mm.yyyy',
+		keepOpen: false,
+		locale: 'ru'
+	});
+
+	$('.date-picker input[type=text]').change(function(){
+		var val = Date.local2sql($(this).val());
+		$(this).parent().find('input[type=hidden]').val(val);
+	});
+
 });
 </script>
 </head>
@@ -147,6 +169,11 @@ $(function(){
 <script src="http://<?=Configure::read('domain.url')?>/assets/global/plugins/jquery-file-upload/js/vendor/jquery.ui.widget.js" type="text/javascript"></script>
 <script src="http://<?=Configure::read('domain.url')?>/assets/global/plugins/jquery-file-upload/js/jquery.iframe-transport.js" type="text/javascript"></script>
 <script src="http://<?=Configure::read('domain.url')?>/assets/global/plugins/jquery-file-upload/js/jquery.fileupload.js" type="text/javascript"></script>
+
+<!-- script src="http://<?=Configure::read('domain.url')?>/assets/global/plugins/bootstrap-daterangepicker/moment.min.js" type="text/javascript"></script-->
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+<script src="http://<?=Configure::read('domain.url')?>/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+<script src="http://<?=Configure::read('domain.url')?>/assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
 <?
 	echo $this->fetch('script');
 ?>

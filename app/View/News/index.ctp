@@ -2,7 +2,9 @@
 <div class="newsContainer">
 	<?=$this->element('news')?>
 </div>
-<button onclick="moreNews();">More news</button>
+<div align="center" style="margin-bottom: 20px">
+	<button class="btn btn-success" onclick="moreNews();"><?=__('More news...')?></button>
+</div>
 <script type="text/javascript">
 var page = 1;
 function moreNews() {
