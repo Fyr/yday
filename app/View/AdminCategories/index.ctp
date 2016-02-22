@@ -27,7 +27,7 @@
                         </div>
                     </div>
                 </div>
-                <?=$this->PHTableGrid->render($objectType, array('row_actions' => 'AdminCategories/row_actions'))?>
+                <?=$this->PHTableGrid->render($objectType, array('row_actions' => '../AdminCategories/row_actions'))?>
             </div>
         </div>
     </div>

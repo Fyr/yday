@@ -10,7 +10,7 @@
     $columns = $this->PHTableGrid->getDefaultColumns($objectType);
     $columns['ParamGroup.featured']['label'] = __('Product packs');
 
-    $row_actions = 'AdminParamGroups/row_actions';
+    $row_actions = '../AdminParamGroups/row_actions';
 
     echo $this->element('AdminUI/breadcrumbs', compact('breadcrumbs'));
     echo $this->element('AdminUI/title', compact('title'));

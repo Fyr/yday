@@ -374,7 +374,7 @@ msgid "Settings have been successfully saved"
 msgstr "Настройки были успешно сохранены"
 
 msgid "Product packs"
-msgstr "Комплектация товаров"
+msgstr "Комплектация"
 
 msgid "Company name"
 msgstr "Наименование компании"

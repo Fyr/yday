@@ -15,7 +15,7 @@
     foreach($rowset as &$row) {
         $row['Product']['parent_id'] = $aCategoryOptions[$row['Product']['parent_id']];
     }
-    $row_actions = 'AdminProducts/row_actions';
+    $row_actions = '../AdminProducts/row_actions';
 ?>
 <div class="row">
     <div class="col-md-12">
