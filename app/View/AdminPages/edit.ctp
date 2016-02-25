@@ -23,7 +23,9 @@
         __('General') => $this->Html->div('form-body',
             $this->element('AdminUI/checkboxes')
             .$this->element('Article.edit_title')
-            .$this->element('Article.edit_slug')
+            .(($objectType == 'Page' && $this->request->data('Page.slug') == 'home') ?
+                $this->PHForm->input('slug', array('disabled', 'readyonly'))
+                : $this->element('Article.edit_slug'))
             .$this->PHForm->input('sorting', array('class' => 'form-control input-small'))
         ),
         __('Text') => $this->element('Article.edit_body')

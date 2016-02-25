@@ -1,4 +1,3 @@
-<div class="container">
     <div class="row">
         <div class="col-sm-3">
             <div class="name">Свяжитесь с нами</div>
@@ -33,8 +32,8 @@
             <div class="link"><a href="<?=Configure::read('Settings.app_google')?>"><img src="/img/google.png" class="img-responsive" alt="Play Market" width="140" /></a></div>
         </div>
         <div class="col-sm-2 developer">
-            Разработка сайта
+            <div class="dev">Разработка сайта</div>
+            <a href="http://kakadu.bz"><img alt="Разработка сайта: kakadu.bz" src="/img/kakadu.png"></a>
         </div>
     </div>
     <div class="copyright">© 2016 Your Day Karaoke</div>
-</div>

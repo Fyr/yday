@@ -1,8 +1,7 @@
 <?php
 	Router::parseExtensions('json', 'xml');
 
-	Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
-	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
+	Router::connect('/', array('controller' => 'pages', 'action' => 'home'));
 
 	CakePlugin::routes();
 	require CAKE . 'Config' . DS . 'routes.php';

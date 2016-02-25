@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="fsvs">
 <head>
 	<?=$this->Html->charset()?>
 	<title><?=Configure::read('domain.title')?></title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, maximum-scale=1.0, initial-scale=1.0, minimum-scale=1.0">
 <?
-
 	echo $this->Html->css(array(
 		'bootstrap.min',
 		'style.css',
@@ -20,7 +19,10 @@
 	echo $this->Html->script(array(
 		'vendor/jquery.1.11.0.min',
 		'vendor/bootstrap.min',
-		'rego_custom'
+		'vendor/bundle',
+		'vendor/tagcloud.jquery',
+		'rego_custom',
+		'tagcloud'
 	));
 ?>
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -29,16 +31,16 @@
 	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	<![endif]-->
-
 </head>
 <body>
 <?=$this->element('SiteUI/navbar')?>
-<div class="innerPage"></div>
-<?=$this->fetch('content')?>
-<div class="footer">
-	<div class="container">
-		<?=$this->element('SiteUI/footer')?>
-	</div>
+<div id="fsvs-body">
+	<?=$this->fetch('content')?>
 </div>
+<a class="scroller" href="#slide-1"></a>
+<?
+	echo $this->element('SiteUI/login');
+	echo $this->element('SiteUI/thanks');
+?>
 </body>
 </html>

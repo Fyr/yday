@@ -8,7 +8,7 @@ class NewsController extends AppController {
 
 	public function index($page = 1) {
 		$conditions = array('published' => 1);
-		$order = 'sorting';
+		$order = 'sorting DESC';
 		$limit = 6;
 		$this->set('aNews', $this->News->find('all', compact('conditions', 'order', 'limit', 'page')));
 		if ($this->request->is('ajax')) {
@@ -22,7 +22,7 @@ class NewsController extends AppController {
 		$this->set('article', $article);
 
 		$conditions = array('published' => 1, 'featured' => 1);
-		$order = 'sorting';
+		$order = 'sorting DESC';
 		$limit = 3;
 		$this->set('aFeaturedNews', $this->News->find('all', compact('conditions', 'order', 'limit')));
 	}

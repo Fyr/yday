@@ -4,7 +4,7 @@
 		<?=$this->element('news')?>
 	</div>
 	<div align="center" style="margin-bottom: 20px">
-		<button class="btn btn-success" onclick="moreNews();"><?=__('More news...')?></button>
+		<a href="javascript:;" class="btn btn-success" onclick="moreNews();"><?=__('More news...')?></a>
 	</div>
 </div>
 <script type="text/javascript">

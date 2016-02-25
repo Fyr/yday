@@ -7,8 +7,8 @@ class AdminCategoriesController extends AdminContentController {
     public $uses = array('Category');
 
     public $paginate = array(
-        'fields' => array('title', 'slug'),
-        'order' => array('published' => 'desc'),
+        'fields' => array('title', 'slug', 'published', 'sorting'),
+        'order' => array('sorting' => 'desc'),
         'limit' => 20
     );
 }

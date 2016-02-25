@@ -406,3 +406,8 @@ msgstr "Редактировать план подписки"
 msgid "Edit product pack"
 msgstr "Редактировать комплектацию"
 
+msgid "Are you sure to delete this record?"
+msgstr "Вы уверены, что хотите удалить эту запись?"
+
+msgid "Are you sure to delete this record?\nAll child records will be deleted too"
+msgstr "Вы уверены, что хотите удалить эту запись?\nВсе дочерние записи будут также удалены"
