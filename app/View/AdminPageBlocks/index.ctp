@@ -1,7 +1,7 @@
 <?
     $title = $this->ObjectType->getTitle('index', $objectType);
     $breadcrumbs = array(
-        __('Dashboard') => array('controller' => 'Admin', 'action' => 'index'),
+        __('Static content') => 'javascript:;',
         $this->ObjectType->getTitle('index', 'Page') => array('controller' => 'AdminPages', 'action' => 'index'),
         Hash::get($parentArticle, 'Article.title') => 'javascript:;',
         $title => ''

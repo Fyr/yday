@@ -2,7 +2,7 @@
 	$id = $this->request->data($objectType.'.id');
 	$title = $this->ObjectType->getTitle('index', $objectType);
 	$breadcrumbs = array(
-		__('Dashboard') => array('controller' => 'Admin', 'action' => 'index'),
+		__('Static content') => 'javascript:;',
 		$title => array('action' => 'index'),
 		__('Edit') => ''
 	);

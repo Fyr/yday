@@ -1,7 +1,7 @@
 <?
     $title = $this->ObjectType->getTitle('index', $objectType);
     $breadcrumbs = array(
-        __('Dashboard') => array('controller' => 'Admin', 'action' => 'index'),
+        __('Static content') => 'javascript:;',
         $title => ''
     );
     echo $this->element('AdminUI/breadcrumbs', compact('breadcrumbs'));

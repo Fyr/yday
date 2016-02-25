@@ -34,9 +34,7 @@
 <body>
 <?=$this->element('SiteUI/navbar')?>
 <div class="innerPage"></div>
-<div class="container">
-	<?=$this->fetch('content')?>
-</div>
+<?=$this->fetch('content')?>
 <div class="footer">
 	<?=$this->element('SiteUI/footer')?>
 </div>

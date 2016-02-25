@@ -50,7 +50,7 @@
 						<li><a href="#">Something else here</a></li>
 					</ul>
 				</li>
-				<li><a href="#">Поддержка</a></li>
+				<li><?=$this->Html->link(__('Support'), array('controller' => 'Faq', 'action' => 'index'))?></li>
 			</ul>
 		</div>
 
