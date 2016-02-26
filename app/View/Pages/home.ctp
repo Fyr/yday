@@ -130,37 +130,46 @@
 		<div class="content">
 			<h2><?=$blocks['karaoke']['title']?></h2>
 			<div class="row">
+
+<?
+fdebug($aCategories);
+	$aProducts = Hash::combine($aProducts, '{n}.Product.id', '{n}', '{n}.Product.parent_id');
+fdebug($aProducts, 'tmp1.log');
+	foreach($aCategories as $category) {
+		$cat_id = $category['Category']['id'];
+?>
 				<div class="col-sm-6">
-					<div class="title">Готовые системы</div>
+					<div class="title"><?=$category['Category']['title']?></div>
+<?
+		foreach($aProducts[$cat_id] as $id => $product) {
+			$this->ArticleVars->init($product, $url, $title, $teaser, $src, 'noresize');
+?>
 					<div class="item">
+<?
+			if ($src) {
+?>
 						<div class="outerThumb">
-							<a href="javascript: void(0)"><img src="/img/img1.png" alt="" class="thumb img-responsive" /></a>
+							<a href="<?=$url?>"><img src="<?=$src?>" alt="<?=$title?>" class="thumb img-responsive" /></a>
 						</div>
+
+<?
+			}
+?>
 						<div class="description">
-							<a href="javascript: void(0)">Home</a>
-							<div class="text">Полноценная, профессиональная система для вашего дома</div>
+							<?=$this->Html->link($title, $url)?>
+							<div class="text"><?=$teaser?></div>
 						</div>
 					</div>
-					<div class="item">
-						<div class="outerThumb">
-							<a href="javascript: void(0)"><img src="/img/img2.png" alt="" class="thumb img-responsive" /></a>
-						</div>
-						<div class="description">
-							<a href="javascript: void(0)">Lite</a>
-							<div class="text">Мобильная система профессионального уровня для дома и клуба</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="outerThumb">
-							<a href="javascript: void(0)"><img src="/img/img3.png" alt="" class="thumb img-responsive" /></a>
-						</div>
-						<div class="description">
-							<a href="javascript: void(0)">Professional</a>
-							<div class="text">Профессиональная система для самых грандиозных проектов</div>
-						</div>
-					</div>
+
+<?
+		}
+?>
 				</div>
-				<div class="col-sm-6">
+<?
+	}
+?>
+
+				<!--div class="col-sm-6">
 					<div class="title">Virtual системы</div>
 					<div class="item1">
 						<div class="outerThumb">
@@ -198,7 +207,7 @@
 							<div class="text">Профессиональная система с максимальным функционалом для вашего бизнеса</div>
 						</div>
 					</div>
-				</div>
+				</div-->
 			</div>
 		</div>
 	</div>

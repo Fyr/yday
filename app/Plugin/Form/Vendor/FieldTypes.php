@@ -5,7 +5,7 @@ class FieldTypes {
 	// const FLOAT = 3;
 	// const DATE = 4;
 	// const DATETIME = 5;
-	// const TEXTAREA = 6;
+	const TEXTAREA = 6;
 	const CHECKBOX = 7;
 	// const SELECT = 8;
 	// const EMAIL = 9;
@@ -22,7 +22,7 @@ class FieldTypes {
 			// self::FLOAT => __d('form', 'Float'),
 			// self::DATE => __d('form', 'Date'),
 			// self::DATETIME => __d('form', 'Datetime'),
-			// self::TEXTAREA => __d('form', 'Textarea'),
+			self::TEXTAREA => __d('form', 'Textarea'),
 			self::CHECKBOX => __d('form', 'Checkbox'),
 			// self::SELECT => __d('form', 'Select'),
 			// self::MULTISELECT => __d('form', 'Multi-select'),

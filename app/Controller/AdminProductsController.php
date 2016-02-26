@@ -47,9 +47,5 @@ class AdminProductsController extends AdminContentController {
         }
         $this->set('aValues', $aValues);
     }
-/*
-    public function delete($id) {
 
-    }
-*/
 }

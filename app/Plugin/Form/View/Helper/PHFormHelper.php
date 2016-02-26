@@ -96,7 +96,8 @@ class PHFormHelper extends FormHelper {
 		$aDefaultOptions = array(
 			FieldTypes::STRING => array(),
 			FieldTypes::INT => array('class' => 'form-control input-small'),
-			FieldTypes::CHECKBOX => array('type' => 'checkbox')
+			FieldTypes::CHECKBOX => array('type' => 'checkbox'),
+			FieldTypes::TEXTAREA => array('type' => 'textarea')
 		);
 		foreach($form as $field) {
 			$id = $field['PMFormField']['id'];

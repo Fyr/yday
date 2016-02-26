@@ -33,10 +33,8 @@ class AdminController extends AppController {
 		return $curr_menu;
 	}
 
-	/*
 	public function delete($id) {
 		$this->autoRender = false;
-
 		$model = $this->request->query('model');
 		if ($model) {
 			$this->loadModel($model);
@@ -51,5 +49,5 @@ class AdminController extends AppController {
 		}
 		$this->redirect(array('controller' => 'Admin', 'action' => 'index'));
 	}
-	*/
+
 }

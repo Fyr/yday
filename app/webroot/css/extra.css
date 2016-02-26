@@ -1,2 +1,6 @@
 .article img.pull-left {margin-right: 24px}
 .article img.pull-right {margin-left: 24px}
+
+#fsvs-body #slide-12 .item {
+    padding: 5px 0;
+}

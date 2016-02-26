@@ -25,14 +25,15 @@
             .$this->element('Article.edit_title')
             .$this->element('Article.edit_slug')
             .$this->PHForm->input('parent_id', array('options' => $aCategoryOptions, 'label' => array('class' => 'col-md-3 control-label', 'text' => __('Category'))))
+            .$this->PHForm->input('teaser')
             .$this->PHForm->input('sorting', array('class' => 'form-control input-small'))
         ),
         __('Text') => $this->element('Article.edit_body')
     );
 
-    foreach($aFormGroups as $id => $group) {
+    foreach($aFormGroups as $_id => $group) {
         $title = $group['ParamGroup']['title'];
-        if ($form = Hash::get($aForms, $id)) {
+        if ($form = Hash::get($aForms, $_id)) {
             $tabs[$title] = $this->PHForm->renderForm($form, $aValues);
         }
     }
