@@ -25,11 +25,12 @@
 					<a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">Караоке системы <span class="icon-arrow-down"></span></a>
 					<ul class="dropdown-menu">
 <?
-	foreach($aProducts as $article) {
-		$this->ArticleVars->init($article, $url, $title);
-?>
-						<li><?=$this->Html->link($title, $url)?></li>
-<?
+	foreach($aCategories as $category) {
+		$cat_id = $category['Category']['id'];
+		foreach($aProducts[$cat_id] as $article) {
+			$this->ArticleVars->init($article, $url, $title);
+			echo '<li>'.$this->Html->link($title, $url).'</li>';
+		}
 	}
 ?>
 					</ul>

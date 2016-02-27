@@ -25,7 +25,7 @@
     $tabs = array(
         __('General') => $this->Html->div('form-body',
             $this->element('AdminUI/checkboxes', array('checkboxes' => array('published')))
-            .$this->PHForm->input('title')
+            .$this->PHForm->input('title', array('required' => false))
             .$this->PHForm->input('slug')
             .$this->PHForm->input('teaser')
             .$this->PHForm->input('sorting', array('class' => 'form-control input-small'))

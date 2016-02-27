@@ -132,9 +132,7 @@
 			<div class="row">
 
 <?
-fdebug($aCategories);
 	$aProducts = Hash::combine($aProducts, '{n}.Product.id', '{n}', '{n}.Product.parent_id');
-fdebug($aProducts, 'tmp1.log');
 	foreach($aCategories as $category) {
 		$cat_id = $category['Category']['id'];
 ?>
@@ -168,46 +166,6 @@ fdebug($aProducts, 'tmp1.log');
 <?
 	}
 ?>
-
-				<!--div class="col-sm-6">
-					<div class="title">Virtual системы</div>
-					<div class="item1">
-						<div class="outerThumb">
-							<a href="javascript: void(0)"><img src="/img/virtual_start.png" alt="" class="thumb img-responsive" /></a>
-						</div>
-						<div class="description">
-							<a href="javascript: void(0)">Start/Start Plus</a>
-							<div class="text">Виртуальная система для начинающих</div>
-						</div>
-					</div>
-					<div class="item1">
-						<div class="outerThumb">
-							<a href="javascript: void(0)"><img src="/img/virtual_home.png" alt="" class="thumb img-responsive" /></a>
-						</div>
-						<div class="description">
-							<a href="javascript: void(0)">Home/Home Plus</a>
-							<div class="text">Облегченная виртуальная система для домашнего использования</div>
-						</div>
-					</div>
-					<div class="item1">
-						<div class="outerThumb">
-							<a href="javascript: void(0)"><img src="/img/virtual_club.png" alt="" class="thumb img-responsive" /></a>
-						</div>
-						<div class="description">
-							<a href="javascript: void(0)">Club/Club Plus</a>
-							<div class="text">Полноценная, виртуальная система для отдыха и бизнеса</div>
-						</div>
-					</div>
-					<div class="item1">
-						<div class="outerThumb">
-							<a href="javascript: void(0)"><img src="/img/virtual_full.png" alt="" class="thumb img-responsive" /></a>
-						</div>
-						<div class="description">
-							<a href="javascript: void(0)">Full/Full Plus</a>
-							<div class="text">Профессиональная система с максимальным функционалом для вашего бизнеса</div>
-						</div>
-					</div>
-				</div-->
 			</div>
 		</div>
 	</div>

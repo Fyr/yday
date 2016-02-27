@@ -1,4 +1,6 @@
 <?php
+App::uses('Category', 'Model');
+App::uses('Product', 'Model');
 class AppController extends Controller {
 	public $components = array('DebugKit.Toolbar');
 
@@ -23,8 +25,13 @@ class AppController extends Controller {
 	}
 
 	protected function beforeRenderLayout() {
+		$this->loadModel('Category');
+		$this->set('aCategories', $this->Category->find('all'));
+
 		$this->loadModel('Product');
-		$this->set('aProducts', $this->Product->find('all'));
+		$aProducts = $this->Product->find('all', array('order' => 'Product.sorting'));
+		$aProducts = Hash::combine($aProducts, '{n}.Product.id', '{n}', '{n}.Product.parent_id');
+		$this->set('aProducts', $aProducts);
 	}
 
 	public function loadModel($modelClass = null, $id = null) {

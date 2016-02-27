@@ -2,6 +2,11 @@
 App::uses('AppController', 'Controller');
 App::uses('AdminController', 'Controller');
 App::uses('AdminContentController', 'Controller');
+App::uses('Product', 'Model');
+App::uses('ParamGroup', 'Model');
+App::uses('ProductPack', 'Model');
+App::uses('PMFormField', 'Form.Model');
+App::uses('PMFormValue', 'Form.Model');
 class AdminProductPacksController extends AdminContentController {
     public $name = 'AdminProductPacks';
     public $uses = array('ProductPack', 'Product', 'ParamGroup', 'Form.PMFormField', 'Form.PMFormValue');

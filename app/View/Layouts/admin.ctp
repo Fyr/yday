@@ -120,8 +120,12 @@ $(function(){
 <!-- END CONTAINER -->
 <!-- BEGIN FOOTER -->
 <div class="page-footer">
-	<div class="page-footer-inner"> 2014 &copy; Metronic by keenthemes.
+	<div class="page-footer-inner">
+		<?=__('Development')?>: <a href="http://kakadu.bz" target="_blank">Kakadu Dev</a>
+		<!--
+		2014 &copy; Metronic by keenthemes.
 		<a href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes" target="_blank">Purchase Metronic!</a>
+		-->
 	</div>
 	<div class="scroll-to-top">
 		<i class="icon-arrow-up"></i>
