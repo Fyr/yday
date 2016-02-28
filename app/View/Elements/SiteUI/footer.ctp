@@ -1,5 +1,5 @@
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <div class="name">Свяжитесь с нами</div>
             <?=Configure::read('Settings.title')?><br />
             <?=nl2br(Configure::read('Settings.address'))?><br />
@@ -23,7 +23,7 @@
 <?
     }
 ?>
-        <div class="col-sm-2">
+        <div class="col-sm-3">
             <div class="name">Приложения</div>
             <div class="link"><a href="<?=Configure::read('Settings.app_apple')?>"><img src="/img/apple.png" class="img-responsive" alt="App Store" width="140" /></a></div>
             <div class="link"><a href="<?=Configure::read('Settings.app_google')?>"><img src="/img/google.png" class="img-responsive" alt="Play Market" width="140" /></a></div>

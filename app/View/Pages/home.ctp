@@ -132,7 +132,6 @@
 			<div class="row">
 
 <?
-	$aProducts = Hash::combine($aProducts, '{n}.Product.id', '{n}', '{n}.Product.parent_id');
 	foreach($aCategories as $category) {
 		$cat_id = $category['Category']['id'];
 ?>
