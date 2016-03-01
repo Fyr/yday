@@ -19,15 +19,18 @@
     echo $this->element('AdminUI/form_title', array('title' => $this->ObjectType->getTitle($id ? 'edit' : 'create', $objectType)));
     echo $this->PHForm->create($objectType);
 
+    if (!$this->request->data('News.modified')) {
+        $this->request->data('News.modified', date('Y-m-d H:i:s'));
+    }
     $tabs = array(
         __('General') => $this->Html->div('form-body',
             $this->element('AdminUI/checkboxes')
             .$this->element('Article.edit_title')
             .$this->element('Article.edit_slug')
-            .$this->PHForm->date('modified')
+            .$this->PHForm->date('modified', array('label' => array('text' => __('Date'), 'class' => 'col-md-3 control-label')))
             .$this->PHForm->input('author')
             .$this->PHForm->input('teaser')
-            .$this->PHForm->input('sorting', array('class' => 'form-control input-small'))
+            //.$this->PHForm->input('sorting', array('class' => 'form-control input-small'))
         ),
         __('Text') => $this->element('Article.edit_body')
     );

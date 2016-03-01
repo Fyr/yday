@@ -16,7 +16,7 @@ class PagesController extends AppController {
 		$this->set('page', $page['Page']);
 		$this->set('blocks', $blocks);
 
-		$aNews = $this->News->findAllByPublished(1, null, 'News.sorting DESC', 3);
+		$aNews = $this->News->findAllByPublished(1, null, 'News.modified DESC', 3);
 		$aCategories = $this->Category->findAllByPublished(1, null, 'Category.sorting');
 		$aProducts = $this->Product->findAllByPublished(1, null, 'Product.sorting');
 		$this->set(compact('aNews', 'aProducts', 'aCategories'));

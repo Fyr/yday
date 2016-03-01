@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="phoneNumber">
 			<div>Бесплатный звонок</div>
-			<div class="number"><?=Configure::read('Settings.phone')?></div>
+			<div class="number"><?=nl2br(Configure::read('Settings.phone'))?></div>
 		</div>
 		<div class="text">
 			<h2><?=$page['title']?></h2>
@@ -88,8 +88,8 @@
 				<div><?=$blocks['remotecontrol']['body']?></div>
 			</div>
 			<div class="right">
-				<a href="<?=Configure::read('Settings.app_apple')?>"><img src="/img/apple.png" alt="" /></a>
-				<a href="<?=Configure::read('Settings.app_google')?>"><img src="/img/google.png" alt="" /></a>
+				<a href="<?=Configure::read('Settings.app_apple')?>" target="_blank"><img src="/img/apple.png" alt="" /></a>
+				<a href="<?=Configure::read('Settings.app_google')?>" target="_blank"><img src="/img/google.png" alt="" /></a>
 			</div>
 		</div>
 	</div>

@@ -1,10 +1,10 @@
     <div class="row">
-        <div class="col-sm-3">
+        <div class="col-sm-4">
             <div class="name">Свяжитесь с нами</div>
-            <?=Configure::read('Settings.title')?><br />
-            <?=nl2br(Configure::read('Settings.address'))?><br />
-            <?=Configure::read('Settings.phone')?><br />
-            Skype: <?=Configure::read('Settings.skype')?><br />
+            <p><?=Configure::read('Settings.title')?></p>
+            <p><?=nl2br(Configure::read('Settings.address'))?></p>
+            <p><?=nl2br(Configure::read('Settings.phone'))?></p>
+            <p>Skype: <?=Configure::read('Settings.skype')?></p>
             <a href="mailto:<?=Configure::read('Settings.email')?>"><?=Configure::read('Settings.email')?></a>
         </div>
 <?
@@ -23,10 +23,10 @@
 <?
     }
 ?>
-        <div class="col-sm-3">
+        <div class="col-sm-2">
             <div class="name">Приложения</div>
-            <div class="link"><a href="<?=Configure::read('Settings.app_apple')?>"><img src="/img/apple.png" class="img-responsive" alt="App Store" width="140" /></a></div>
-            <div class="link"><a href="<?=Configure::read('Settings.app_google')?>"><img src="/img/google.png" class="img-responsive" alt="Play Market" width="140" /></a></div>
+            <div class="link"><a href="<?=Configure::read('Settings.app_apple')?>" target="_blank"><img src="/img/apple.png" class="img-responsive" alt="App Store" width="140" /></a></div>
+            <div class="link"><a href="<?=Configure::read('Settings.app_google')?>" target="_blank"><img src="/img/google.png" class="img-responsive" alt="Play Market" width="140" /></a></div>
         </div>
         <div class="col-sm-2 developer">
             <div class="dev">Разработка сайта</div>

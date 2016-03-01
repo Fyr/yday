@@ -52,6 +52,9 @@
 	echo $this->fetch('meta');
 	echo $this->fetch('css');
 ?>
+<style>
+	.pagination .prev.disabled, .pagination .next.disabled { display: none; }
+</style>
 	<script src="http://<?=Configure::read('domain.url')?>/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(function(){
@@ -76,8 +79,9 @@ $(function(){
 
 	$('.date-picker').datepicker({
 		format: 'dd.mm.yyyy',
-		keepOpen: false,
-		locale: 'ru'
+		autoclose: true,
+		language: 'ru',
+		// defaultViewDate: {year: 2016, month: 02, day: 27}
 	});
 
 	$('.date-picker input[type=text]').change(function(){
@@ -175,9 +179,11 @@ $(function(){
 <script src="http://<?=Configure::read('domain.url')?>/assets/global/plugins/jquery-file-upload/js/jquery.fileupload.js" type="text/javascript"></script>
 
 <!-- script src="http://<?=Configure::read('domain.url')?>/assets/global/plugins/bootstrap-daterangepicker/moment.min.js" type="text/javascript"></script-->
-<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+<!--script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script-->
 <script src="http://<?=Configure::read('domain.url')?>/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
-<script src="http://<?=Configure::read('domain.url')?>/assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+<!--script src="http://<?=Configure::read('domain.url')?>/assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script-->
+<script src="http://<?=Configure::read('domain.url')?>/assets/global/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.ru.min.js" type="text/javascript"></script>
+
 <?
 	echo $this->fetch('script');
 ?>

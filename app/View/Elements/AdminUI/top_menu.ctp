@@ -3,7 +3,7 @@
 	<div class="page-header-inner ">
 		<!-- BEGIN LOGO -->
 		<div class="page-logo">
-			<a href="index.html">
+			<a href="/">
 				<img src="/img/logo-white.png" alt="logo" class="logo-default" style="height: 30px; position: relative; top: -7px;" />
 			</a>
 			<div class="menu-toggler sidebar-toggler"> </div>

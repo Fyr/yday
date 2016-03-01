@@ -8,7 +8,7 @@
 	</div>
 	<div class="col-md-7 col-sm-7">
 <?
-//	fdebug($this->Paginator->param('count') .'>'. $this->Paginator->param('end'));
+	// fdebug($this->Paginator->param('count').'!'.$this->Paginator->param('end').'!'.$this->Paginator->param('start'));
 //	if (intval($this->Paginator->param('count')) > intval($this->Paginator->param('end'))) {
 ?>
 		<div class="dataTables_paginate paging_bootstrap_full_number">

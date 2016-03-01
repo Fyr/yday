@@ -1,9 +1,9 @@
 <div class="container">
 	<div class="support">
-		<?=$this->element('SiteUI/title', array('title' => __('Support')))?>
+		<?=$this->element('SiteUI/title', array('title' => $faq['Page']['title']))?>
 
 		<div class="smallDesc">Оперативно ответим на любой вопрос</div>
-		<div class="text">Наша компания обеспечивает круглосуточную техническую поддержку в режиме online. Благодаря этому Вы сможете быстро решить любую проблему, связанную с работой караоке системы или ее комплектующих. Просто задайте нам вопрос, и мы ответим Вам в кратчайшие сроки.</div>
+		<div class="text"><?=$this->ArticleVars->body($faq)?></div>
 
 		<?=$this->element('SiteUI/title', array('title' => __('Frequently asked questions')))?>
 

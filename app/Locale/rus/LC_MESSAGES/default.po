@@ -412,5 +412,31 @@ msgstr "Вы уверены, что хотите удалить эту запи�
 msgid "Are you sure to delete this record?\nAll child records will be deleted too"
 msgstr "Вы уверены, что хотите удалить эту запись?\nВсе дочерние записи будут также удалены"
 
-msgid "More news..."
-msgstr "Еще новости..."
+msgid "Date"
+msgstr "Дата"
+
+msgid "Author"
+msgstr "Автор"
+
+msgid "Teaser"
+msgstr "Анонс"
+
+msgid "Preview"
+msgstr "Предпросмотр"
+
+msgid "Support"
+msgstr "Поддержка"
+
+msgid "Frequently asked questions"
+msgstr "Наиболее часто задаваемые вопросы"
+
+msgid "Address"
+msgstr "Адрес"
+
+msgid "Support"
+msgstr "Поддержка"
+
+msgid "Phone"
+msgstr "Тел."
+
+
