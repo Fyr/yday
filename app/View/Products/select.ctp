@@ -5,7 +5,10 @@
 ?>
 <div class="container">
 	<?=$this->element('SiteUI/title', array('title' => 'Сравните '.$category['Category']['title']))?>
-	<div class="compareSelected"><span id="selected"></span> <a href="javascript: void(0)" class="btn btn-success">Сравнить</a></div>
+	<div class="compareSelected">
+		<span id="selected"></span>
+		<?=$this->Html->link('Сравнить', array('action' => 'compare', $cat_id, '~ids'), array('class' => 'btn btn-success disabled', 'onclick' => 'return go()'))?>
+	</div>
 	<div class="row virtualSystems realSystems">
 <?
 	foreach($aProducts[$cat_id] as $product) {
@@ -13,7 +16,7 @@
 		$checked = (in_array($id, $selected)) ? 'checked="checked"' : '';
 ?>
 		<div class="col-sm-<?=floor(12 / count($aProducts[$cat_id]))?>">
-			<div class="item">
+			<div class="item <?=($checked) ? 'active' : ''?>">
 				<div class="outerCheckbox"><input type="checkbox" class="styler" name="data[products][]" value="<?=$id?>" autocomplete="off" <?=$checked?>/></div>
 <?
 		if ($src) {
@@ -58,6 +61,23 @@ var aSelected = null;
 function updateSelected() {
 	var count = $(':checked').length;
 	$('#selected').html(count < 5 ? aSelected[count] : aSelected[5].replace(/\%s/, count));
+	var $a = $('.compareSelected a.btn');
+	$a.removeClass('disabled');
+	if (!count) {
+		$a.addClass('disabled');
+	}
+}
+function go() {
+	var $a = $('.compareSelected a.btn');
+	var ids = [];
+	$(':checked').each(function(){
+		ids.push($(this).val());
+	});
+
+	if (ids.length) {
+		$a.prop('href', $a.prop('href').replace(/~ids/, ids.join()));
+	}
+	return ids.length > 0;
 }
 $(document).ready(function(){
 	aSelected = [
