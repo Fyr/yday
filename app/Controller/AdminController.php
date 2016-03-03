@@ -1,5 +1,10 @@
 <?php
 App::uses('AppController', 'Controller');
+App::uses('PCAuth', 'Core.Controller/Component');
+App::uses('PCTableGrid', 'Table.Controller/Component');
+App::uses('PHForm', 'Form.View/Helper');
+App::uses('PHTime', 'Core.View/Helper');
+App::uses('PHTableGrid', 'Table.View/Helper');
 class AdminController extends AppController {
 	public $name = 'Admin';
 	public $layout = 'admin';

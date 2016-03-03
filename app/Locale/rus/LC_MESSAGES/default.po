@@ -439,4 +439,14 @@ msgstr "Поддержка"
 msgid "Phone"
 msgstr "Тел."
 
+msgid "Price"
+msgstr "Цена"
 
+msgid "Features"
+msgstr "Возможности"
+
+msgid "Spec.features list"
+msgstr "Список особых возможностей"
+
+msgid "Features list"
+msgstr "Список возможностей"

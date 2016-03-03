@@ -28,7 +28,12 @@
             .$this->PHForm->input('teaser')
             .$this->PHForm->input('sorting', array('class' => 'form-control input-small'))
         ),
-        __('Text') => $this->element('Article.edit_body')
+        __('Text') => $this->element('Article.edit_body'),
+        __('Features') => $this->PHForm->input('spec_features',
+                array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Spec.features list'))))
+            .$this->PHForm->input('features',
+                array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Features list'))))
+
     );
 
     foreach($aFormGroups as $_id => $group) {

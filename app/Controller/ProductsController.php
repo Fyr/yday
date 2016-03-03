@@ -2,6 +2,7 @@
 App::uses('AppController', 'Controller');
 App::uses('Media', 'Media.Model');
 App::uses('Product', 'Model');
+App::uses('ProductBlock', 'Model');
 App::uses('ParamGroup', 'Model');
 App::uses('ProductPack', 'Model');
 App::uses('PMFormField', 'Form.Model');
@@ -11,7 +12,7 @@ App::uses('Page', 'Model');
 App::uses('PageBlock', 'Model');
 class ProductsController extends AppController {
 	public $name = 'Products';
-	public $uses = array('Media.Media', 'Product', 'ParamGroup', 'ProductPack', 'Form.PMFormField', 'Form.PMFormValue', 'Page', 'PageBlock');
+	public $uses = array('Media.Media', 'Product', 'ProductBlock', 'ParamGroup', 'ProductPack', 'Form.PMFormField', 'Form.PMFormValue', 'Page', 'PageBlock');
 
 	public function view($slug) {
 		$product = $this->Product->findBySlug($slug);
@@ -19,7 +20,10 @@ class ProductsController extends AppController {
 		$conditions = array('media_type' => 'image', 'object_type' => 'Product', 'object_id' => $id, 'main' => 0);
 		$aMedia = $this->Media->find('all', compact('conditions'));
 
-		$this->set(compact('product', 'aMedia'));
+		$conditions = array('parent_id' => $id, 'published' => 1);
+		$order = 'sorting';
+		$productBlocks = $this->ProductBlock->find('all', compact('conditions', 'order'));
+		$this->set(compact('product', 'aMedia', 'productBlocks'));
 
 		$conditions = array('parent_id' => $product['Product']['parent_id']);
 		$order = 'sorting';
@@ -53,7 +57,20 @@ class ProductsController extends AppController {
 		$this->set('aPackValues', $aPackValues);
 
 		$page['support'] = $this->Page->findBySlug('support');
-		$blocks['support'] = $this->PageBlock->findAllByPublishedAndParentId(1, $page['support']['Page']['id'], null, 'sorting');
-		$this->set(compact('page', 'blocks'));
+		$pageBlocks['support'] = $this->PageBlock->findAllByPublishedAndParentId(1, $page['support']['Page']['id'], null, 'sorting');
+		$this->set(compact('page', 'pageBlocks'));
+
+		// в первую очередь выводим особые продукты, затем из той же категории, затем все остальные
+		$conditions = array('Product.id <> '.$product['Product']['id']);
+		$order = 'Product.featured DESC, Product.parent_id = '.$product['Product']['parent_id'].' DESC';
+		$limit = 3;
+		$otherProducts = $this->Product->find('all', compact('conditions', 'order', 'limit'));
+
+		$conditions = array('parent_id' => Hash::extract($otherProducts, '{n}.Product.id'));
+		$order = 'sorting';
+		$otherPacks = $this->ProductPack->find('all', compact('conditions', 'order'));
+		$otherPacks = Hash::combine($otherPacks, '{n}.ProductPack.id', '{n}', '{n}.ProductPack.parent_id');
+		$this->set(compact('otherProducts', 'otherPacks'));
 	}
+
 }

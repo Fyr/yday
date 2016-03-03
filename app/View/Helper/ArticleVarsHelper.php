@@ -20,4 +20,24 @@ class ArticleVarsHelper extends AppHelper {
 	public function body($article) {
 		return $article[$this->getObjectType($article)]['body'];
 	}
+
+	public function divideColumns($items, $cols) {
+		$aCols = array();
+		$col = 0;
+		$count = 0;
+		$total = ceil(count($items) / $cols) ;
+		$i = 0;
+		foreach($items as $item) {
+			$aCols[$col][] = $item;
+			$count++;
+			$i++;
+			if ($count >= $total && $i < count($items)) {
+				$col++;
+				$total = ceil((count($items) - $i) / ($cols - $col));
+				$count = 0;
+			}
+		}
+		return $aCols;
+	}
+
 }

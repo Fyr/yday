@@ -20,20 +20,6 @@ class AppController extends Controller {
 		$this->Settings->initData();
 	}
 
-	public function beforeRender() {
-		$this->beforeRenderLayout();
-	}
-
-	protected function beforeRenderLayout() {
-		$this->loadModel('Category');
-		$this->set('aCategories', $this->Category->find('all'));
-
-		$this->loadModel('Product');
-		$aProducts = $this->Product->find('all', array('order' => 'Product.sorting'));
-		$aProducts = Hash::combine($aProducts, '{n}.Product.id', '{n}', '{n}.Product.parent_id');
-		$this->set('aProducts', $aProducts);
-	}
-
 	public function loadModel($modelClass = null, $id = null) {
 		if ($modelClass === null) {
 			$modelClass = $this->modelClass;
@@ -66,4 +52,17 @@ class AppController extends Controller {
 		throw new NotFoundException();
 	}
 
+	public function beforeRender() {
+		$this->beforeRenderLayout();
+	}
+
+	protected function beforeRenderLayout() {
+		$this->loadModel('Category');
+		$this->set('aCategories', $this->Category->find('all'));
+
+		$this->loadModel('Product');
+		$aProducts = $this->Product->find('all', array('order' => 'Product.sorting'));
+		$aProducts = Hash::combine($aProducts, '{n}.Product.id', '{n}', '{n}.Product.parent_id');
+		$this->set('aProducts', $aProducts);
+	}
 }

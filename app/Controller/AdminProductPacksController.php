@@ -7,12 +7,14 @@ App::uses('ParamGroup', 'Model');
 App::uses('ProductPack', 'Model');
 App::uses('PMFormField', 'Form.Model');
 App::uses('PMFormValue', 'Form.Model');
+App::uses('Price', 'View/Helper');
 class AdminProductPacksController extends AdminContentController {
     public $name = 'AdminProductPacks';
     public $uses = array('ProductPack', 'Product', 'ParamGroup', 'Form.PMFormField', 'Form.PMFormValue');
+    public $helpers = array('Price');
 
     public $paginate = array(
-        'fields' => array('title', 'sorting'),
+        'fields' => array('title', 'price', 'sorting'),
         'order' => array('sorting' => 'asc'),
         'limit' => 20
     );

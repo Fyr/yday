@@ -25,6 +25,7 @@
     $tabs = array(
         __('General') => $this->Html->div('form-body',
             $this->PHForm->input('title')
+            .$this->PHForm->input('price', array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Price').', '.Configure::read('Settings.price_postfix'))))
             .$this->PHForm->input('sorting', array('class' => 'form-control input-small'))
         ),
     );

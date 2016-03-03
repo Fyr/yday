@@ -9,6 +9,11 @@
     echo $this->element('AdminUI/breadcrumbs', compact('breadcrumbs'));
     echo $this->element('AdminUI/title', compact('title'));
     echo $this->Flash->render();
+
+    $rowset = $this->PHTableGrid->getDefaultRowset($objectType);
+    foreach($rowset as &$row) {
+        $row['ProductPack']['price'] = $this->Price->format($row['ProductPack']['price']);
+    }
 ?>
 <div class="row">
     <div class="col-md-12">
@@ -29,7 +34,7 @@
                         </div>
                     </div>
                 </div>
-                <?=$this->PHTableGrid->render($objectType)?>
+                <?=$this->PHTableGrid->render($objectType, compact('rowset'))?>
             </div>
         </div>
     </div>
