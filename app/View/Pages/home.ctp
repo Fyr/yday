@@ -132,8 +132,7 @@
 			<div class="row">
 
 <?
-	foreach($aCategories as $category) {
-		$cat_id = $category['Category']['id'];
+	foreach($aCategories as $cat_id => $category) {
 ?>
 				<div class="col-sm-6">
 					<div class="title"><?=$category['Category']['title']?></div>

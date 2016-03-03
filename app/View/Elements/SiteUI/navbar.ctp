@@ -25,8 +25,7 @@
 					<a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">Караоке системы <span class="icon-arrow-down"></span></a>
 					<ul class="dropdown-menu">
 <?
-	foreach($aCategories as $category) {
-		$cat_id = $category['Category']['id'];
+	foreach($aCategories as $cat_id => $category) {
 		foreach($aProducts[$cat_id] as $article) {
 			$this->ArticleVars->init($article, $url, $title);
 			echo '<li>'.$this->Html->link($title, $url).'</li>';

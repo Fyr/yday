@@ -4,6 +4,8 @@ App::uses('Product', 'Model');
 class AppController extends Controller {
 	public $components = array('DebugKit.Toolbar');
 
+	protected $aCategories, $aProducts;
+
 	public function __construct($request = null, $response = null) {
 		$this->_beforeInit();
 		parent::__construct($request, $response);
@@ -52,17 +54,22 @@ class AppController extends Controller {
 		throw new NotFoundException();
 	}
 
+	public function beforeFilter() {
+		$this->loadModel('Category');
+		$this->aCategories = $this->Category->find('all', array('order' => 'sorting'));
+		$this->aCategories = Hash::combine($this->aCategories, '{n}.Category.id', '{n}');
+
+		$this->loadModel('Product');
+		$this->aProducts = $this->Product->find('all', array('order' => 'Product.sorting'));
+		$this->aProducts = Hash::combine($this->aProducts, '{n}.Product.id', '{n}', '{n}.Product.parent_id');
+	}
+
 	public function beforeRender() {
 		$this->beforeRenderLayout();
 	}
 
 	protected function beforeRenderLayout() {
-		$this->loadModel('Category');
-		$this->set('aCategories', $this->Category->find('all'));
-
-		$this->loadModel('Product');
-		$aProducts = $this->Product->find('all', array('order' => 'Product.sorting'));
-		$aProducts = Hash::combine($aProducts, '{n}.Product.id', '{n}', '{n}.Product.parent_id');
-		$this->set('aProducts', $aProducts);
+		$this->set('aCategories', $this->aCategories);
+		$this->set('aProducts', $this->aProducts);
 	}
 }

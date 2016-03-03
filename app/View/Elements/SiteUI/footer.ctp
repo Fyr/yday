@@ -8,8 +8,7 @@
             <a href="mailto:<?=Configure::read('Settings.email')?>"><?=Configure::read('Settings.email')?></a>
         </div>
 <?
-    foreach($aCategories as $category) {
-        $cat_id = $category['Category']['id'];
+    foreach($aCategories as $cat_id => $category) {
 ?>
         <div class="col-sm-2">
             <div class="name"><?=$category['Category']['title']?></div>
