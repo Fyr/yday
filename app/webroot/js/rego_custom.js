@@ -35,34 +35,7 @@ $(document).ready(function(){
 	});
 	*/
 	
-	
-	var checkboxflag = false;
-	
-	$('.virtualSystems .item').click( function(){
-		
-		$(this).toggleClass('active');
-		
-		if ( !checkboxflag ) {
-			if ( $(this).find('input:checkbox').prop('checked') ) {
-				$(this).find('.styler').prop('checked', false).trigger('refresh');
-			}
-			else {
-				$(this).find('.styler').prop('checked', true).trigger('refresh');
-			}
-		}
-		else {
-			checkboxflag = false;
-		}
-		
-	});
-	
-	$('.virtualSystems .item input:checkbox').change( function(){
-		checkboxflag = true; 
-	});
-	
 	$('.article img').each(function(index, element){
-		
-		
 		if ( $(this).css('float') == 'left' ) {
 			$(this).addClass('leftFloat');
 		}
@@ -70,8 +43,6 @@ $(document).ready(function(){
 		if ( $(this).css('float') == 'right' ) {
 			$(this).addClass('rightFloat');
 		}
-		
-		
 	});
-	
+
 });

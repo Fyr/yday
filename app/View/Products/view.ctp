@@ -131,7 +131,7 @@
 <a name="features"></a>
 <div class="section allOpportunities <?=$class?>">
 	<div class="container">
-		<h2 class="light">Все возможности системы</h2>
+		<?=$this->element('SiteUI/title', array('class' => 'light', 'title' => 'Все возможности системы'))?>
 		<div class="row">
 
 <?
@@ -172,7 +172,7 @@
 <div class="section allOpportunities <?=$class?>">
 	<div class="container">
 
-		<h2 class="light"><?=$group['ParamGroup']['title']?></h2>
+		<?=$this->element('SiteUI/title', array('class' => 'light', 'title' => $group['ParamGroup']['title']))?>
 		<div class="row">
 <?
 				$aItems = array();
@@ -203,7 +203,7 @@
 <a name="packs"></a>
 <div class="section allOpportunities <?=$class?>">
 	<div class="container">
-		<h2 class="light">Комплект поставки</h2>
+		<?=$this->element('SiteUI/title', array('class' => 'light', 'title' => 'Комплект поставки'))?>
 <?
 			foreach($aFormGroups as $group_id => $group) {
 				if ($group['ParamGroup']['featured']) {
@@ -238,7 +238,7 @@
 ?>
 <div class="section otherKaraokeSystems <?=$class?>">
 	<div class="container">
-		<h2 class="light">Другие караоке системы</h2>
+		<?=$this->element('SiteUI/title', array('class' => 'light', 'title' => 'Другие караоке системы'))?>
 		<div class="row">
 <?
 	foreach($otherProducts as $article) {
@@ -276,7 +276,11 @@
 	}
 ?>
 		</div>
-		<a href="javascript: void(0)" class="btn btn-success">Сравнить <?=$product['Product']['title']?> с другими системами</a>
+<?
+	$title = sprintf('Сравнить %s с другими системами', $product['Product']['title']);
+	$url = array('action' => 'select', $product['Category']['id'], $product['Product']['id']);
+	echo $this->Html->link($title, $url, array('class' => 'btn btn-success'));
+?>
 	</div>
 </div>
 

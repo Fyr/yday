@@ -73,4 +73,13 @@ class ProductsController extends AppController {
 		$this->set(compact('otherProducts', 'otherPacks'));
 	}
 
+	public function select($cat_id, $selected = '') {
+		$this->set('cat_id', $cat_id);
+		$this->set('selected', ($selected) ? explode(',', $selected) : array());
+		$conditions = array('parent_id' => Hash::extract($this->aProducts[$cat_id], '{n}.Product.id'));
+		$order = 'sorting';
+		$aPacks = $this->ProductPack->find('all', compact('conditions', 'order'));
+		$aPacks = Hash::combine($aPacks, '{n}.ProductPack.id', '{n}', '{n}.ProductPack.parent_id');
+		$this->set('aPacks', $aPacks);
+	}
 }
