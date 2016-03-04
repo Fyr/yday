@@ -5,7 +5,6 @@
 			<tr class="products">
 				<td></td>
 <?
-	fdebug(compact('aFormGroups', 'aForms', 'aValues', 'aPacks'));
 	$colspan = 1;
 	$buy = false;
 	foreach($aProducts[$cat_id] as $id => $product) {
@@ -52,32 +51,33 @@
 			</tr>
 <?
 	$aFeatures = array();
-	foreach($aProducts[$cat_id] as $id => &$_product) {
-		$features = trim($_product['Product']['features']);
-		$_product['Product']['features'] = ($features) ? explode('<br />', nl2br($features)) : array();
-		$aFeatures = array_merge($aFeatures, $_product['Product']['features']);
+	foreach($aProducts[$cat_id] as $id => &$product) {
+		$features = trim($product['Product']['features']);
+		$product['Product']['features'] = ($features) ? explode('<br />', nl2br($features)) : array();
+		$aFeatures = array_merge($aFeatures, $product['Product']['features']);
 	}
-	unset($_product);
+	unset($product);
 	$aFeatures = array_unique($aFeatures);
 	sort($aFeatures);
-	// $aFeatures = array_combine($aFeatures, $aFeatures);
 	foreach($aFeatures as $feature) {
 ?>
 			<tr>
 				<td><?=$feature?></td>
 <?
 		foreach($aProducts[$cat_id] as $id => $product) {
-			$class = (in_array($feature, $product['Product']['features'])) ? 'icon-check' : 'icon-close';
-			if (isset($aPacks[$id])) {
-				foreach($aPacks[$id] as $pack) {
+			if (in_array($id, $selected)) {
+				$class = (in_array($feature, $product['Product']['features'])) ? 'icon-check' : 'icon-close';
+				if (isset($aPacks[$id])) {
+					foreach ($aPacks[$id] as $pack) {
 ?>
-				<td class="center"><span class="<?=$class?>"></span></td>
+				<td class="center"><span class="<?= $class ?>"></span></td>
+<?
+					}
+				} else {
+?>
+				<td class="center"><span class="<?= $class ?>"></span></td>
 <?
 				}
-			} else {
-?>
-				<td class="center"><span class="<?=$class?>"></span></td>
-<?
 			}
 		}
 ?>

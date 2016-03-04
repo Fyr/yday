@@ -114,22 +114,11 @@ class ProductsController extends AppController {
 			array('object_type' => 'ProductPackParam', 'parent_id' => $pack_ids)
 		))));
 		$aValues = array();
-		$aPackValues = array();
 		foreach($values as $param) {
 			$param = $param['PMFormValue'];
-			/*
-			if ($param['object_type'] == 'ProductParam') {
-				$aValues[$param['field_id']][$param['parent_id']] = $param['value'];
-			} else {
-				foreach($aPacks as $pack_id => $pack) {
-					if ($param['parent_id'] == $pack_id) {}
-				}
-			}
-			*/
 			$aValues[$param['field_id']][$param['object_type']][$param['parent_id']] = $param['value'];
 
 		}
 		$this->set(compact('aValues'));
-		fdebug($aValues, 'tmp1.log');
 	}
 }
