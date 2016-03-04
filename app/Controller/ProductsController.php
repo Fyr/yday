@@ -82,4 +82,54 @@ class ProductsController extends AppController {
 		$aPacks = Hash::combine($aPacks, '{n}.ProductPack.id', '{n}', '{n}.ProductPack.parent_id');
 		$this->set('aPacks', $aPacks);
 	}
+
+	public function compare($cat_id, $selected = '') {
+		$this->set('cat_id', $cat_id);
+		$selected = ($selected) ? explode(',', $selected) : array();
+		$this->set('selected', $selected);
+
+		$conditions = array('parent_id' => $cat_id);
+		$order = 'sorting';
+		$aParamGroups = $this->ParamGroup->find('all', compact('conditions', 'order'));
+		$aParamGroups = Hash::combine($aParamGroups, '{n}.ParamGroup.id', '{n}');
+		$this->set('aFormGroups', $aParamGroups);
+
+		$conditions = array('object_type' => 'PMFormField', 'parent_id' => array_keys($aParamGroups));
+		$order = 'sorting';
+		$aParams = $this->PMFormField->find('all', compact('conditions', 'order'));
+		if ($aParams) {
+			$aParams = Hash::combine($aParams, '{n}.PMFormField.id', '{n}', '{n}.PMFormField.parent_id');
+		}
+		$this->set('aForms', $aParams);
+
+		$conditions = array('parent_id' => $selected);
+		$order = 'sorting';
+		$aPacks = $this->ProductPack->find('all', compact('conditions', 'order'));
+		$pack_ids = Hash::extract($aPacks, '{n}.ProductPack.id');
+		$aPacks = Hash::combine($aPacks, '{n}.ProductPack.id', '{n}', '{n}.ProductPack.parent_id');
+		$this->set('aPacks', $aPacks);
+
+		$values = $this->PMFormValue->find('all', array('conditions' => array('OR' => array(
+			array('object_type' => 'ProductParam', 'parent_id' => $selected),
+			array('object_type' => 'ProductPackParam', 'parent_id' => $pack_ids)
+		))));
+		$aValues = array();
+		$aPackValues = array();
+		foreach($values as $param) {
+			$param = $param['PMFormValue'];
+			/*
+			if ($param['object_type'] == 'ProductParam') {
+				$aValues[$param['field_id']][$param['parent_id']] = $param['value'];
+			} else {
+				foreach($aPacks as $pack_id => $pack) {
+					if ($param['parent_id'] == $pack_id) {}
+				}
+			}
+			*/
+			$aValues[$param['field_id']][$param['object_type']][$param['parent_id']] = $param['value'];
+
+		}
+		$this->set(compact('aValues'));
+		fdebug($aValues, 'tmp1.log');
+	}
 }
