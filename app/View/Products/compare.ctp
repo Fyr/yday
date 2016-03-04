@@ -6,17 +6,18 @@
 				<td></td>
 <?
 	$colspan = 1;
+	$i = 0;
 	$buy = false;
 	foreach($aProducts[$cat_id] as $id => $product) {
 		if (in_array($id, $selected)) {
 			if (isset($aPacks[$id])) {
 				foreach($aPacks[$id] as $pack) {
-					$colspan++;
-					echo $this->element('compare_product', compact('product', 'pack', 'buy'));
+					$i++;
+					echo $this->element('compare_product', compact('product', 'pack', 'buy', 'i'));
 				}
 			} else {
-				$colspan++;
-				echo $this->element('compare_product', compact('product', 'buy'));
+				$i++;
+				echo $this->element('compare_product', compact('product', 'buy', 'i'));
 			}
 		}
 	}
@@ -41,8 +42,6 @@
 			}
 		}
 	}
-
-
 ?>
 
 			</tr>
@@ -197,12 +196,12 @@
 		if (in_array($id, $selected)) {
 			if (isset($aPacks[$id])) {
 				foreach($aPacks[$id] as $pack) {
-					$colspan++;
-					echo $this->element('compare_product', compact('product', 'pack', 'buy'));
+					$i++;
+					echo $this->element('compare_product', compact('product', 'pack', 'buy', 'i'));
 				}
 			} else {
-				$colspan++;
-				echo $this->element('compare_product', compact('product', 'buy'));
+				$i++;
+				echo $this->element('compare_product', compact('product', 'buy', 'i'));
 			}
 		}
 	}
@@ -212,3 +211,31 @@
 
 	</div>
 </div>
+<script type="text/javascript">
+$(function(){
+	$('.thumb .icon-close').click(function(){
+		var id = $(this).closest('td').prop('id');
+		var i = 0, count = 0;
+		$(this).closest('tr').find('td').each(function(){
+			if ($(this).prop('id') == id) {
+				i = count;
+			}
+			count++;
+		});
+
+		$('.compareTable tr').each(function(){
+			count = 0;
+			$(this).find('td,th').each(function(){
+				if ($(this).prop('colspan') > 1) {
+					$(this).prop('colspan', $(this).prop('colspan') - 1);
+				} else {
+					if (count == i) {
+						$(this).hide();
+					}
+				}
+				count++;
+			});
+		});
+	});
+});
+</script>

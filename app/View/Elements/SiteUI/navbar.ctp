@@ -26,11 +26,10 @@
 					<ul class="dropdown-menu">
 <?
 	foreach($aCategories as $cat_id => $category) {
-		foreach($aProducts[$cat_id] as $article) {
-			$this->ArticleVars->init($article, $url, $title);
-			echo '<li>'.$this->Html->link($title, $url).'</li>';
-		}
+		$this->ArticleVars->init($category, $url, $title);
+		echo $this->Html->tag('li', $this->Html->link($title, $url));
 	}
+	echo $this->Html->tag('li', $this->Html->link('Сравнение систем', array('controller' => 'Categories', 'action' => 'compare')));
 ?>
 					</ul>
 				</li>

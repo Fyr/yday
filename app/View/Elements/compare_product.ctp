@@ -1,6 +1,8 @@
-<td class="center">
 <?
     $this->ArticleVars->init($product, $url, $title, $teaser, $src, 'noresize', $featured, $id);
+?>
+<td id="<?=$i?>" class="center">
+<?
     if ($src) {
 ?>
         <div class="thumb">
