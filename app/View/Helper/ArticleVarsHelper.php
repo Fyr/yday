@@ -27,8 +27,8 @@ class ArticleVarsHelper extends AppHelper {
 		$count = 0;
 		$total = ceil(count($items) / $cols) ;
 		$i = 0;
-		foreach($items as $item) {
-			$aCols[$col][] = $item;
+		foreach($items as $key => $item) {
+			$aCols[$col][$key] = $item;
 			$count++;
 			$i++;
 			if ($count >= $total && $i < count($items)) {

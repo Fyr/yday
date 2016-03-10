@@ -21,4 +21,19 @@ class PagesController extends AppController {
 		$aProducts = $this->Product->findAllByPublished(1, null, 'Product.sorting');
 		$this->set(compact('aNews', 'aProducts', 'aCategories'));
 	}
+
+	public function karaoke_systems() {
+		$page = $this->Page->findBySlug('karaoke-systems');
+		$this->set('page', $page);
+
+		$this->ProductPack = $this->loadModel('ProductPack');
+		foreach($this->aCategories as $cat_id => $category) {
+			$ids = Hash::extract($this->aProducts[$cat_id], '{n}.Product.id');
+			$conditions = array('parent_id' => $ids);
+			$order = 'price';
+			$packs = $this->ProductPack->find('first', compact('conditions', 'order'));
+			$aPrices[$cat_id] = ($packs) ? floatval($packs['ProductPack']['price']) : 0;
+		}
+		$this->set('aPrices', $aPrices);
+	}
 }
