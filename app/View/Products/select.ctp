@@ -3,6 +3,20 @@
 	$this->Html->script('vendor/jquery.formstyler.min', array('inline' => false));
 	$category = $aCategories[$cat_id];
 ?>
+<style>
+#selected { font-weight: 300; }
+.virtualSystems.realSystems .item {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+.virtualSystems .item .title {
+	font-size: 34px;
+}
+.virtualSystems .item .title a {
+	border-bottom: 1px solid #ddd;
+	text-decoration: none;
+}
+</style>
 <div class="container">
 	<?=$this->element('SiteUI/title', array('title' => 'Сравните '.$category['Category']['title']))?>
 	<div class="compareSelected">

@@ -1,6 +1,24 @@
+<style>
+.link.light {
+	text-decoration: none;
+	border-bottom: 1px solid #ddd;
+}
+.container > a.link.light {
+	display: block;
+	text-decoration: none;
+	margin: 20px 0 50px 0;
+	border-bottom: 0px solid #fff;
+}
+.container > a.link.light:hover {
+	color: #333;
+}
+
+
+</style>
 <div class="otherKaraokeSystems">
 	<div class="container">
-		<?=$this->element('SiteUI/title', array('title' => 'Сравнение караоке систем'))?>
+		<?=$this->Html->link('Сравнение караоке систем', 'javascript:', array('class' => 'link light'))?>
+		<?//$this->element('SiteUI/title', array('title' => 'Сравнение караоке систем', 'class' => 'light'))?>
 		<div class="row">
 <?
 	foreach($aCategories as $category) {
