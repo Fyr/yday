@@ -26,3 +26,12 @@
 ?>
 
 </div>
+<?
+    if (isset($more) && $more) {
+?>
+        <div align="center" style="margin-bottom: 20px">
+            <a href="javascript:;" class="btn btn-success" onclick="moreNews();"><?=__('More news...')?></a>
+        </div>
+<?
+    }
+?>

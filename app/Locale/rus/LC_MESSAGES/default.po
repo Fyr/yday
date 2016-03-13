@@ -450,3 +450,6 @@ msgstr "Список особых возможностей"
 
 msgid "Features list"
 msgstr "Список возможностей"
+
+msgid "More news..."
+msgstr "Еще новости..."

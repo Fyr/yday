@@ -11,6 +11,10 @@ class NewsController extends AppController {
 		$order = 'modified DESC';
 		$limit = 6;
 		$this->set('aNews', $this->News->find('all', compact('conditions', 'order', 'limit', 'page')));
+
+		$more = $this->News->find('count', compact('conditions'));
+		$more = intval($more) > $page * $limit;
+		$this->set(compact('more'));
 		if ($this->request->is('ajax')) {
 			// $this->layout = 'ajax';
 			$this->render('/Elements/news', 'ajax');
@@ -27,3 +31,4 @@ class NewsController extends AppController {
 		$this->set('aFeaturedNews', $this->News->find('all', compact('conditions', 'order', 'limit')));
 	}
 }
+
