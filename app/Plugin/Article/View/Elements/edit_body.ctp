@@ -1,3 +1,10 @@
+<?
+	$this->Html->script('vendor/ckeditor/ckeditor', array('inline' => false));
+	$this->Html->css('/js/vendor/ckeditor/fixes', array('inline' => false));
+	echo $this->PHForm->input($this->PHForm->defaultModel.'.body', array('class' => 'ckeditor', 'label' => false));
+/*
+	$this->Html->script('components-editors', array('inline' => false));
+?>
 <div id="summernote_1">
 	<?=$this->request->data($this->PHForm->defaultModel.'.body')?>
 </div>
@@ -10,3 +17,7 @@ jQuery(function(){
 	});
 });
 </script>
+
+<?
+*/
+?>

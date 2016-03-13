@@ -21,8 +21,8 @@ class NewsController extends AppController {
 		$article = $this->News->findBySlug($slug);
 		$this->set('article', $article);
 
-		$conditions = array('published' => 1, 'featured' => 1);
-		$order = 'sorting DESC';
+		$conditions = array('News.published' => 1, 'News.id <> ' => $article['News']['id']);
+		$order = 'News.featured DESC, News.modified DESC';
 		$limit = 3;
 		$this->set('aFeaturedNews', $this->News->find('all', compact('conditions', 'order', 'limit')));
 	}

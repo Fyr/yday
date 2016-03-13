@@ -6,4 +6,10 @@ class AdminNewsController extends AdminContentController {
     public $name = 'AdminNews';
     public $uses = array('News');
 
+    public $paginate = array(
+        'conditions' => array(),
+        'fields' => array('modified', 'title', 'slug', 'published', 'featured'),
+        'order' => array('sorting' => 'asc'),
+        'limit' => 20
+    );
 }
