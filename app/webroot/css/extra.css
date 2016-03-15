@@ -6,3 +6,5 @@
 }
 
 .footer p {padding-bottom: 8px;line-height: 1.3;}
+.supportForm .input.text { text-align: left}
+.error-message { color: #f00; font-size: 14px;}

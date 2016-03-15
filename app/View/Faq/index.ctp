@@ -30,26 +30,65 @@
 		</div>
 	</div>
 </div>
+<a name="contacts"></a>
 <div class="grey">
 	<div class="container">
 		<div class="supportForm">
-			<div class="text">Не нашли ответ на интересующий Вас вопрос? <br />Напишите нам, и мы с удовольствием Вам ответим.</div>
-			<form class="row form">
+
+<?
+	if ($lSent = $this->request->query('success')) {
+		$msg = '<b>Спасибо за ваше сообщение!</b><br/>В ближайшее время наши специалисты вам ответят';
+	} else {
+		$msg = 'Не нашли ответ на интересующий Вас вопрос? <br/>Напишите нам, и мы с удовольствием Вам ответим.';
+	}
+?>
+			<div class="text"><?=$msg?></div>
+<?
+	$options = array(
+		'class' => 'row form',
+		'url' => $this->Html->url(array('action' => 'index')).'#contacts',
+		'inputDefaults' => array(
+			'class' => 'form-control',
+			'label' => false,
+		)
+	);
+	echo $this->PHForm->create('Contact', $options);
+?>
 				<div class="col-sm-5">
-					<input type="text" placeholder="Имя" class="form-control" />
-					<input type="tel" pattern="\(\d\d\d\) ?\d\d\d-\d\d-\d\d" placeholder="Телефон"  class="form-control error" value="234dd" />
-					<input type="email" placeholder="Email" class="form-control" />
-					<input type="text" placeholder="Тема вопроса" class="form-control" />
+<?
+	echo $this->PHForm->input('Contact.username', array('placeholder' => 'Ваше имя'));
+	echo $this->PHForm->input('Contact.phone', array('type' => 'tel', 'placeholder' => 'Телефон +(NNN) NNN-NN-NN', /*'pattern' => '\(\d\d\d\) ?\d\d\d-\d\d-\d\d'*/ ));
+	echo $this->PHForm->input('Contact.email', array('placeholder' => 'E-mail'));
+	echo $this->PHForm->input('Contact.subj', array('placeholder' => 'Тема вопроса'));
+?>
 				</div>
 				<div class="col-sm-7">
-					<textarea placeholder="Введите Ваш вопрос" class="form-control"></textarea>
+<?
+	echo $this->PHForm->input('Contact.body', array('type' => 'textarea', 'placeholder' => 'Введите Ваш вопрос...'));
+?>
+					<!--textarea placeholder="Введите Ваш вопрос" class="form-control"></textarea-->
 				</div>
 				<div class="col-sm-12 submit">
 					<button class="btn btn-success">Отправить</button>
 				</div>
-			</form>
+<?
+	echo $this->PHForm->end();
+?>
+
 		</div>
+
 	</div>
 </div>
 
 <?=$this->element('call_us')?>
+<?
+	if ($lSent) {
+?>
+<script>
+	$(function () {
+		window.scrollBy(0, -80);
+	});
+</script>
+<?
+	}
+?>
