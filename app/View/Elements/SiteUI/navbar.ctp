@@ -25,6 +25,7 @@
 					<a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">Караоке системы <span class="icon-arrow-down"></span></a>
 					<ul class="dropdown-menu">
 <?
+	echo $this->Html->tag('li', $this->Html->link('О караоке системах', array('controller' => 'Pages', 'action' => 'karaoke_systems')));
 	foreach($aCategories as $cat_id => $category) {
 		$this->ArticleVars->init($category, $url, $title);
 		echo $this->Html->tag('li', $this->Html->link($title, $url));
@@ -36,9 +37,9 @@
 				<li class="dropdown">
 					<a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">Каталоги <span class="icon-arrow-down"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="#">some text</a></li>
-						<li><a href="#">Another action</a></li>
-						<li><a href="#">Something else here</a></li>
+						<li><a href="#">Полный каталог</a></li>
+						<li><a href="<?=$this->Html->url(array('controller' => 'SongPacks', 'action' => 'index'))?>">Пакеты песен</a></li>
+						<li><a href="#">Индивидуальный заказ</a></li>
 					</ul>
 				</li>
 				<li class="dropdown">

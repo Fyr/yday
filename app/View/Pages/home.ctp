@@ -140,7 +140,7 @@
 		foreach($aProducts[$cat_id] as $id => $product) {
 			$this->ArticleVars->init($product, $url, $title, $teaser, $src, 'noresize');
 ?>
-					<div class="item">
+					<div class="item1">
 <?
 			if ($src) {
 ?>

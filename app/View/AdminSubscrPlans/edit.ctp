@@ -23,6 +23,7 @@
         __('General') => $this->Html->div('form-body',
             $this->element('AdminUI/checkboxes')
             .$this->PHForm->input('title')
+            .$this->PHForm->input('descr', array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Description'))))
             .$this->PHForm->input('price', array('class' => 'form-control input-small'))
             .$this->PHForm->input('sorting', array('class' => 'form-control input-small'))
         )
