@@ -21,12 +21,14 @@
 
     $tabs = array(
         __('General') => $this->Html->div('form-body',
-            $this->element('AdminUI/checkboxes')
+            $this->element('AdminUI/checkboxes', array('checkboxes' => array('featured')))
             .$this->element('Article.edit_title')
             .$this->element('Article.edit_slug')
+            .$this->PHForm->input('header')
             .$this->PHForm->input('sorting', array('class' => 'form-control input-small'))
         ),
-        __('Text') => $this->element('Article.edit_body')
+        __('Text') => $this->element('Article.edit_body'),
+        __('Description') => $this->element('Article.edit_body', array('field' => 'descr'))
     );
 
     if ($id) {

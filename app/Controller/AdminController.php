@@ -18,7 +18,6 @@ class AdminController extends AppController {
 	}
 	
 	public function beforeFilter() {
-
 	}
 	
 	public function beforeRenderLayout() {

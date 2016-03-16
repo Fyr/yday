@@ -12,8 +12,6 @@
 .container > a.link.light:hover {
 	color: #333;
 }
-
-
 </style>
 <div class="otherKaraokeSystems">
 	<div class="container">
@@ -23,7 +21,7 @@
 <?
 	foreach($aCategories as $category) {
 		$this->ArticleVars->init($category, $url, $title, $teaser, $src, 'noresize', $featured, $id);
-		$url = array('controller' => 'Products', 'action' => 'select', $id);
+		$url = array('controller' => 'products', 'action' => 'select', $id);
 ?>
 			<div class="col-sm-<?=floor(12 / count($aCategories))?>">
 <?

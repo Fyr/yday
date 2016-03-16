@@ -19,7 +19,7 @@ class AdminProductsController extends AdminContentController {
 
     public function beforeRender() {
         parent::beforeRender();
-        $this->set('aCategoryOptions', $this->Category->getObjectOptions());
+        $this->set('aCategoryOptions', $this->Category->getOptions());
     }
 
     protected function afterSave($id) {

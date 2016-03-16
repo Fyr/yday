@@ -10,7 +10,6 @@ class Product extends Article {
         'Category' => array(
             'className' => 'Category',
             'foreignKey' => 'parent_id',
-            'conditions' => array('Category.object_type' => 'Category'),
             'dependent' => false
         )
     );

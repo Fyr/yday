@@ -29,6 +29,7 @@
                 <a href="<?=$url?>" class="link"><?=$title?></a>
                 <div class="price"><?=$price?></div>
                 <div class="description">
+                    <div class="head"><?=$article['Category']['header']?></div>
                     <?=$this->ArticleVars->body($article)?>
                 </div>
             </div>

@@ -1,8 +1,6 @@
 <?php
 App::uses('AppModel', 'Model');
-App::uses('Article', 'Article.Model');
-class Category extends Article {
-    protected $objectType = 'Category';
+class Category extends AppModel {
 
     public $hasOne = array(
         'Media' => array(
@@ -12,4 +10,8 @@ class Category extends Article {
             'dependent' => false
         )
     );
+
+    public function getOptions() {
+        return $this->find('list', array('order' => 'sorting'));
+    }
 }

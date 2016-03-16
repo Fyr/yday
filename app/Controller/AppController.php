@@ -55,6 +55,10 @@ class AppController extends Controller {
 	}
 
 	public function beforeFilter() {
+		$this->beforeFilterLayout();
+	}
+
+	public function beforeFilterLayout() {
 		$this->loadModel('Category');
 		$this->aCategories = $this->Category->find('all', array('order' => 'sorting'));
 		$this->aCategories = Hash::combine($this->aCategories, '{n}.Category.id', '{n}');

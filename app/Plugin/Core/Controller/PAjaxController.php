@@ -11,6 +11,9 @@ class PAjaxController extends AppController {
 	protected function _beforeInit() {
 	    $this->components[] = 'RequestHandler';
 	}
+
+	public function beforeFilter() {
+	}
 	
 	public function beforeRender() {
 	    if ($this->_response) {

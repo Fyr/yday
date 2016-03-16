@@ -457,5 +457,8 @@ msgstr "Еще новости..."
 msgid "Field is mandatory"
 msgstr "Поле обязательно для заполнения"
 
+msgid "Header"
+msgstr "Заголовок"
+
 msgid "Description"
 msgstr "Описание"

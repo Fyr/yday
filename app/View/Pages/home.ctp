@@ -183,7 +183,7 @@
 			<h2>Последние новости из мира караоке</h2>
 			<?=$this->element('news')?>
 			<div class="link">
-				<?=$this->Html->link(__('More news...'), array('controller' => 'News', 'action' => 'index'), array('class' => 'btn btn-success'))?>
+				<?=$this->Html->link(__('More news...'), array('controller' => 'news', 'action' => 'index'), array('class' => 'btn btn-success'))?>
 			</div>
 		</div>
 	</div>
