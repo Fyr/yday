@@ -3,8 +3,8 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <span class="closeModal" data-dismiss="modal" aria-label="Close"></span>
-            <div class="title">Спасибо за заказ</div>
-            <div class="text">Наш менеджер свяжется с вами в ближайшее время</div>
+            <div class="title">РЎРїР°СЃРёР±Рѕ Р·Р° Р·Р°РєР°Р·</div>
+            <div class="text">РќР°С€ РјРµРЅРµРґР¶РµСЂ СЃРІСЏР¶РµС‚СЃСЏ СЃ РІР°РјРё РІ Р±Р»РёР¶Р°Р№С€РµРµ РІСЂРµРјСЏ</div>
         </div>
     </div>
 </div>

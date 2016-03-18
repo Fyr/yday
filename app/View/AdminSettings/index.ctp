@@ -17,7 +17,7 @@
 	echo $this->element('AdminUI/form_title', compact('title'));
 	echo $this->PHForm->create('Settings');
 
-	echo $this->PHForm->input('admin_email');
+	echo $this->PHForm->input('admin_email', array('label' => array('class' => 'col-md-3 control-label', 'text' => __('E-mail of admin'))));
 
 	echo $this->element('AdminUI/form_actions', array('backURL' => array('action' => $this->request->action)));
 	echo $this->PHForm->end();

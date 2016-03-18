@@ -9,6 +9,8 @@
 
 	echo $this->Html->css(array(
 		'bootstrap.min',
+		'owl-carousel/owl.carousel',
+		'owl-carousel/owl.theme',
 		'style.css',
 		'extra'
 	));
@@ -20,6 +22,7 @@
 	echo $this->Html->script(array(
 		'vendor/jquery.1.11.0.min',
 		'vendor/bootstrap.min',
+		'vendor/owl.carousel.min',
 		'rego_custom'
 	));
 	echo $this->fetch('script');

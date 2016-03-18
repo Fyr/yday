@@ -4,8 +4,9 @@ App::uses('Page', 'Model');
 App::uses('PageBlock', 'Model');
 App::uses('SongPack', 'Model');
 App::uses('SubscrPlan', 'Model');
-class SongPacksController extends AppController {
-	public $uses = array('Page', 'PageBlock', 'Media.Media', 'SongPack', 'SubscrPlan');
+App::uses('Service', 'Model');
+class CatalogController extends AppController {
+	public $uses = array('Page', 'PageBlock', 'Media.Media', 'SongPack', 'SubscrPlan', 'Service');
 
 	public function index() {
 		$page = $this->Page->findBySlug('karaoke-songs-packs');
@@ -20,7 +21,16 @@ class SongPacksController extends AppController {
 
 		$aPlans = $this->SubscrPlan->findAllByPublished(1, null, 'sorting');
 		$this->set(compact('page', 'blocks', 'aMedia', 'aSongPacks', 'aPlans'));
-
 	}
 
+	public function custom() {
+		$page = $this->Page->findBySlug('custom-orders');
+		$aServices = $this->Service->findAllByPublished(1, null, 'sorting');
+
+		$id = $page['Page']['id'];
+		$conditions = array('media_type' => 'image', 'object_type' => 'Page', 'object_id' => $id);
+		$aMedia = $this->Media->find('all', compact('conditions'));
+
+		$this->set(compact('page', 'aServices', 'aMedia'));
+	}
 }

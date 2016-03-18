@@ -23,13 +23,11 @@
         __('General') => $this->Html->div('form-body',
             $this->element('AdminUI/checkboxes', array('checkboxes' => array('published')))
             .$this->PHForm->input('title')
+            .$this->PHForm->input('price_rur', array('class' => 'form-control input-small', 'label' => array('class' => 'col-md-3 control-label', 'text' => __('Price, RUR'))))
+            .$this->PHForm->input('price_usd', array('class' => 'form-control input-small', 'label' => array('class' => 'col-md-3 control-label', 'text' => __('Price, USD'))))
             .$this->PHForm->input('sorting', array('class' => 'form-control input-small'))
         )
     );
-
-    if ($id) {
-        $tabs[__('Media')] = $this->element('Media.edit', array('object_type' => $objectType, 'object_id' => $id));
-    }
 
     echo $this->element('AdminUI/tabs', compact('tabs'));
     echo $this->element('AdminUI/form_actions');

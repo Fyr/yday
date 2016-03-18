@@ -2,7 +2,7 @@
     $id = $this->request->data($objectType.'.id');
     $title = $this->ObjectType->getTitle('index', $objectType);
     $breadcrumbs = array(
-        __('Song packs') => 'javascript:;',
+        __('Catalogs') => 'javascript:;',
         $title => array('action' => 'index'),
         __('Edit') => ''
     );

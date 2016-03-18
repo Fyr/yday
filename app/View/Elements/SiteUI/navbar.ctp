@@ -38,8 +38,8 @@
 					<a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">Каталоги <span class="icon-arrow-down"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="#">Полный каталог</a></li>
-						<li><a href="<?=$this->Html->url(array('controller' => 'songpacks', 'action' => 'index'))?>">Пакеты песен</a></li>
-						<li><a href="#">Индивидуальный заказ</a></li>
+						<li><?=$this->Html->link(__('Song packs'), array('controller' => 'catalog', 'action' => 'index'))?></li>
+						<li><?=$this->Html->link(__('Custom orders'), array('controller' => 'catalog', 'action' => 'custom'))?></li>
 					</ul>
 				</li>
 				<li class="dropdown">

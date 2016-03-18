@@ -27,12 +27,12 @@
 					<ul class="dropdown-menu dropdown-menu-default">
 						<li>
 							<a href="<?=$this->Html->url(array('controller' => 'AdminUsers', 'action' => 'edit', 1))?>">
-								<i class="icon-user"></i> My Profile
+								<i class="icon-user"></i> <?=__('My profile')?>
 							</a>
 						</li>
 						<li>
 							<a href="<?=$this->Html->url(array('controller' => 'AdminAuth', 'action' => 'logout'))?>">
-								<i class="icon-key"></i> Log Out
+								<i class="icon-key"></i> <?=__('Log out')?>
 							</a>
 						</li>
 					</ul>

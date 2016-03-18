@@ -4,7 +4,7 @@ $(document).ready(function(){
 		autoPlay: false,
 		speed: 300,
 		bodyID: 'fsvs-body',
-		selector: '> .slide',
+		selector: '.slide',
 		mouseSwipeDisance: 40,
 		afterSlide: function () {},
 		beforeSlide: function () {},

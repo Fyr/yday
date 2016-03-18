@@ -20,6 +20,8 @@
 	echo $this->PHForm->input('title', array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Company name'))));
 	echo $this->PHForm->input('address', array('type' => 'textarea'));
 	echo $this->PHForm->input('phone', array('type' => 'textarea'));
+	echo $this->PHForm->input('phone_header', array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Phone (header)'))));
+	echo $this->PHForm->input('phone_footer', array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Phone (footer)'))));
 	echo $this->PHForm->input('email');
 	echo $this->PHForm->input('skype');
 

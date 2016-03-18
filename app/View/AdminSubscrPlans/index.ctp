@@ -1,7 +1,7 @@
 <?
     $title = $this->ObjectType->getTitle('index', $objectType);
     $breadcrumbs = array(
-        __('Song packs') => 'javascript:;',
+        __('Catalogs') => 'javascript:;',
         $title => ''
     );
     echo $this->element('AdminUI/breadcrumbs', compact('breadcrumbs'));

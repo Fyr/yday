@@ -13,7 +13,7 @@
 ?>
 
         <?=$this->Html->link($title, $url, array('class' => 'title'))?>
-        <div class="description"><?=$teaser?></div>
+        <div class="description home-elipsys"><?=$teaser?></div>
     </div>
 <?
         if ((($i + 1) % 3) == 0 && $i > 0 && $i < (count($aNews) - 1)) {

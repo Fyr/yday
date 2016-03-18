@@ -45,4 +45,16 @@ $(document).ready(function(){
 		}
 	});
 
+	if ($("#owl-carousel").length) {
+		$("#owl-carousel").owlCarousel({
+			//autoPlay : 6000,
+			navigation: true,
+			pagination: false,
+			slideSpeed: 300,
+			singleItem: true,
+			lazyLoad: true,
+			autoHeight: true,
+			navigationText: ['<div class="icon icon-arrow-left"></div>', '<div class="icon icon-arrow-right"></div>']
+		});
+	}
 });

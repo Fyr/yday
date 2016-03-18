@@ -142,15 +142,6 @@ msgstr "Сортировка"
 msgid "Created"
 msgstr "Создано"
 
-msgid "Decimals"
-msgstr "Кол-во цифр для дробн.части"
-
-msgid "Div Float"
-msgstr "Символ-разделитель для дробн.части"
-
-msgid "Div Int"
-msgstr "Символ-разделитель для цел.части"
-
 msgid "System"
 msgstr "Система"
 
@@ -364,6 +355,15 @@ msgstr "Постфикс цены"
 msgid "Decimal point"
 msgstr "Разделитель разрядов"
 
+msgid "Decimals"
+msgstr "Кол-во цифр для дробн.части"
+
+msgid "Decimal point"
+msgstr "Разделитель для дробн.части"
+
+msgid "Thousands separator"
+msgstr "Разделитель для цел.части"
+
 msgid "Field type"
 msgstr "Тип поля"
 
@@ -462,3 +462,75 @@ msgstr "Заголовок"
 
 msgid "Description"
 msgstr "Описание"
+
+msgid "E-mail of admin"
+msgstr "E-mail администратора"
+
+msgid "Phone (header)"
+msgstr "Тел. (шапка)"
+
+msgid "Phone (footer)"
+msgstr "Тел. (подвал)"
+
+msgid "Catalogs"
+msgstr "Каталоги"
+
+msgid "Users"
+msgstr "Пользователи"
+
+msgid "Personal order services"
+msgstr "Услуги для индивидуальных заказов"
+
+msgid "Message from Support page"
+msgstr "Сообщение со страницы Поддержка"
+
+msgid "Error!"
+msgstr "Ошибка!"
+
+msgid "Mobile apps"
+msgstr "Моб.приложениe"
+
+msgid "App store URL"
+msgstr "App store URL"
+
+msgid "Google playmarket URL"
+msgstr "Google playmarket URL"
+
+msgid "Confirm password"
+msgstr "Подтверждение пароля"
+
+msgid "User profiles"
+msgstr "Профили пользователей"
+
+msgid "Admin profile"
+msgstr "Профиль администратора"
+
+msgid "Create service"
+msgstr "Создать услугу"
+
+msgid "Edit service"
+msgstr "Редактировать услугу"
+
+msgid "Create user"
+msgstr "Создать пользователя"
+
+msgid "Edit user"
+msgstr "Редактировать пользователя"
+
+msgid "Development"
+msgstr "Разработка"
+
+msgid "My profile"
+msgstr "Мой профиль"
+
+msgid "Log out"
+msgstr "Выход"
+
+msgid "Log out"
+msgstr "Выход"
+
+msgid "Custom orders"
+msgstr "Индивидуальный заказ"
+
+msgid "Log out"
+msgstr "Выход"

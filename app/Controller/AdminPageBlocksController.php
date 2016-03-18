@@ -7,7 +7,7 @@ class AdminPageBlocksController extends AdminContentController {
     public $uses = array('PageBlock');
 
     public $paginate = array(
-        'fields' => array('title', 'published', 'sorting'),
+        'fields' => array('title', 'slug', 'published', 'sorting'),
         'order' => array('sorting' => 'asc'),
         'limit' => 20
     );

@@ -1,8 +1,14 @@
+
 <div class="slide">
+	<div class="is_overlay">
+		<video autoplay="autoplay" loop="loop">
+			<source src="/img/video.mp4" type="video/mp4">
+		</video>
+	</div>
 	<div class="container">
 		<div class="phoneNumber">
 			<div>Бесплатный звонок</div>
-			<div class="number"><?=nl2br(Configure::read('Settings.phone'))?></div>
+			<div class="number"><?=nl2br(Configure::read('Settings.phone_header'))?></div>
 		</div>
 		<div class="text">
 			<h2><?=$page['title']?></h2>
@@ -10,6 +16,7 @@
 		</div>
 		<i class="vert"></i>
 	</div>
+	<div class="main-block-bg"></div>
 </div>
 <div class="slide">
 	<div class="container">
@@ -35,11 +42,11 @@
 		</div>
 	</div>
 </div>
-<div class="slide">
+<div class="slide" style="text-align: center">
 	<div class="container">
 		<i class="vert"></i>
 		<div class="text">
-			<h2><?=$blocks['order']['title']?></h2>
+			<h2><?=nl2br($blocks['order']['teaser'])?></h2>
 			<div class="description"><?=$blocks['order']['body']?></div>
 		</div>
 		<div class="main-order-form">
@@ -50,11 +57,13 @@
 		</div>
 	</div>
 </div>
-<div class="slide">
+<div class="slide" style="text-align: left">
 	<div class="container">
 		<h2><?=$blocks['abilities']['title']?></h2>
-		<img src="/img/main_page_img.png" alt="" />
-		<div class="title"><?=$blocks['abilities']['teaser']?></div>
+		<div style="text-align: center">
+			<img src="/img/main_page_img.png" alt="" />
+		</div>
+		<div class="title" style="text-align: center"><?=$blocks['abilities']['teaser']?></div>
 		<?=$blocks['abilities']['body']?>
 	</div>
 </div>
@@ -74,7 +83,7 @@
 </div>
 <div class="slide">
 	<div class="container">
-		<div class="text">
+		<div class="text" style="margin-top: 90px;">
 			<h2><?=$blocks['ready']['title']?></h2>
 			<div><?=$blocks['ready']['body']?></div>
 		</div>
@@ -84,7 +93,7 @@
 	<div class="container">
 		<div class="content">
 			<div class="left">
-				<h2><?=$blocks['remotecontrol']['title']?></h2>
+				<h2><?=nl2br($blocks['remotecontrol']['teaser'])?></h2>
 				<div><?=$blocks['remotecontrol']['body']?></div>
 			</div>
 			<div class="right">
@@ -131,39 +140,42 @@
 			<h2><?=$blocks['karaoke']['title']?></h2>
 			<div class="row">
 
-<?
-	foreach($aCategories as $cat_id => $category) {
-?>
-				<div class="col-sm-6">
-					<div class="title"><?=$category['Category']['title']?></div>
-<?
-		foreach($aProducts[$cat_id] as $id => $product) {
-			$this->ArticleVars->init($product, $url, $title, $teaser, $src, 'noresize');
-?>
-					<div class="item1">
-<?
-			if ($src) {
-?>
-						<div class="outerThumb">
-							<a href="<?=$url?>"><img src="<?=$src?>" alt="<?=$title?>" class="thumb img-responsive" /></a>
-						</div>
+				<?
+				$i = -1;
+				foreach($aCategories as $cat_id => $category) {
+					$i++;
+					?>
+					<div class="col-sm-6">
+						<div class="title"><?=$category['Category']['title']?></div>
+						<?
+						foreach($aProducts[$cat_id] as $id => $product) {
+							$this->ArticleVars->init($product, $url, $title, $teaser, $src, 'noresize');
 
-<?
-			}
-?>
-						<div class="description">
-							<?=$this->Html->link($title, $url)?>
-							<div class="text"><?=$teaser?></div>
-						</div>
+							?>
+							<div class="item<?=($i) ? $i : ''?>">
+								<?
+								if ($src) {
+									?>
+									<div class="outerThumb">
+										<a href="<?=$url?>"><img src="<?=$src?>" alt="<?=$title?>" class="thumb img-responsive" /></a>
+									</div>
+
+									<?
+								}
+								?>
+								<div class="description">
+									<?=$this->Html->link($title, $url)?>
+									<div class="text"><?=$teaser?></div>
+								</div>
+							</div>
+
+							<?
+						}
+						?>
 					</div>
-
-<?
-		}
-?>
-				</div>
-<?
-	}
-?>
+					<?
+				}
+				?>
 			</div>
 		</div>
 	</div>
@@ -187,12 +199,14 @@
 			</div>
 		</div>
 	</div>
-</div>
-<div class="footer slide">
-	<div class="container">
-		<i class="vert"></i>
-		<div class="content">
+	<div class="footer">
+		<div class="container">
 			<?=$this->element('SiteUI/footer')?>
 		</div>
 	</div>
 </div>
+<script>
+	$(function(){
+		$('.home-elipsys').dotdotdot();
+	});
+</script>

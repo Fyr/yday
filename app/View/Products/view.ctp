@@ -290,17 +290,3 @@
 
 	echo $this->element('call_us');
 ?>
-<script type="text/javascript">
-	$(document).ready(function(){
-		$("#owl-carousel").owlCarousel({
-			//autoPlay : 6000,
-			navigation : true,
-			pagination: false,
-			slideSpeed : 300,
-			singleItem : true,
-			lazyLoad : true,
-			autoHeight : true,
-			navigationText : ['<div class="icon icon-arrow-left"></div>','<div class="icon icon-arrow-right"></div>']
-		});
-	});
-</script>
