@@ -25,45 +25,29 @@
 	</div>
 	<div class="row virtualSystems realSystems">
 <?
+	$count = 0;
 	foreach($aProducts[$cat_id] as $product) {
-		$this->ArticleVars->init($product, $url, $title, $teaser, $src, 'noresize', $featured, $id);
-		$checked = (in_array($id, $selected)) ? 'checked="checked"' : '';
-?>
-		<div class="col-sm-<?=floor(12 / count($aProducts[$cat_id]))?>">
-			<div class="item <?=($checked) ? 'active' : ''?>">
-				<div class="outerCheckbox"><input type="checkbox" class="styler" name="data[products][]" value="<?=$id?>" autocomplete="off" <?=$checked?>/></div>
-<?
-		if ($src) {
-?>
-				<div class="outerThumb">
-					<a href="<?=$url?>"><img src="<?=$src?>" alt="<?=$title?>"/></a>
-					<i class="vert"></i>
-				</div>
-<?
-		}
-?>
-				<div class="title"><a href="<?=$url?>"><?=$title?></a></div>
-<?
+		$id = $product['Product']['id'];
 		if (isset($aPacks[$id])) {
 			foreach($aPacks[$id] as $pack) {
-				$price = $pack['ProductPack']['price'];
-?>
-				<div class="equipment"><?=$pack['ProductPack']['title']?></div>
-<?
-				if ($price) {
-?>
-					<div class="price"><?=$this->Price->format($price)?></div>
-
-<?
-				}
-				break;
+				$count++;
 			}
+		} else {
+			$count++;
 		}
-?>
-			</div>
-		</div>
-
-<?
+	}
+	$col = ($count > 4) ? 3 : ceil(12 / $count);
+	foreach($aProducts[$cat_id] as $product) {
+		$id = $product['Product']['id'];
+		$checked = (in_array($id, $selected)) ? 'checked="checked"' : '';
+		$pack = (isset($aPacks[$id])) ? $aPacks[$id] : array();
+		if (isset($aPacks[$id])) {
+			foreach($aPacks[$id] as $pack) {
+				echo $this->element('product_select', compact('col', 'product', 'pack', 'checked'));
+			}
+		} else {
+			echo $this->element('product_select', compact('col', 'product', 'checked'));
+		}
 	}
 ?>
 	</div>

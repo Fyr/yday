@@ -11,12 +11,16 @@
 	foreach($aProducts[$cat_id] as $id => $product) {
 		if (in_array($id, $selected)) {
 			if (isset($aPacks[$id])) {
-				foreach($aPacks[$id] as $pack) {
-					$i++;
-					echo $this->element('compare_product', compact('product', 'pack', 'buy', 'i'));
+				foreach($aPacks[$id] as $_id => $pack) {
+					if (in_array($_id, $selected_packs[$id])) {
+						$colspan++;
+						$i++;
+						echo $this->element('compare_product', compact('product', 'pack', 'buy', 'i'));
+					}
 				}
 			} else {
 				$i++;
+				$colspan++;
 				echo $this->element('compare_product', compact('product', 'buy', 'i'));
 			}
 		}
@@ -34,8 +38,10 @@
 		if (in_array($id, $selected)) {
 			$this->ArticleVars->init($product, $url, $title, $teaser, $src, 'noresize');
 			if (isset($aPacks[$id])) {
-				foreach($aPacks[$id] as $pack) {
-					echo $this->Html->tag('td', $teaser);
+				foreach($aPacks[$id] as $_id => $pack) {
+					if (in_array($_id, $selected_packs[$id])) {
+						echo $this->Html->tag('td', $teaser);
+					}
 				}
 			} else {
 				echo $this->Html->tag('td', $teaser);
@@ -67,10 +73,12 @@
 			if (in_array($id, $selected)) {
 				$class = (in_array($feature, $product['Product']['features'])) ? 'icon-check' : 'icon-close';
 				if (isset($aPacks[$id])) {
-					foreach ($aPacks[$id] as $pack) {
+					foreach ($aPacks[$id] as $_id =>$pack) {
+						if (in_array($_id, $selected_packs[$id])) {
 ?>
 				<td class="center"><span class="<?= $class ?>"></span></td>
 <?
+						}
 					}
 				} else {
 ?>
@@ -108,8 +116,10 @@
 						if (in_array($id, $selected)) {
 							$value = $aValues[$fid]['ProductParam'][$id];
 							if (isset($aPacks[$id])) {
-								foreach ($aPacks[$id] as $pack) {
-									echo $this->element('compare_param', compact('field', 'value'));
+								foreach ($aPacks[$id] as $_id=> $pack) {
+									if (in_array($_id, $selected_packs[$id])) {
+										echo $this->element('compare_param', compact('field', 'value'));
+									}
 								}
 							} else {
 								echo $this->element('compare_param', compact('field', 'value'));
@@ -142,13 +152,15 @@
 				foreach($aProducts[$cat_id] as $id => $product) {
 					if (in_array($id, $selected)) {
 						if (isset($aPacks[$id])) {
-							foreach($aPacks[$id] as $pack) {
+							foreach($aPacks[$id] as $_id => $pack) {
+								if (in_array($_id, $selected_packs[$id])) {
 ?>
 				<th class="center">
 					<b><?= $product['Product']['title'] ?></b><br/>
 					<?= $pack['ProductPack']['title'] ?>
 				</th>
 <?
+								}
 							}
 						} else {
 ?>
@@ -168,9 +180,11 @@
 					foreach($aProducts[$cat_id] as $id => $product) {
 						if (in_array($id, $selected)) {
 							if (isset($aPacks[$id])) {
-								foreach ($aPacks[$id] as $pack_id => $pack) {
-									$value = $aValues[$fid]['ProductPackParam'][$pack_id];
-									echo $this->element('compare_param', compact('field', 'value'));
+								foreach ($aPacks[$id] as $_id => $pack) {
+									if (in_array($_id, $selected_packs[$id])) {
+										$value = $aValues[$fid]['ProductPackParam'][$_id];
+										echo $this->element('compare_param', compact('field', 'value'));
+									}
 								}
 							} else {
 ?>
@@ -195,9 +209,11 @@
 	foreach($aProducts[$cat_id] as $id => $product) {
 		if (in_array($id, $selected)) {
 			if (isset($aPacks[$id])) {
-				foreach($aPacks[$id] as $pack) {
-					$i++;
-					echo $this->element('compare_product', compact('product', 'pack', 'buy', 'i'));
+				foreach($aPacks[$id] as $_id => $pack) {
+					if (in_array($_id, $selected_packs[$id])) {
+						$i++;
+						echo $this->element('compare_product', compact('product', 'pack', 'buy', 'i'));
+					}
 				}
 			} else {
 				$i++;

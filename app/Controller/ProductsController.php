@@ -85,8 +85,18 @@ class ProductsController extends AppController {
 
 	public function compare($cat_id, $selected = '') {
 		$this->set('cat_id', $cat_id);
+		$selected_packs = array();
 		$selected = ($selected) ? explode(',', $selected) : array();
-		$this->set('selected', $selected);
+
+		foreach($selected as &$sel) {
+			if (strpos($sel, '-') !== false) {
+				list($prod_id, $pack_id) = explode('-', $sel);
+				$selected_packs[$prod_id][] = $pack_id;
+				$sel = $prod_id;
+			}
+		}
+		$selected = array_unique($selected);
+		$this->set(compact('selected', 'selected_packs'));
 
 		$conditions = array('parent_id' => $cat_id);
 		$order = 'sorting';
