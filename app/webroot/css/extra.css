@@ -22,3 +22,11 @@
 }
 
 .newsContainer .news .description { height: auto; }
+
+table.sectionContent td p, .section.downloadMobiles .leftText p { line-height: 1.42857}
+#fsvs-body #slide-1 {
+    background: url("../img/video_bkg.png") no-repeat scroll center center / cover ;
+    text-align: center;
+}
+
+#tagcloud {position: relative; z-index: 1;}
