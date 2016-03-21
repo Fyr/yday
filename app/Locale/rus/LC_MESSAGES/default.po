@@ -496,8 +496,8 @@ msgstr "Сообщение со страницы Поддержка"
 msgid "Error!"
 msgstr "Ошибка!"
 
-msgid "Mobile apps"
-msgstr "Моб.приложениe"
+msgid "Applications"
+msgstr "Приложения"
 
 msgid "App store URL"
 msgstr "App store URL"
@@ -543,3 +543,12 @@ msgstr "Индивидуальный заказ"
 
 msgid "Log out"
 msgstr "Выход"
+
+msgid "The advantages of working with a player"
+msgstr "Преимущества работы с плеером"
+
+msgid "Player licence"
+msgstr "Лицензия плеера"
+
+msgid "Player price, RUR"
+msgstr "Стоимость плеера, RUR"

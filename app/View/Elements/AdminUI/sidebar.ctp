@@ -72,7 +72,7 @@
 			array('label' => __('System'), 'url' => array('controller' => 'AdminSettings', 'action' => 'index')),
 			array('label' => __('Contacts'), 'url' => array('controller' => 'AdminSettings', 'action' => 'contacts')),
 			array('label' => __('Prices'), 'url' => array('controller' => 'AdminSettings', 'action' => 'prices')),
-			array('label' => __('Mobile apps'), 'url' => array('controller' => 'AdminSettings', 'action' => 'apps'))
+			array('label' => __('Applications'), 'url' => array('controller' => 'AdminSettings', 'action' => 'apps'))
 		)),
 	);
 

@@ -40,4 +40,9 @@ class ArticleVarsHelper extends AppHelper {
 		return $aCols;
 	}
 
+	public function list2array($list) {
+		$list = str_replace(array('<br />', '<br>'), '', trim($list)); // почему-то иногда при добавлении записи в textarea есть <br>
+		return explode("\n", str_replace("\r\n", "\n", trim($list)));
+	}
+
 }

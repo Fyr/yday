@@ -1,5 +1,5 @@
 <?
-	$title = __('Mobile apps');
+	$title = __('Applications');
 	$breadcrumbs = array(
 		__('Settings') => 'javascript:;',
 		$title => ''
@@ -17,6 +17,8 @@
 	echo $this->element('AdminUI/form_title', compact('title'));
 	echo $this->PHForm->create('Settings');
 
+	echo $this->PHForm->input('player_licence', array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Player licence'))));
+	echo $this->PHForm->input('player_price_rur', array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Player price, RUR'))));
 	echo $this->PHForm->input('app_apple', array('label' => array('class' => 'col-md-3 control-label', 'text' => __('App store URL'))));
 	echo $this->PHForm->input('app_google', array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Google playmarket URL'))));
 
