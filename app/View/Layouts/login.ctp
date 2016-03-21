@@ -7,7 +7,7 @@
 <!-- BEGIN HEAD -->
 <head>
 	<?=$this->Html->charset();?>
-	<title><?=Configure::read('domain.title')?> CMS - Authorization</title>
+	<title><?=Configure::read('domain.title')?> CMS - <?=__('Authorization')?></title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta content="width=device-width, initial-scale=1" name="viewport" />
 	<!-- BEGIN GLOBAL MANDATORY STYLES -->

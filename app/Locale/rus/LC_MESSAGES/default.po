@@ -4,6 +4,15 @@ msgstr "Пользователь"
 msgid "Invalid username or password, try again"
 msgstr "Неправильное имя пользователя или пароль"
 
+msgid "Authorization"
+msgstr "Авторизация"
+
+msgid "Login"
+msgstr "Вход"
+
+msgid "Remember me"
+msgstr "Запомнить"
+
 msgid "Jan"
 msgstr "Янв"
 
