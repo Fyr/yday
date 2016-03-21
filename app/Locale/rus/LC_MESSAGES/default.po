@@ -547,6 +547,9 @@ msgstr "Выход"
 msgid "The advantages of working with a player"
 msgstr "Преимущества работы с плеером"
 
+msgid "The advantages of working with a application"
+msgstr "Преимущества работы с приложением"
+
 msgid "Player licence"
 msgstr "Лицензия плеера"
 

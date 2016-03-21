@@ -50,4 +50,16 @@ class PagesController extends AppController {
 		$doc = $this->Media->find('first', compact('conditions'));
 		$this->set(compact('page', 'blocks', 'aMedia', 'doc'));
 	}
+
+	public function tablet() {
+		$page = $this->Page->findBySlug('tablet');
+		$blocks = $this->PageBlock->findAllByParentIdAndPublished($page['Page']['id'], 1, null, 'PageBlock.sorting');
+
+		$conditions = array('media_type' => 'image', 'object_type' => 'Page', 'object_id' => $page['Page']['id']);
+		$aMedia = $this->Media->find('all', compact('conditions'));
+
+		$conditions = array('media_type' => 'raw_file', 'object_type' => 'Page', 'object_id' => $page['Page']['id']);
+		$doc = $this->Media->find('first', compact('conditions'));
+		$this->set(compact('page', 'blocks', 'aMedia', 'doc'));
+	}
 }

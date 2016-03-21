@@ -51,7 +51,6 @@
         $text = $block['PageBlock']['body'];
         if ($block['PageBlock']['slug'] == 'player-features') {
             $features = $this->ArticleVars->list2array($teaser);
-            fdebug($features);
             echo $this->element('player_features', compact('class', 'title', 'features'));
         } elseif ($block['PageBlock']['slug'] == 'player-try-and-buy') {
             echo $this->element('player_try', compact('title', 'teaser'));
