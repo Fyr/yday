@@ -7,6 +7,7 @@ App::uses('SubscrPlan', 'Model');
 App::uses('Service', 'Model');
 class CatalogController extends AppController {
 	public $uses = array('Page', 'PageBlock', 'Media.Media', 'SongPack', 'SubscrPlan', 'Service');
+	public $helpers = array('Media.PHMedia');
 
 	public function index() {
 		$page = $this->Page->findBySlug('karaoke-songs-packs');
@@ -32,5 +33,20 @@ class CatalogController extends AppController {
 		$aMedia = $this->Media->find('all', compact('conditions'));
 
 		$this->set(compact('page', 'aServices', 'aMedia'));
+	}
+
+	public function full() {
+		$page = $this->Page->findBySlug('full-catalog');
+
+		$id = $page['Page']['id'];
+		$conditions = array('media_type' => 'image', 'object_type' => 'Page', 'object_id' => $id);
+		$aMedia = $this->Media->find('all', compact('conditions'));
+
+		$conditions = array('media_type' => 'raw_file', 'object_type' => 'Page', 'object_id' => $id, 'ext' => '.pdf');
+		$pdf = $this->Media->find('first', compact('conditions'));
+
+		$conditions = array('media_type' => 'audio', 'object_type' => 'Page', 'object_id' => $id, 'ext' => array('.mp3', '.wav'));
+		$aTracks = $this->Media->find('all', compact('conditions'));
+		$this->set(compact('page', 'aMedia', 'pdf', 'aTracks'));
 	}
 }

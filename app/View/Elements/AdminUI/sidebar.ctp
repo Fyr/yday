@@ -62,7 +62,7 @@
 		array('label' => __('Catalogs'), 'icon' => 'icon-playlist', 'url' => '', 'submenu' => array(
 			array('label' => __('Song PDF-packs'), 'url' => array('controller' => 'AdminSongPacks', 'action' => 'index')),
 			array('label' => __('Subscription plans'), 'url' => array('controller' => 'AdminSubscrPlans', 'action' => 'index')),
-			array('label' => __('Personal order services'), 'url' => array('controller' => 'AdminPersonalServices', 'action' => 'index')),
+			array('label' => __('Personal order services'), 'url' => array('controller' => 'AdminServices', 'action' => 'index')),
 		)),
 		array('label' => __('Users'), 'icon' => 'icon-user', 'url' => '', 'submenu' => array(
 			array('label' => __('User profiles'), 'url' => array('controller' => 'AdminUsers', 'action' => 'index')),
@@ -72,7 +72,8 @@
 			array('label' => __('System'), 'url' => array('controller' => 'AdminSettings', 'action' => 'index')),
 			array('label' => __('Contacts'), 'url' => array('controller' => 'AdminSettings', 'action' => 'contacts')),
 			array('label' => __('Prices'), 'url' => array('controller' => 'AdminSettings', 'action' => 'prices')),
-			array('label' => __('Applications'), 'url' => array('controller' => 'AdminSettings', 'action' => 'apps'))
+			array('label' => __('Applications'), 'url' => array('controller' => 'AdminSettings', 'action' => 'apps')),
+			array('label' => __('Catalogs'), 'url' => array('controller' => 'AdminSettings', 'action' => 'catalogs'))
 		)),
 	);
 
@@ -139,7 +140,7 @@
 	} elseif (in_array($this->request->controller, array('AdminProductBlocks', 'AdminProductPacks'))) {
 		$currMenu = 7;
 	} elseif ($this->request->controller == 'AdminSettings') {
-		$submenu = array('index' => 16, 'contacts' => 17, 'prices' => 18, 'apps' => 19);
+		$submenu = array('index' => 16, 'contacts' => 17, 'prices' => 18, 'apps' => 19, 'catalogs' => 20);
 		$currMenu = $submenu[$this->request->action];
 	} elseif ($this->request->controller == 'AdminUsers') {
 		$currMenu = ($this->request->action == 'edit' && $this->request->pass[0] == 1) ? 14 : 13;

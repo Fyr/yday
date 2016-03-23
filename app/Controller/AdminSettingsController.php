@@ -28,4 +28,7 @@ class AdminSettingsController extends AdminController {
 
     public function apps() {
     }
+
+    public function catalogs() {
+    }
 }

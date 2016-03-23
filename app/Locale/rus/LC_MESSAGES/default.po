@@ -555,3 +555,22 @@ msgstr "Лицензия плеера"
 
 msgid "Player price, RUR"
 msgstr "Стоимость плеера, RUR"
+
+msgid "Price, RUR"
+msgstr "Цена, RUR"
+
+msgid "Price, USD"
+msgstr "Цена, USD"
+
+msgid "Song price, RUR"
+msgstr "Цена одной песни, RUR"
+
+msgid "Song price, USD"
+msgstr "Цена одной песни, USD"
+
+msgid "Catalog features"
+msgstr "Возможности каталога"
+
+msgid "Full catalog"
+msgstr "Полный каталог"
+

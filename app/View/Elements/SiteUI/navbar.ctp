@@ -37,7 +37,7 @@
 				<li class="dropdown">
 					<a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">Каталоги <span class="icon-arrow-down"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="#">Полный каталог</a></li>
+						<li><?=$this->Html->link(__('Full catalog'), array('controller' => 'catalog', 'action' => 'full'))?></li>
 						<li><?=$this->Html->link(__('Song packs'), array('controller' => 'catalog', 'action' => 'index'))?></li>
 						<li><?=$this->Html->link(__('Custom orders'), array('controller' => 'catalog', 'action' => 'custom'))?></li>
 					</ul>
@@ -46,7 +46,7 @@
 					<a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">Приложения <span class="icon-arrow-down"></span></a>
 					<ul class="dropdown-menu">
 						<li><?=$this->Html->link('Karaoke Player', array('controller' => 'pages', 'action' => 'player'))?></li>
-						<li><?=$this->Html->link('Karaoke Tablet', array('controller' => 'pages', 'action' => 'tablet'))?></li>
+						<li><?=$this->Html->link('Karaoke Tablet', array('controller' => 'pages', 'act`ion' => 'tablet'))?></li>
 					</ul>
 				</li>
 				<li><?=$this->Html->link(__('Support'), array('controller' => 'faq', 'action' => 'index'))?></li>
