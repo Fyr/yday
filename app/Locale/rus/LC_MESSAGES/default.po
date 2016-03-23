@@ -574,3 +574,5 @@ msgstr "Возможности каталога"
 msgid "Full catalog"
 msgstr "Полный каталог"
 
+msgid "Page not found"
+msgstr "Страница не найдена"

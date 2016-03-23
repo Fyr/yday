@@ -1,10 +1,10 @@
 <?
 App::uses('ExceptionRenderer', 'Error');
-class SiteExceptionRenderer extends ExceptionRenderer {
+class AppExceptionRenderer extends ExceptionRenderer {
 
     public function render() {
         $this->controller->set('title_for_layout', __('Error!'));
-        if (TEST_ENV) {
+        if (Configure::read('debug') == 2) {
             parent::render();
         } else {
             if ($this->method !== 'error500') {
