@@ -9,6 +9,7 @@ class PriceHelper extends AppHelper {
 			Configure::read('Settings.float_div_'.$currency),
 			Configure::read('Settings.int_div_'.$currency)
 		);
-		return Configure::read('Settings.price_prefix_'.$currency).$sum.Configure::read('Settings.price_postfix_'.$currency);
+		$sum = Configure::read('Settings.price_prefix_'.$currency).$sum.Configure::read('Settings.price_postfix_'.$currency);
+		return str_replace('$P', '<span class="rubl">₽</span>', $sum);
 	}
 }

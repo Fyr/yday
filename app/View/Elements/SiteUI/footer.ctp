@@ -34,6 +34,6 @@
         </div>
         <div class="col-sm-2 developer">
             <div class="dev">Разработка сайта</div>
-            <a href="http://kakadu.bz" title="Перейти на сайт разработчика kakadu.bz"><img alt="Разработка сайта: kakadu.bz" src="/img/kakadu.png"></a></div>
+            <a href="http://kakadu.bz" title="Перейти на сайт разработчика kakadu.bz" target="_blank"><img alt="Разработка сайта: kakadu.bz" src="/img/kakadu.png"></a></div>
     </div>
     

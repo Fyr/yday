@@ -7,8 +7,10 @@
 	</div>
 	<div class="container">
 		<div class="phoneNumber">
-			<div>Бесплатный звонок</div>
-			<div class="number"><?=nl2br(Configure::read('Settings.phone_header'))?></div>
+			<div class="phone">
+				<div>Бесплатный звонок</div>
+				<div class="number"><?=nl2br(Configure::read('Settings.phone_header'))?></div>
+			</div>
 		</div>
 		<div class="text">
 			<h2><?=$page['title']?></h2>
@@ -140,42 +142,41 @@
 			<h2><?=$blocks['karaoke']['title']?></h2>
 			<div class="row">
 
-				<?
-				$i = -1;
-				foreach($aCategories as $cat_id => $category) {
-					$i++;
-					?>
-					<div class="col-sm-6">
-						<div class="title"><?=$category['Category']['title']?></div>
-						<?
-						foreach($aProducts[$cat_id] as $id => $product) {
-							$this->ArticleVars->init($product, $url, $title, $teaser, $src, 'noresize');
+<?
+	$i = -1;
+	foreach($aCategories as $cat_id => $category) {
+		$i++;
+?>
+				<div class="col-sm-6">
+					<div class="title"><?=$category['Category']['title']?></div>
+<?
+		foreach($aProducts[$cat_id] as $id => $product) {
+			$this->ArticleVars->init($product, $url, $title, $teaser, $src, 'noresize');
+?>
+					<div class="item<?=($i) ? $i : ''?>">
+<?
+			if ($src) {
+?>
+						<div class="outerThumb">
+							<a href="<?=$url?>"><img src="<?=$src?>" alt="<?=$title?>" class="thumb img-responsive" /></a>
+						</div>
 
-							?>
-							<div class="item<?=($i) ? $i : ''?>">
-								<?
-								if ($src) {
-									?>
-									<div class="outerThumb">
-										<a href="<?=$url?>"><img src="<?=$src?>" alt="<?=$title?>" class="thumb img-responsive" /></a>
-									</div>
-
-									<?
-								}
-								?>
-								<div class="description">
-									<?=$this->Html->link($title, $url)?>
-									<div class="text"><?=$teaser?></div>
-								</div>
-							</div>
-
-							<?
-						}
-						?>
+<?
+			}
+?>
+						<div class="description">
+							<?=$this->Html->link($title, $url)?>
+							<div class="text"><?=$teaser?></div>
+						</div>
 					</div>
-					<?
-				}
-				?>
+
+<?
+		}
+?>
+				</div>
+<?
+	}
+?>
 			</div>
 		</div>
 	</div>
