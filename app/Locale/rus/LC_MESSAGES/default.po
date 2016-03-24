@@ -574,5 +574,9 @@ msgstr "Возможности каталога"
 msgid "Full catalog"
 msgstr "Полный каталог"
 
+msgid "Video (HTML-code)"
+msgstr "Видео (HTML-код)"
+
 msgid "Page not found"
 msgstr "Страница не найдена"
+

@@ -237,12 +237,14 @@
 	background-position: 0 -36px;
 }
 
+.playing .mejs-controls .mejs-play button { background-position: -63px -36px; }
+
 .mejs-controls .mejs-pause button {
 	background-position: -30px -36px;
 }
 
 .mejs-controls .mejs-stop button {
-	background-position: -112px 0;
+	
 }
 /* Start: Play/Pause/Stop */
 
@@ -318,6 +320,8 @@
 	top: -3px;
 	text-align: center;
 }
+
+.playing .mejs-controls .mejs-time-rail .mejs-time-handle { background: #6fbd3b;}
 
 .mejs-controls .mejs-time-rail .mejs-time-float {
 	position: absolute;

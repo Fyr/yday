@@ -2,7 +2,7 @@
 <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="controls.fw-Page_x25_201" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-	 x="0px" y="0px" width="144px" height="85.333px" viewBox="0 0 144 85.333" enable-background="new 0 0 144 85.333"
+	 x="0px" y="0px" width="144px" height="69.002px" viewBox="0 0 144 69.002" enable-background="new 0 0 144 69.002"
 	 xml:space="preserve">
 <path fill="none" d="z"/>
 <g id="BG">
@@ -101,82 +101,97 @@
 </g>
 <g id="play_x2F_pause">
 	<g id="play">
-		<path id="Polygon" fill="#333333" d="M14,8.5L3,14V3L14,8.5z"/>
+		
+			<linearGradient id="Polygon_3_" gradientUnits="userSpaceOnUse" x1="-203.7397" y1="401.9141" x2="-203.7397" y2="400.9141" gradientTransform="matrix(11 0 0 -11 2249.6406 4424.0547)">
+			<stop  offset="0" style="stop-color:#FFFFFF"/>
+			<stop  offset="1" style="stop-color:#C8C8C8"/>
+		</linearGradient>
+		<path id="Polygon" fill="url(#Polygon_3_)" d="M14,8.5L3,14V3L14,8.5z"/>
 	</g>
 	<g id="pause">
-		<rect x="3" y="18" fill="#333333" width="3" height="12"/>
-		<rect x="10" y="18" fill="#333333" width="3" height="12"/>
+		
+			<linearGradient id="SVGID_8_" gradientUnits="userSpaceOnUse" x1="-147.0469" y1="404.7959" x2="-147.0469" y2="403.7959" gradientTransform="matrix(3 0 0 -12 445.6406 4875.5547)">
+			<stop  offset="0" style="stop-color:#FFFFFF"/>
+			<stop  offset="1" style="stop-color:#C8C8C8"/>
+		</linearGradient>
+		<rect x="3" y="18" fill="url(#SVGID_8_)" width="3" height="12"/>
+		
+			<linearGradient id="SVGID_9_" gradientUnits="userSpaceOnUse" x1="-147.0464" y1="404.7959" x2="-147.0464" y2="403.7959" gradientTransform="matrix(3 0 0 -12 452.6406 4875.5547)">
+			<stop  offset="0" style="stop-color:#FFFFFF"/>
+			<stop  offset="1" style="stop-color:#C8C8C8"/>
+		</linearGradient>
+		<rect x="10" y="18" fill="url(#SVGID_9_)" width="3" height="12"/>
 	</g>
 </g>
 <g id="fullscreen">
 	<g id="enter_x25_201">
 		
-			<linearGradient id="SVGID_8_" gradientUnits="userSpaceOnUse" x1="-178.228" y1="360.4111" x2="-178.228" y2="358.0236" gradientTransform="matrix(5 0 0 -5 927.6406 1804.0547)">
+			<linearGradient id="SVGID_10_" gradientUnits="userSpaceOnUse" x1="-178.228" y1="360.4111" x2="-178.228" y2="358.0236" gradientTransform="matrix(5 0 0 -5 927.6406 1804.0547)">
 			<stop  offset="0" style="stop-color:#FFFFFF"/>
 			<stop  offset="1" style="stop-color:#C8C8C8"/>
 		</linearGradient>
-		<path fill="url(#SVGID_8_)" d="M34,2h5l-5,5V2z"/>
+		<path fill="url(#SVGID_10_)" d="M34,2h5l-5,5V2z"/>
 		
-			<linearGradient id="SVGID_9_" gradientUnits="userSpaceOnUse" x1="-178.228" y1="361.8115" x2="-178.228" y2="359.424" gradientTransform="matrix(5 0 0 -5 927.6406 1811.0547)">
+			<linearGradient id="SVGID_11_" gradientUnits="userSpaceOnUse" x1="-178.228" y1="361.8115" x2="-178.228" y2="359.424" gradientTransform="matrix(5 0 0 -5 927.6406 1811.0547)">
 			<stop  offset="0" style="stop-color:#FFFFFF"/>
 			<stop  offset="1" style="stop-color:#C8C8C8"/>
 		</linearGradient>
-		<path fill="url(#SVGID_9_)" d="M34,14h5l-5-5V14z"/>
+		<path fill="url(#SVGID_11_)" d="M34,14h5l-5-5V14z"/>
 		
-			<linearGradient id="SVGID_10_" gradientUnits="userSpaceOnUse" x1="-178.228" y1="360.4111" x2="-178.228" y2="358.0236" gradientTransform="matrix(5 0 0 -5 934.6406 1804.0547)">
+			<linearGradient id="SVGID_12_" gradientUnits="userSpaceOnUse" x1="-178.228" y1="360.4111" x2="-178.228" y2="358.0236" gradientTransform="matrix(5 0 0 -5 934.6406 1804.0547)">
 			<stop  offset="0" style="stop-color:#FFFFFF"/>
 			<stop  offset="1" style="stop-color:#C8C8C8"/>
 		</linearGradient>
-		<path fill="url(#SVGID_10_)" d="M46,2h-5l5,5V2z"/>
+		<path fill="url(#SVGID_12_)" d="M46,2h-5l5,5V2z"/>
 		
-			<linearGradient id="SVGID_11_" gradientUnits="userSpaceOnUse" x1="-178.228" y1="361.8115" x2="-178.228" y2="359.424" gradientTransform="matrix(5 0 0 -5 934.6406 1811.0547)">
+			<linearGradient id="SVGID_13_" gradientUnits="userSpaceOnUse" x1="-178.228" y1="361.8115" x2="-178.228" y2="359.424" gradientTransform="matrix(5 0 0 -5 934.6406 1811.0547)">
 			<stop  offset="0" style="stop-color:#FFFFFF"/>
 			<stop  offset="1" style="stop-color:#C8C8C8"/>
 		</linearGradient>
-		<path fill="url(#SVGID_11_)" d="M46,14h-5l5-5V14z"/>
+		<path fill="url(#SVGID_13_)" d="M46,14h-5l5-5V14z"/>
 	</g>
 	<g id="exit">
 		
-			<linearGradient id="SVGID_12_" gradientUnits="userSpaceOnUse" x1="-166.5352" y1="341.3887" x2="-166.5352" y2="338.4043" gradientTransform="matrix(4 0 0 -4 710.1406 1383.5547)">
+			<linearGradient id="SVGID_14_" gradientUnits="userSpaceOnUse" x1="-166.5352" y1="341.3887" x2="-166.5352" y2="338.4043" gradientTransform="matrix(4 0 0 -4 710.1406 1383.5547)">
 			<stop  offset="0" style="stop-color:#FFFFFF"/>
 			<stop  offset="1" style="stop-color:#C8C8C8"/>
 		</linearGradient>
-		<path fill="url(#SVGID_12_)" d="M42,22h4l-4-4V22z"/>
+		<path fill="url(#SVGID_14_)" d="M42,22h4l-4-4V22z"/>
 		
-			<linearGradient id="SVGID_13_" gradientUnits="userSpaceOnUse" x1="-166.5352" y1="341.3887" x2="-166.5352" y2="339.0012" gradientTransform="matrix(4 0 0 -4 702.1406 1383.5547)">
+			<linearGradient id="SVGID_15_" gradientUnits="userSpaceOnUse" x1="-166.5352" y1="341.3887" x2="-166.5352" y2="339.0012" gradientTransform="matrix(4 0 0 -4 702.1406 1383.5547)">
 			<stop  offset="0" style="stop-color:#FFFFFF"/>
 			<stop  offset="1" style="stop-color:#C8C8C8"/>
 		</linearGradient>
-		<path fill="url(#SVGID_13_)" d="M38,22v-4l-4,4H38z"/>
+		<path fill="url(#SVGID_15_)" d="M38,22v-4l-4,4H38z"/>
 		
-			<linearGradient id="SVGID_14_" gradientUnits="userSpaceOnUse" x1="-166.5352" y1="343.3887" x2="-166.5352" y2="340.3887" gradientTransform="matrix(4 0 0 -4 702.1406 1391.5547)">
+			<linearGradient id="SVGID_16_" gradientUnits="userSpaceOnUse" x1="-166.5352" y1="343.3887" x2="-166.5352" y2="340.3887" gradientTransform="matrix(4 0 0 -4 702.1406 1391.5547)">
 			<stop  offset="0" style="stop-color:#FFFFFF"/>
 			<stop  offset="1" style="stop-color:#C8C8C8"/>
 		</linearGradient>
-		<path fill="url(#SVGID_14_)" d="M38,26h-4l4,4V26z"/>
+		<path fill="url(#SVGID_16_)" d="M38,26h-4l4,4V26z"/>
 		
-			<linearGradient id="SVGID_15_" gradientUnits="userSpaceOnUse" x1="-166.5352" y1="343.3887" x2="-166.5352" y2="340.2793" gradientTransform="matrix(4 0 0 -4 710.1406 1391.5547)">
+			<linearGradient id="SVGID_17_" gradientUnits="userSpaceOnUse" x1="-166.5352" y1="343.3887" x2="-166.5352" y2="340.2793" gradientTransform="matrix(4 0 0 -4 710.1406 1391.5547)">
 			<stop  offset="0" style="stop-color:#FFFFFF"/>
 			<stop  offset="1" style="stop-color:#C8C8C8"/>
 		</linearGradient>
-		<path fill="url(#SVGID_15_)" d="M42,26v4l4-4H42z"/>
+		<path fill="url(#SVGID_17_)" d="M42,26v4l4-4H42z"/>
 	</g>
 </g>
 <g id="stop">
 	
-		<linearGradient id="SVGID_16_" gradientUnits="userSpaceOnUse" x1="-201.6138" y1="398.4561" x2="-201.6138" y2="397.4561" gradientTransform="matrix(10 0 0 -10 2136.1406 3987.5547)">
+		<linearGradient id="SVGID_18_" gradientUnits="userSpaceOnUse" x1="-201.6138" y1="398.4561" x2="-201.6138" y2="397.4561" gradientTransform="matrix(10 0 0 -10 2136.1406 3987.5547)">
 		<stop  offset="0" style="stop-color:#FFFFFF"/>
 		<stop  offset="1" style="stop-color:#C8C8C8"/>
 	</linearGradient>
-	<rect x="115" y="3" fill="url(#SVGID_16_)" width="10" height="10"/>
+	<rect x="115" y="3" fill="url(#SVGID_18_)" width="10" height="10"/>
 </g>
 <g id="chooser">
 	
-		<linearGradient id="SVGID_17_" gradientUnits="userSpaceOnUse" x1="-207.2358" y1="407.6006" x2="-207.2358" y2="406.6006" gradientTransform="matrix(13.1648 0 0 -13.1648 2864.2158 5367.4043)">
+		<linearGradient id="SVGID_19_" gradientUnits="userSpaceOnUse" x1="-207.2358" y1="407.6006" x2="-207.2358" y2="406.6006" gradientTransform="matrix(13.1648 0 0 -13.1648 2864.2158 5367.4043)">
 		<stop  offset="0" style="stop-color:#FFFFFF"/>
 		<stop  offset="0.9944" style="stop-color:#C8C8C8"/>
 	</linearGradient>
-	<path fill="url(#SVGID_17_)" d="M135.234,6.152c1.021-0.423,2.191,0.062,2.613,1.082c0.423,1.021-0.062,2.19-1.082,2.613
+	<path fill="url(#SVGID_19_)" d="M135.234,6.152c1.021-0.423,2.191,0.062,2.613,1.082c0.423,1.021-0.062,2.19-1.082,2.613
 		s-2.191-0.062-2.613-1.082C133.729,7.745,134.214,6.575,135.234,6.152z M133.273,1.417L136,4.005l2.727-2.588l0.098,3.758
 		l3.758,0.098L139.994,8l2.588,2.727l-3.758,0.098l-0.098,3.758L136,11.995l-2.727,2.588l-0.098-3.758l-3.758-0.098L132.006,8
 		l-2.588-2.727l3.758-0.098L133.273,1.417z"/>
@@ -184,14 +199,14 @@
 <path fill="none" d="z"/>
 <g id="play_x2F_pause_1_">
 	<g id="play_1_">
-		<path id="Polygon_1_" fill="#333333" d="M25.999,50.999L0.001,65.998V36L25.999,50.999z"/>
+		<path id="Polygon_1_" fill="#333333" d="M26,51L0,66V36L26,51z"/>
 	</g>
 	<g id="pause_1_">
-		<rect x="30.563" y="36" fill="#6FBD3B" width="7.5" height="29.996"/>
-		<rect x="48.062" y="36" fill="#6FBD3B" width="7.5" height="29.996"/>
+		<rect x="30.5" y="36" fill="#6FBD3B" width="7.495" height="29.979"/>
+		<rect x="47.988" y="36" fill="#6FBD3B" width="7.495" height="29.979"/>
 	</g>
 	<g id="play_2_">
-		<path id="Polygon_2_" fill="#6FBD3B" d="M91.998,51.017L66,66.034V36L91.998,51.017z"/>
+		<path id="Polygon_2_" fill="#6FBD3B" d="M88.959,51l-26,15V36L88.959,51z"/>
 	</g>
 </g>
 </svg>

@@ -61,7 +61,7 @@
 	foreach($aTracks as $media) {
 ?>
 				<div class="songPlayer">
-					<div class="songTitle"><?=$media['Media']['orig_fname']?></div>
+					<div class="songTitle"><?=pathinfo($media['Media']['orig_fname'], PATHINFO_FILENAME)?></div>
 					<audio id="player2" src="<?=$media['Media']['url_download']?>" type="audio/<?=str_replace('.', '', $media['Media']['ext'])?>" controls="controls"></audio>
 				</div>
 
@@ -71,7 +71,8 @@
 			</div>
 			<div class="col-sm-6">
 				<!-- img src="/img/temp/youtube.jpg" class="img-responsive" alt="" /-->
-				<iframe width="600" height="350" src="https://www.youtube.com/embed/et281UHNoOU" frameborder="0" allowfullscreen></iframe>
+				<!--iframe width="600" height="350" src="https://www.youtube.com/embed/et281UHNoOU" frameborder="0" allowfullscreen></iframe-->
+				<?=Configure::read('Settings.catalog_video')?>
 			</div>
 		</div>
 		<div class="row catalogPrice">
@@ -105,16 +106,7 @@
 			features: ['playpause','current','duration','progress'],
 			success: function(media, node, player) {
 				media.addEventListener('play', function(e) {
-					console.log('play', media, node, player, e);
-				});
-				media.addEventListener('playing', function(e) {
-					console.log('playing', media, node, player, e);
-				});
-				media.addEventListener('pause', function(e) {
-					console.log('pause', media, node, player, e);
-				});
-				media.addEventListener('ended', function(e) {
-					console.log('ended', media, node, player, e);
+					$(player.container).addClass('playing');
 				});
 			}
 		});
