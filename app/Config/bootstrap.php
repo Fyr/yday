@@ -21,7 +21,7 @@ CakeLog::config('error', array(
 	'file' => 'error',
 ));
 Configure::write('Exception.renderer', 'AppExceptionRenderer');
-Configure::write('Config.language', 'rus');
+// Configure::write('Config.language', 'rus');
 
 /* -= Custom settings =- */
 Configure::write('domain', array(

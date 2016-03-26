@@ -31,6 +31,16 @@
 							</a>
 						</li>
 						<li>
+							<a href="javascript:;" onclick="setLang('eng')">
+								<i class="icon-globe"></i> English version
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;" onclick="setLang('rus')">
+								<i class="icon-flag"></i> Русская версия
+							</a>
+						</li>
+						<li>
 							<a href="<?=$this->Html->url(array('controller' => 'AdminAuth', 'action' => 'logout'))?>">
 								<i class="icon-key"></i> <?=__('Log out')?>
 							</a>

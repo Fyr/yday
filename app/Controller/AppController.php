@@ -20,6 +20,9 @@ class AppController extends Controller {
 		// after construct actions here
 		$this->loadModel('Settings');
 		$this->Settings->initData();
+
+		$lang = (isset($_COOKIE['lang']) && $_COOKIE['lang'] == 'eng') ? 'eng' : 'rus';
+		Configure::write('Config.language', $lang);
 	}
 
 	public function loadModel($modelClass = null, $id = null) {

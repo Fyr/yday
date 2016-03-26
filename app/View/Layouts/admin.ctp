@@ -183,6 +183,8 @@ $(function(){
 <!--script src="http://<?=Configure::read('domain.url')?>/assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script-->
 <script src="http://<?=Configure::read('domain.url')?>/assets/global/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.ru.min.js" type="text/javascript"></script>
 
+<script src="http://<?=Configure::read('domain.url')?>/js/vendor/jquery.cookie.js" type="text/javascript"></script>
+<script src="http://<?=Configure::read('domain.url')?>/js/lang.js" type="text/javascript"></script>
 <?
 	echo $this->fetch('script');
 ?>
