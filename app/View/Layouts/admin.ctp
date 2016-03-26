@@ -54,6 +54,7 @@
 ?>
 <style>
 	.pagination .prev.disabled, .pagination .next.disabled { display: none; }
+	.table.dataTable p {margin: 0 0 0.13em 0;}
 </style>
 	<script src="http://<?=Configure::read('domain.url')?>/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript">
