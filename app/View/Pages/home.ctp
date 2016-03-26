@@ -85,9 +85,11 @@
 </div>
 <div class="slide">
 	<div class="container">
-		<div class="text" style="margin-top: 90px;">
-			<h2><?=$blocks['ready']['title']?></h2>
-			<div><?=$blocks['ready']['body']?></div>
+		<div class="shadow">
+			<div class="text">
+				<h2><?=$blocks['ready']['title']?></h2>
+				<div><?=$blocks['ready']['body']?></div>
+			</div>
 		</div>
 	</div>
 </div>

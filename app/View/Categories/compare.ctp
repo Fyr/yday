@@ -11,6 +11,7 @@
 }
 .container > a.link.light:hover {
 	color: #333;
+	cursor: text;
 }
 </style>
 <div class="otherKaraokeSystems">

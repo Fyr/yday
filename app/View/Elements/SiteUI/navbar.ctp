@@ -46,7 +46,7 @@
 					<a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">Приложения <span class="icon-arrow-down"></span></a>
 					<ul class="dropdown-menu">
 						<li><?=$this->Html->link('Karaoke Player', array('controller' => 'pages', 'action' => 'player'))?></li>
-						<li><?=$this->Html->link('Karaoke Tablet', array('controller' => 'pages', 'act`ion' => 'tablet'))?></li>
+						<li><?=$this->Html->link('Karaoke Tablet', array('controller' => 'pages', 'action' => 'tablet'))?></li>
 					</ul>
 				</li>
 				<li><?=$this->Html->link(__('Support'), array('controller' => 'faq', 'action' => 'index'))?></li>
@@ -55,3 +55,4 @@
 
 	</div>
 </nav>
+

@@ -8,9 +8,7 @@
 .supportForm .input.text { text-align: left}
 .error-message { color: #f00; font-size: 14px;}
 
-#fsvs-body #slide-12 .item .description a:hover {
-    text-decoration: underline;
-}
+
 #fsvs-body #slide-12 .item .description {
     margin-left: 200px;
 }
