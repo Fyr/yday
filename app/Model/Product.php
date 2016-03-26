@@ -1,10 +1,8 @@
 <?php
 App::uses('AppModel', 'Model');
-App::uses('Article', 'Article.Model');
 App::uses('Category', 'Model');
 App::uses('Media', 'Media.Model');
-class Product extends Article {
-    protected $objectType = 'Product';
+class Product extends AppModel {
 
     public $belongsTo = array(
         'Category' => array(
