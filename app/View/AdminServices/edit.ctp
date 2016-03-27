@@ -22,9 +22,15 @@
     $tabs = array(
         __('General') => $this->Html->div('form-body',
             $this->element('AdminUI/checkboxes', array('checkboxes' => array('published')))
-            .$this->PHForm->input('title')
-            .$this->PHForm->input('price_rur', array('class' => 'form-control input-small', 'label' => array('class' => 'col-md-3 control-label', 'text' => __('Price, RUR'))))
-            .$this->PHForm->input('price_usd', array('class' => 'form-control input-small', 'label' => array('class' => 'col-md-3 control-label', 'text' => __('Price, USD'))))
+            .$this->PHForm->input('title_'.$this->ArticleVars->getLang(),
+                array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Title')))
+            )
+            .$this->PHForm->input('price_'.$this->ArticleVars->getLang(),
+                array(
+                    'class' => 'form-control input-small',
+                    'label' => array('class' => 'col-md-3 control-label', 'text' => __('Price'))
+                )
+            )
             .$this->PHForm->input('sorting', array('class' => 'form-control input-small'))
         )
     );

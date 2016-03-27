@@ -7,7 +7,7 @@ class AdminFaqController extends AdminContentController {
     public $uses = array('Faq');
 
     public $paginate = array(
-        'fields' => array('title', 'body', 'published', 'sorting'),
+        'fields' => array('title_$lang', 'body_$lang', 'published', 'sorting'),
         'order' => array('sorting' => 'asc'),
         'limit' => 20
     );

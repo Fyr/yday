@@ -111,7 +111,7 @@ class PHFormHelper extends FormHelper {
 			} else {
 				$options['value'] = Hash::get($values, $id);
 			}
-			$options['label'] = array('text' => $field['PMFormField']['label'], 'class' => 'col-md-3 control-label');
+			$options['label'] = array('text' => $field['PMFormField']['label_'.$this->getLang()], 'class' => 'col-md-3 control-label');
 			$html.= $this->input('PMFormValue.value', $options);
 		}
 		return $html;

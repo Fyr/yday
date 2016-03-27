@@ -7,7 +7,7 @@ class AdminSongPacksController extends AdminContentController {
     public $uses = array('SongPack');
 
     public $paginate = array(
-        'fields' => array('title', 'published', 'sorting'),
+        'fields' => array('title_$lang', 'published', 'sorting'),
         'order' => array('sorting' => 'desc'),
         'limit' => 20
     );

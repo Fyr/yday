@@ -12,7 +12,7 @@ class AdminProductsController extends AdminContentController {
     public $uses = array('Product', 'Category', 'ParamGroup', 'Form.PMFormField', 'Form.PMFormValue');
 
     public $paginate = array(
-        'fields' => array('parent_id', 'title', 'slug', 'published', 'featured', 'sorting'),
+        'fields' => array('parent_id', 'title_$lang', 'slug', 'published', 'featured', 'sorting'),
         'order' => array('sorting' => 'desc'),
         'limit' => 20
     );
@@ -20,6 +20,14 @@ class AdminProductsController extends AdminContentController {
     public function beforeRender() {
         parent::beforeRender();
         $this->set('aCategoryOptions', $this->Category->getOptions());
+    }
+
+    public function index($parent_id = '') {
+        if ($parent_id) {
+            // Fix for redirecting on parent list
+            return $this->redirect(array('action' => 'index'));
+        }
+        parent::index();
     }
 
     protected function afterSave($id) {

@@ -14,7 +14,7 @@ class AdminProductPacksController extends AdminContentController {
     public $helpers = array('Price');
 
     public $paginate = array(
-        'fields' => array('title', 'price', 'sorting'),
+        'fields' => array('title_$lang', 'price_$lang', 'sorting'),
         'order' => array('sorting' => 'asc'),
         'limit' => 20
     );

@@ -30,11 +30,31 @@
 	}
 ?>
 
-<div class="form-actions">
+<!--div class="form-actions">
 	<div class="row">
 		<div class="col-md-12">
 			<button class="btn green" type="submit"><?=__('Save')?></button>
 			<?=$this->Html->link(__('Cancel'), $backURL, array('class' => 'btn default'))?>
+		</div>
+	</div>
+</div-->
+
+<div class="form-actions">
+	<div class="row">
+		<div class="col-md-3">
+			<a class="btn default" href="<?=Router::url($backURL)?>">
+				<i class="fa fa-angle-left"></i>&nbsp;&nbsp;<?=__('Back')?>
+			</a>
+		</div>
+		<div class="col-md-6">
+			<button type="submit" class="btn blue" name="save" value="save">
+				<i class="fa fa-save"></i>&nbsp;&nbsp;<?=__('Save')?>
+			</button>
+		</div>
+		<div class="col-md-3">
+			<button type="submit" class="btn green-jungle pull-right" name="apply" value="apply">
+				<?=__('Apply')?>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>
+			</button>
 		</div>
 	</div>
 </div>

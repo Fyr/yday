@@ -553,20 +553,11 @@ msgstr "Преимущества работы с приложением"
 msgid "Player licence"
 msgstr "Лицензия плеера"
 
-msgid "Player price, RUR"
-msgstr "Стоимость плеера, RUR"
+msgid "Player price"
+msgstr "Стоимость плеера"
 
-msgid "Price, RUR"
-msgstr "Цена, RUR"
-
-msgid "Price, USD"
-msgstr "Цена, USD"
-
-msgid "Song price, RUR"
-msgstr "Цена одной песни, RUR"
-
-msgid "Song price, USD"
-msgstr "Цена одной песни, USD"
+msgid "Song price"
+msgstr "Цена одной песни"
 
 msgid "Catalog features"
 msgstr "Возможности каталога"

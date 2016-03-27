@@ -12,6 +12,8 @@ class Category extends AppModel {
     );
 
     public function getOptions() {
-        return $this->find('list', array('order' => 'sorting'));
+        $fields = array('id', 'title_'.$this->getLang());
+        $order = 'sorting';
+        return $this->find('list', compact('fields', 'order'));
     }
 }

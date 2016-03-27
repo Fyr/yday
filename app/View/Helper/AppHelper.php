@@ -10,4 +10,8 @@ class AppHelper extends Helper {
 		list($objectType) = array_keys($article);
 		return $objectType;
 	}
+
+	public function getLang() {
+		return Configure::read('Config.language');
+	}
 }

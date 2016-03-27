@@ -21,14 +21,17 @@
 
     $tabs = array(
         __('General') => $this->Html->div('form-body',
-            $this->element('AdminUI/checkboxes', array('checkboxes' => array('featured')))
-            .$this->element('Article.edit_title')
-            .$this->element('Article.edit_slug')
-            .$this->PHForm->input('header')
+            $this->PHForm->input('title_'.$this->ArticleVars->getLang(),
+                array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Title')))
+            )
+            .$this->PHForm->input('slug')
+            .$this->PHForm->input('header_'.$this->ArticleVars->getLang(),
+                array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Header')))
+            )
             .$this->PHForm->input('sorting', array('class' => 'form-control input-small'))
         ),
-        __('Text') => $this->element('Article.edit_body'),
-        __('Description') => $this->element('Article.edit_body', array('field' => 'descr'))
+        __('Text') => $this->element('Article.edit_body', array('field' => 'body_'.$this->ArticleVars->getLang())),
+        __('Description') => $this->element('Article.edit_body', array('field' => 'descr_'.$this->ArticleVars->getLang())),
     );
 
     if ($id) {

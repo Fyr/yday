@@ -1,12 +1,13 @@
 <?
 	$title = $this->ObjectType->getTitle('index', $objectType);
 	$indexURL = array('controller' => 'AdminParamGroups', 'action' => 'index', Hash::get($category, 'Category.id'));
+	$editURL = array('controller' => 'AdminParamGroups', 'action' => 'edit', Hash::get($parentArticle, 'ParamGroup.id'));
 	$breadcrumbs = array(
 		__('eCommerce') => 'javascript:;',
 		$this->ObjectType->getTitle('index', 'Category') => array('controller' => 'AdminCategories', 'action' => 'index'),
-		Hash::get($category, 'Category.title') => 'javascript:;',
+		Hash::get($category, 'Category.title_'.$this->ArticleVars->getLang()) => array('controller' => 'AdminCategories', 'action' => 'edit', Hash::get($category, 'Category.id')),
 		$this->ObjectType->getTitle('index', 'ParamGroup') => $indexURL,
-		Hash::get($parentArticle, 'ParamGroup.title') => 'javascript:;',
+		Hash::get($parentArticle, 'ParamGroup.title_'.$this->ArticleVars->getLang()) => $editURL,
 		$title => ''
 	);
 	echo $this->element('AdminUI/breadcrumbs', compact('breadcrumbs'));
@@ -14,7 +15,8 @@
 	echo $this->Flash->render();
 
 	$columns = $this->PHTableGrid->getDefaultColumns($objectType);
-	$columns['PMFormField.field_type']['format'] = 'string';
+	$columns[$objectType.'.label_'.$this->ArticleVars->getLang()]['label'] = __('Title');
+	$columns[$objectType.'.field_type']['format'] = 'string';
 	$rowset = $this->PHTableGrid->getDefaultRowset($objectType);
 	foreach($rowset as &$row) {
 		$row['PMFormField']['field_type'] = $aFieldTypes[$row['PMFormField']['field_type']];

@@ -32,4 +32,8 @@ class AppModel extends Model {
     public function getTableName() {
         return $this->getDataSource()->fullTableName($this);
     }
+
+    public function getLang() {
+        return Configure::read('Config.language');
+    }
 }

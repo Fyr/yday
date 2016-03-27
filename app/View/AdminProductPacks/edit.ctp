@@ -2,10 +2,11 @@
     $id = $this->request->data($objectType.'.id');
     $title = $this->ObjectType->getTitle('index', $objectType);
     $indexURL = array('controller' => 'AdminProductPacks', 'action' => 'index', $parent_id);
+    $editURL = array('controller' => 'AdminProducts', 'action' => 'edit', Hash::get($parentArticle, 'Product.id'));
     $breadcrumbs = array(
         __('eCommerce') => 'javascript:;',
         $this->ObjectType->getTitle('index', 'Product') => array('controller' => 'AdminProducts', 'action' => 'index'),
-        Hash::get($parentArticle, 'Product.title') => 'javascript:;',
+        Hash::get($parentArticle, 'Product.title_'.$this->ArticleVars->getLang()) => $editURL,
         $this->ObjectType->getTitle('index', 'ProductPack') => $indexURL,
         __('Edit') => ''
     );
@@ -24,13 +25,20 @@
 
     $tabs = array(
         __('General') => $this->Html->div('form-body',
-            $this->PHForm->input('title')
-            .$this->PHForm->input('price', array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Price').', '.Configure::read('Settings.price_postfix'))))
+            $this->PHForm->input('title_'.$this->ArticleVars->getLang(),
+                array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Title')))
+            )
+            .$this->PHForm->input('price_'.$this->ArticleVars->getLang(),
+                array(
+                    'class' => 'form-control input-small',
+                    'label' => array('class' => 'col-md-3 control-label', 'text' => __('Price'))
+                )
+            )
             .$this->PHForm->input('sorting', array('class' => 'form-control input-small'))
         ),
     );
     foreach($aFormGroups as $id => $group) {
-        $title = $group['ParamGroup']['title'];
+        $title = $group['ParamGroup']['title_'.$this->ArticleVars->getLang()];
         if ($form = Hash::get($aForms, $id)) {
             $tabs[$title] = $this->PHForm->renderForm($form, $aValues);
         }

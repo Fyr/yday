@@ -2,10 +2,11 @@
     $id = $this->request->data($objectType.'.id');
     $title = $this->ObjectType->getTitle('index', $objectType);
     $indexURL = array('controller' => 'AdminProductBlocks', 'action' => 'index', $parent_id);
+    $editURL = array('controller' => 'AdminProducts', 'action' => 'edit', Hash::get($parentArticle, 'Product.id'));
     $breadcrumbs = array(
         __('eCommerce') => 'javascript:;',
         $this->ObjectType->getTitle('index', 'Product') => array('controller' => 'AdminProducts', 'action' => 'index'),
-        Hash::get($parentArticle, 'Article.title') => 'javascript:;',
+        Hash::get($parentArticle, 'Product.title_'.$this->ArticleVars->getLang()) => $editURL,
         $this->ObjectType->getTitle('index', 'ProductBlock') => $indexURL,
         __('Edit') => ''
     );
@@ -25,10 +26,12 @@
     $tabs = array(
         __('General') => $this->Html->div('form-body',
             $this->element('AdminUI/checkboxes', array('checkboxes' => array('published')))
-            .$this->PHForm->input('title')
+            .$this->PHForm->input('title_'.$this->ArticleVars->getLang(),
+                array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Title')))
+            )
             .$this->PHForm->input('sorting', array('class' => 'form-control input-small'))
         ),
-        __('Text') => $this->element('Article.edit_body')
+        __('Text') => $this->element('Article.edit_body', array('field' => 'body_'.$this->ArticleVars->getLang())),
     );
 
     if ($id) {

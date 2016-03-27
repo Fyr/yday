@@ -7,7 +7,7 @@ class AdminParamGroupsController extends AdminContentController {
     public $uses = array('ParamGroup');
 
     public $paginate = array(
-        'fields' => array('title', 'featured', 'sorting'),
+        'fields' => array('title_$lang', 'featured', 'sorting'),
         'order' => array('sorting' => 'asc'),
         'limit' => 20
     );

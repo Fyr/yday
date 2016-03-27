@@ -22,22 +22,27 @@
     $tabs = array(
         __('General') => $this->Html->div('form-body',
             $this->element('AdminUI/checkboxes')
-            .$this->element('Article.edit_title')
-            .$this->element('Article.edit_slug')
+            .$this->PHForm->input('title_'.$this->ArticleVars->getLang(),
+                array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Title')))
+            )
+            .$this->PHForm->input('slug')
             .$this->PHForm->input('parent_id', array('options' => $aCategoryOptions, 'label' => array('class' => 'col-md-3 control-label', 'text' => __('Category'))))
-            .$this->PHForm->input('teaser')
+            .$this->PHForm->input('teaser_'.$this->ArticleVars->getLang(),
+                array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Teaser')))
+            )
             .$this->PHForm->input('sorting', array('class' => 'form-control input-small'))
         ),
-        __('Text') => $this->element('Article.edit_body'),
-        __('Features') => $this->PHForm->input('spec_features',
-                array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Spec.features list'))))
-            .$this->PHForm->input('features',
+        __('Text') => $this->element('Article.edit_body', array('field' => 'body_'.$this->ArticleVars->getLang())),
+        __('Features') => $this->PHForm->input('spec_features_'.$this->ArticleVars->getLang(),
+                array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Spec.features list')))
+            )
+            .$this->PHForm->input('features_'.$this->ArticleVars->getLang(),
                 array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Features list'))))
 
     );
 
     foreach($aFormGroups as $_id => $group) {
-        $title = $group['ParamGroup']['title'];
+        $title = $group['ParamGroup']['title_'.$this->ArticleVars->getLang()];
         if ($form = Hash::get($aForms, $_id)) {
             $tabs[$title] = $this->PHForm->renderForm($form, $aValues);
         }

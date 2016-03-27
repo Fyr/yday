@@ -33,6 +33,9 @@ class AdminContentController extends AdminController {
 			$this->parent_id = $parent_id;
 			$this->paginate['conditions'][$this->getModel().'.parent_id'] = $parent_id;
 		}
+		foreach($this->paginate as &$field) {
+			$field = str_replace('$lang', Configure::read('Config.language'), $field);
+		}
 		$this->PCTableGrid->paginate($this->getModel());
     }
 
@@ -58,7 +61,17 @@ class AdminContentController extends AdminController {
 				$this->Flash->success(__('Record has been successfully saved'));
 				$id = $this->{$model}->id;
 				$this->afterSave($id);
-				return $this->redirect(array('action' => 'edit', $id));
+
+				if ($this->request->data('apply')) {
+					$route = array('action' => 'index');
+					$parent_id = Hash::get($this->{$model}->findById($id), $model.'.parent_id');
+					if ($parent_id) {
+						$route[] = $parent_id;
+					}
+				} else {
+					$route = array('action' => 'edit', $id);
+				}
+				return $this->redirect($route);
 			}
 		} else {
 			$this->request->data = $this->{$model}->findById($id);

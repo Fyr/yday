@@ -17,10 +17,16 @@
 	echo $this->element('AdminUI/form_title', compact('title'));
 	echo $this->PHForm->create('Settings');
 
-	echo $this->PHForm->input('song_price_rur', array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Song price, RUR'))));
-	echo $this->PHForm->input('song_price_usd', array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Song price, USD'))));
-	echo $this->PHForm->input('catalog_features', array('type' => 'textarea', 'label' => array('class' => 'col-md-3 control-label', 'text' => __('Catalog features'))));
-	echo $this->PHForm->input('catalog_video', array('type' => 'textarea', 'label' => array('class' => 'col-md-3 control-label', 'text' => __('Video (HTML-code)'))));
+	echo $this->PHForm->input('song_price_'.$this->ArticleVars->getLang(), array(
+		'class' => 'form-control input-small',
+		'label' => array('class' => 'col-md-3 control-label', 'text' => __('Song price'))
+	));
+	echo $this->PHForm->input('catalog_features_'.$this->ArticleVars->getLang(), array(
+		'label' => array('class' => 'col-md-3 control-label', 'text' => __('Catalog features'))
+	));
+	echo $this->PHForm->input('catalog_video_'.$this->ArticleVars->getLang(), array(
+		'label' => array('class' => 'col-md-3 control-label', 'text' => __('Video (HTML-code)'))
+	));
 
 	echo $this->element('AdminUI/form_actions', array('backURL' => array('action' => $this->request->action)));
 	echo $this->PHForm->end();

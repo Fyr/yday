@@ -10,7 +10,7 @@ class AdminParamsController extends AdminContentController {
     protected $parentModel = 'ParamGroup';
 
     public $paginate = array(
-        'fields' => array('label', 'field_type', 'sorting'),
+        'fields' => array('label_$lang', 'field_type', 'sorting'),
         'order' => array('published' => 'desc'),
         'limit' => 20
     );

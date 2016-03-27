@@ -32,6 +32,8 @@
 				echo $this->element('Table.date', $field);
 			} elseif ($field['format'] == 'boolean') {
 				echo $this->element('Table.boolean', $field);
+			} elseif ($field['format'] == 'integer' || $field['format'] == 'float') {
+				echo $this->element('Table.number', $field);
 			} else {
 				echo $this->element('Table.string', $field);
 			}

@@ -9,12 +9,14 @@
     echo $this->Flash->render();
 
     $columns = $this->PHTableGrid->getDefaultColumns($objectType);
+    $columns['Product.title_'.$this->ArticleVars->getLang()]['label'] = __('Title');
     $columns['Product.parent_id']['format'] = 'string';
     $columns['Product.parent_id']['label'] = __('Category');
     $rowset = $this->PHTableGrid->getDefaultRowset($objectType);
     foreach($rowset as &$row) {
         $row['Product']['parent_id'] = $aCategoryOptions[$row['Product']['parent_id']];
     }
+
     $row_actions = '../AdminProducts/row_actions';
 ?>
 <div class="row">

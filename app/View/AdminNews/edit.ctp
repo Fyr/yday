@@ -25,14 +25,18 @@
     $tabs = array(
         __('General') => $this->Html->div('form-body',
             $this->element('AdminUI/checkboxes')
-            .$this->element('Article.edit_title')
-            .$this->element('Article.edit_slug')
+            .$this->PHForm->input('title_'.$this->ArticleVars->getLang(),
+                array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Title')))
+            )
+            .$this->PHForm->input('slug')
             .$this->PHForm->date('modified', array('label' => array('text' => __('Date'), 'class' => 'col-md-3 control-label')))
             .$this->PHForm->input('author')
-            .$this->PHForm->input('teaser')
+            .$this->PHForm->input('teaser_'.$this->ArticleVars->getLang(),
+                array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Teaser')))
+            )
             //.$this->PHForm->input('sorting', array('class' => 'form-control input-small'))
         ),
-        __('Text') => $this->element('Article.edit_body')
+        __('Text') => $this->element('Article.edit_body', array('field' => 'body_'.$this->ArticleVars->getLang())),
     );
 
     if ($id) {

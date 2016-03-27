@@ -7,6 +7,16 @@
     echo $this->element('AdminUI/breadcrumbs', compact('breadcrumbs'));
     echo $this->element('AdminUI/title', compact('title'));
     echo $this->Flash->render();
+
+    $price = 'price_'.$this->ArticleVars->getLang();
+    $columns = $this->PHTableGrid->getDefaultColumns($objectType);
+    $columns[$objectType.'.title_'.$this->ArticleVars->getLang()]['label'] = __('Title');
+    $columns[$objectType.'.'.$price]['label'] = __('Price');
+
+    $rowset = $this->PHTableGrid->getDefaultRowset($objectType);
+    foreach($rowset as &$row) {
+        $row[$objectType][$price] = $this->Price->format($row[$objectType][$price]);
+    }
 ?>
 <div class="row">
     <div class="col-md-12">
@@ -27,7 +37,7 @@
                         </div>
                     </div>
                 </div>
-                <?=$this->PHTableGrid->render($objectType)?>
+                <?=$this->PHTableGrid->render($objectType, compact('columns', 'rowset'))?>
             </div>
         </div>
     </div>

@@ -1,18 +1,23 @@
 <?
     $title = $this->ObjectType->getTitle('index', $objectType);
+    $editURL = array('controller' => 'AdminProducts', 'action' => 'edit', Hash::get($parentArticle, 'Product.id'));
     $breadcrumbs = array(
         __('eCommerce') => 'javascript:;',
         $this->ObjectType->getTitle('index', 'Product') => array('controller' => 'AdminProducts', 'action' => 'index'),
-        Hash::get($parentArticle, 'Product.title') => 'javascript:;',
+        Hash::get($parentArticle, 'Product.title_'.$this->ArticleVars->getLang()) => $editURL,
         $title => ''
     );
     echo $this->element('AdminUI/breadcrumbs', compact('breadcrumbs'));
     echo $this->element('AdminUI/title', compact('title'));
     echo $this->Flash->render();
 
+    $price = 'price_'.$this->ArticleVars->getLang();
+    $columns = $this->PHTableGrid->getDefaultColumns($objectType);
+    $columns[$objectType.'.title_'.$this->ArticleVars->getLang()]['label'] = __('Title');
+
     $rowset = $this->PHTableGrid->getDefaultRowset($objectType);
     foreach($rowset as &$row) {
-        $row['ProductPack']['price'] = $this->Price->format($row['ProductPack']['price']);
+        $row['ProductPack'][$price] = $this->Price->format($row['ProductPack'][$price]);
     }
 ?>
 <div class="row">
@@ -34,7 +39,7 @@
                         </div>
                     </div>
                 </div>
-                <?=$this->PHTableGrid->render($objectType, compact('rowset'))?>
+                <?=$this->PHTableGrid->render($objectType, compact('rowset', 'columns'))?>
             </div>
         </div>
     </div>

@@ -17,8 +17,13 @@
 	echo $this->element('AdminUI/form_title', compact('title'));
 	echo $this->PHForm->create('Settings');
 
-	echo $this->PHForm->input('player_licence', array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Player licence'))));
-	echo $this->PHForm->input('player_price_rur', array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Player price, RUR'))));
+	echo $this->PHForm->input('player_licence_'.$this->ArticleVars->getLang(), array(
+		'label' => array('class' => 'col-md-3 control-label', 'text' => __('Player licence'))
+	));
+	echo $this->PHForm->input('player_price_'.$this->ArticleVars->getLang(), array(
+		'class' => 'form-control input-small',
+		'label' => array('class' => 'col-md-3 control-label', 'text' => __('Player price'))
+	));
 	echo $this->PHForm->input('app_apple', array('label' => array('class' => 'col-md-3 control-label', 'text' => __('App store URL'))));
 	echo $this->PHForm->input('app_google', array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Google playmarket URL'))));
 

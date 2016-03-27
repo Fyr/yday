@@ -7,7 +7,7 @@ class AdminSubscrPlansController extends AdminContentController {
     public $uses = array('SubscrPlan');
 
     public $paginate = array(
-        'fields' => array('title', 'price', 'published', 'featured', 'sorting'),
+        'fields' => array('title_$lang', 'price_$lang', 'published', 'featured', 'sorting'),
         'order' => array('sorting' => 'desc'),
         'limit' => 20
     );

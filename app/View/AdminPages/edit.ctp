@@ -21,12 +21,12 @@
 
     $tabs = array(
         __('General') => $this->Html->div('form-body',
-            $this->element('Article.edit_title')
-            .(($objectType == 'Page' && $this->request->data('Page.slug') == 'home') ?
-                $this->PHForm->input('slug', array('disabled', 'readyonly'))
-                : $this->element('Article.edit_slug'))
+            $this->PHForm->input('title_'.$this->ArticleVars->getLang(),
+                array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Title')))
+            )
+            .$this->PHForm->input('slug')
         ),
-        __('Text') => $this->element('Article.edit_body')
+        __('Text') => $this->element('Article.edit_body', array('field' => 'body_'.$this->ArticleVars->getLang())),
     );
 
     if ($id) {
