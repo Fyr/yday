@@ -1,7 +1,7 @@
 <div class="otherKaraokeSystems">
     <div class="container">
         <?//$this->element('SiteUI/title', array('title' => 'Что такое Your Day караоке системы  и зачем они нужны?'))?>
-        <h3><?=$page['Page']['title']?></h3>
+        <h3><?=$page['Page']['title_'.$lang]?></h3>
         <div class="bigIntro">
             <?=$this->ArticleVars->body($page)?>
         </div>
@@ -29,7 +29,7 @@
                 <a href="<?=$url?>" class="link"><?=$title?></a>
                 <div class="price"><?=$price?></div>
                 <div class="description">
-                    <div class="head"><?=$article['Category']['header']?></div>
+                    <div class="head"><?=$article['Category']['header_'.$lang]?></div>
                     <?=$this->ArticleVars->body($article)?>
                 </div>
             </div>

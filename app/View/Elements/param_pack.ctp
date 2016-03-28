@@ -1,5 +1,5 @@
 <tr>
-    <td><?=$field['PMFormField']['label']?></td>
+    <td><?=$field['PMFormField']['label_'.$lang]?></td>
 <?
     foreach($values as $value) {
         if ($field['PMFormField']['field_type'] == FieldTypes::TEXTAREA) {

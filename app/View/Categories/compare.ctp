@@ -16,7 +16,7 @@
 </style>
 <div class="otherKaraokeSystems">
 	<div class="container">
-		<?=$this->Html->link('Сравнение караоке систем', 'javascript:', array('class' => 'link light'))?>
+		<?=$this->Html->link(__('Compare karaoke systems'), 'javascript:', array('class' => 'link light'))?>
 		<?//$this->element('SiteUI/title', array('title' => 'Сравнение караоке систем', 'class' => 'light'))?>
 		<div class="row">
 <?
@@ -32,7 +32,7 @@
 					<a href="<?=$this->Html->url($url)?>"><img class="img-responsive" src="<?=$src?>" alt="" /></a></div>
 <?
 		}
-		echo $this->Html->link('Сравните '.$title, $url, array('class' => 'link light'));
+		echo $this->Html->link(__('Compare %s', $title), $url, array('class' => 'link light'));
 ?>
 			</div>
 

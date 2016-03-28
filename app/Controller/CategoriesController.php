@@ -22,10 +22,10 @@ class CategoriesController extends AppController {
 
 		$ids = array_keys($this->aProducts[$cat_id]);
 		$conditions = array('parent_id' => $ids);
-		$order = 'price';
+		$order = 'price_'.$this->getLang();
 		$packs = $this->ProductPack->find('all', compact('conditions', 'order'));
 		foreach($packs as $pack) {
-			$aPrices[$pack['ProductPack']['parent_id']] = floatval($pack['ProductPack']['price']);
+			$aPrices[$pack['ProductPack']['parent_id']] = floatval($pack['ProductPack']['price_'.$this->getLang()]);
 		}
 		$this->set('aPrices', $aPrices);
 	}

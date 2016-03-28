@@ -19,28 +19,28 @@
 		}
 	}
 
-	$spec_features = trim($product['Product']['spec_features']);
-	$features = trim($product['Product']['features']);
+	$spec_features = trim($product['Product']['spec_features_'.$lang]);
+	$features = trim($product['Product']['features_'.$lang]);
 ?>
 <div class="subMenu">
 	<div class="container">
-		<div class="name"><?=$product['Category']['title']?>: <?=$product['Product']['title']?></div>
-		<a class="btn btn-success orderBtn" href="javascript: void(0)">Заказать</a>
+		<div class="name"><?=$product['Category']['title_'.$lang]?>: <?=$product['Product']['title_'.$lang]?></div>
+		<a class="btn btn-success orderBtn" href="javascript: void(0)"><?=__('Order')?></a>
 		<ul class="menu">
 <?
 	if ($features) {
 ?>
-			<li><a href="#features">Возможности</a></li>
+			<li><a href="#features"><?=__('Features')?></a></li>
 <?
 	}
 	if ($lShowParams) {
 ?>
-			<li><a href="#params">Технические характеристики</a></li>
+			<li><a href="#params"><?=__('Technical specifications')?></a></li>
 <?
 	}
 	if ($lShowPacks) {
 ?>
-			<li><a href="#packs">Комплект поставки</a></li>
+			<li><a href="#packs"><?=__('Contents of delivery')?></a></li>
 <?
 	}
 ?>
@@ -50,8 +50,8 @@
 </div>
 <div class="playerKaraoke">
 	<div class="container">
-		<div class="title"><?=$product['Product']['title']?></div>
-		<div class="smallDesc"><?=$product['Product']['teaser']?></div>
+		<div class="title"><?=$product['Product']['title_'.$lang]?></div>
+		<div class="smallDesc"><?=$product['Product']['teaser_'.$lang]?></div>
 		<div class="outerCarousel">
 			<div id="owl-carousel" class="owl-carousel">
 <?
@@ -75,8 +75,8 @@
 	foreach($aPacks as $pack) {
 ?>
 				<div class="col-sm-<?=ceil(12 / count($aPacks))?> price">
-					<div class="value"><?=$this->Price->format($pack['ProductPack']['price'])?></div>
-					<div class="license"><?=$pack['ProductPack']['title']?></div>
+					<div class="value"><?=$this->Price->format($pack['ProductPack']['price_'.$lang])?></div>
+					<div class="license"><?=$pack['ProductPack']['title_'.$lang]?></div>
 				</div>
 <?
 	}
@@ -93,7 +93,7 @@
 	<div class="container">
 		<div class="row">
 <?
-	$aCols = $this->ArticleVars->divideColumns(explode('<br />', nl2br($spec_features)), 3);
+	$aCols = $this->ArticleVars->divideColumns($this->ArticleVars->list2array($spec_features), 3);
 	foreach($aCols as $col) {
 ?>
 			<div class="col-sm-4">
@@ -131,11 +131,11 @@
 <a name="features"></a>
 <div class="section allOpportunities <?=$class?>">
 	<div class="container">
-		<?=$this->element('SiteUI/title', array('class' => 'light', 'title' => 'Все возможности системы'))?>
+		<?=$this->element('SiteUI/title', array('class' => 'light', 'title' => __('All system features')))?>
 		<div class="row">
 
 <?
-	$aCols = $this->ArticleVars->divideColumns(explode('<br />', nl2br($features)), 3);
+	$aCols = $this->ArticleVars->divideColumns($this->ArticleVars->list2array($features), 3);
 	foreach($aCols as $col) {
 ?>
 			<div class="col-sm-4">
@@ -172,7 +172,7 @@
 <div class="section allOpportunities <?=$class?>">
 	<div class="container">
 
-		<?=$this->element('SiteUI/title', array('class' => 'light', 'title' => $group['ParamGroup']['title']))?>
+		<?=$this->element('SiteUI/title', array('class' => 'light', 'title' => $group['ParamGroup']['title_'.$lang]))?>
 		<div class="row">
 <?
 				$aItems = array();
@@ -203,18 +203,18 @@
 <a name="packs"></a>
 <div class="section allOpportunities <?=$class?>">
 	<div class="container">
-		<?=$this->element('SiteUI/title', array('class' => 'light', 'title' => 'Комплект поставки'))?>
+		<?=$this->element('SiteUI/title', array('class' => 'light', 'title' => __('Contents of delivery')))?>
 <?
 			foreach($aFormGroups as $group_id => $group) {
 				if ($group['ParamGroup']['featured']) {
 ?>
 		<table class="deliveryContent">
 			<tr>
-				<th><?=$group['ParamGroup']['title']?></th>
+				<th><?=$group['ParamGroup']['title_'.$lang]?></th>
 <?
 					foreach($aPacks as $pack) {
 ?>
-				<th><?=$pack['ProductPack']['title']?></th>
+				<th><?=$pack['ProductPack']['title_'.$lang]?></th>
 <?
 					}
 ?>
@@ -246,7 +246,7 @@
 		$price = 0;
 		if (isset($otherPacks[$id])) {
 			list($pack) = array_values($otherPacks[$id]);
-			$price = $pack['ProductPack']['price'];
+			$price = $pack['ProductPack']['price_'.$lang];
 		}
 ?>
 			<div class="col-sm-4">
@@ -277,7 +277,7 @@
 ?>
 		</div>
 <?
-	$title = sprintf('Сравнить %s с другими системами', $product['Product']['title']);
+	$title = __('Compare %s with other systems', $product['Product']['title_'.$lang]);
 	$url = array('action' => 'select', $product['Category']['id'], $product['Product']['id']);
 	echo $this->Html->link($title, $url, array('class' => 'btn btn-success'));
 ?>
@@ -286,7 +286,7 @@
 
 <?
 	$class = ($class == 'grey') ? '' : 'grey';
-	echo $this->element('support', array('title' => $page['support']['Page']['title'], 'blocks' => $pageBlocks['support'], 'class' => 'grey'));
+	echo $this->element('support', array('title' => $page['support']['Page']['title_'.$lang], 'blocks' => $pageBlocks['support'], 'class' => 'grey'));
 
 	echo $this->element('call_us');
 ?>

@@ -1,7 +1,7 @@
 <div class="isQuestions">
     <div class="container">
-        <div class="title">Есть вопросы? Звоните нам!</div>
-        <div class="freeNumber">Бесплатный номер</div>
-        <div class="number"><?=nl2br(Configure::read('Settings.phone'))?></div>
+        <div class="title"><?=__('Have questions? Call us!')?></div>
+        <div class="freeNumber"><?=__('Free phone number')?></div>
+        <div class="number"><?=nl2br($this->Settings->read('phone'))?></div>
     </div>
 </div>

@@ -1,7 +1,7 @@
 <div class="playerKaraoke">
     <div class="container">
-        <div class="title"><?=$page['Page']['title']?></div>
-        <div class="smallDesc">Одно приложение для всех ваших развлечений</div>
+        <div class="title"><?=$page['Page']['title_'.$lang]?></div>
+        <div class="smallDesc"><?=__('One application for all your entertainment')?></div>
         <div class="outerCarousel">
             <div id="owl-carousel" class="owl-carousel">
 <?
@@ -21,8 +21,8 @@
             <?=$this->ArticleVars->body($page)?>
             <div class="row">
                 <div class="col-sm-6 price">
-                    <div class="value"><?=$this->Price->format(Configure::read('Settings.player_price_rur'))?></div>
-                    <div class="license"><?=Configure::read('Settings.player_licence')?></div>
+                    <div class="value"><?=$this->Price->format($this->Settings->read('player_price'))?></div>
+                    <div class="license"><?=$this->Settings->read('player_licence')?></div>
 <?
     if ($doc) {
 ?>
@@ -36,7 +36,7 @@
 ?>
                 </div>
                 <div class="col-sm-6 buyButton">
-                    <a href="javascript: void(0)" class="btn btn-success">Купить плеер</a>
+                    <a href="javascript: void(0)" class="btn btn-success"><?=__('Buy player')?></a>
                 </div>
             </div>
         </div>
@@ -48,7 +48,7 @@
     foreach($blocks as $block) {
         $class = ($class == 'grey') ? '' : 'grey';
         $this->ArticleVars->init($block, $url, $title, $teaser, $src, 'noresize');
-        $text = $block['PageBlock']['body'];
+        $text = $block['PageBlock']['body_'.$lang];
         if ($block['PageBlock']['slug'] == 'player-features') {
             $features = $this->ArticleVars->list2array($teaser);
             echo $this->element('player_features', compact('class', 'title', 'features'));

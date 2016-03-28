@@ -18,10 +18,10 @@
 }
 </style>
 <div class="container">
-	<?=$this->element('SiteUI/title', array('title' => 'Сравните '.$category['Category']['title']))?>
+	<?=$this->element('SiteUI/title', array('title' => __('Compare %s', $category['Category']['title_'.$lang])))?>
 	<div class="compareSelected">
 		<span id="selected"></span>
-		<?=$this->Html->link('Сравнить', array('action' => 'compare', $cat_id, '~ids'), array('class' => 'btn btn-success disabled', 'onclick' => 'return go()'))?>
+		<?=$this->Html->link(__('Compare'), array('action' => 'compare', $cat_id, '~ids'), array('class' => 'btn btn-success disabled', 'onclick' => 'return go()'))?>
 	</div>
 	<div class="row virtualSystems realSystems">
 <?
@@ -77,16 +77,28 @@ function go() {
 	}
 	return ids.length > 0;
 }
+<?
+	$aSelected = array(
+		__('Select systems to compare'),
+		__('1 system selected'),
+		__('2 systems selected'),
+		__('3 systems selected'),
+		__('4 systems selected'),
+		__('\%s systems selected'),
+	);
+?>
 $(document).ready(function(){
+	/*
 	aSelected = [
-		'Выберите системы для сравнения',
+		'Select the system to compare',
 		'Выбрана 1 система',
 		'Выбрано 2 системы',
 		'Выбрано 3 системы',
 		'Выбрано 4 системы',
 		'Выбрано %s систем'
 	];
-
+	*/
+	aSelected = <?=json_encode($aSelected)?>;
 	$('input.styler').styler();
 
 	updateSelected();

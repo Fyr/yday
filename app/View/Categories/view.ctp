@@ -1,10 +1,10 @@
 <?
-	$article['Category']['body'] = $article['Category']['descr'];
+	$article['Category']['body_'.$lang] = $article['Category']['descr_'.$lang];
 	$cat_id = $article['Category']['id'];
 ?>
 <div class="otherKaraokeSystems">
 	<div class="container">
-		<?=$this->element('SiteUI/title', array('title' => $article['Category']['title']))?>
+		<?=$this->element('SiteUI/title', array('title' => $article['Category']['title_'.$lang]))?>
 		<div class="text">
 			<?=$this->ArticleVars->body($article)?>
 		</div>
@@ -46,7 +46,7 @@
 ?>
 <div class="<?=$class?> bestMarket">
 	<div class="container">
-		<h3><?=$block['CategoryBlock']['title']?></h3>
+		<h3><?=$block['CategoryBlock']['title_'.$lang]?></h3>
 		<?=$this->ArticleVars->body($block)?>
 	</div>
 </div>

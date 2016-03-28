@@ -1,6 +1,6 @@
 <div class="section">
 	<div class="container">
-		<h2 class="light">Сравнение выбранных систем</h2>
+		<h2 class="light"><?=__('Compare selected systems')?></h2>
 		<table class="compareTable">
 			<tr class="products">
 				<td></td>
@@ -29,10 +29,10 @@
 
 			</tr>
 			<tr>
-				<th colspan="<?=$colspan?>">Общая информация</th>
+				<th colspan="<?=$colspan?>"><?=__('General information')?></th>
 			</tr>
 			<tr>
-				<td>Описание</td>
+				<td><?=__('Description')?></td>
 <?
 	foreach($aProducts[$cat_id] as $id => $product) {
 		if (in_array($id, $selected)) {
@@ -52,13 +52,13 @@
 
 			</tr>
 			<tr>
-				<th colspan="<?=$colspan?>">Возможности системы</th>
+				<th colspan="<?=$colspan?>"><?=__('System features')?></th>
 			</tr>
 <?
 	$aFeatures = array();
 	foreach($aProducts[$cat_id] as $id => &$product) {
-		$features = trim($product['Product']['features']);
-		$product['Product']['features'] = ($features) ? explode('<br />', nl2br($features)) : array();
+		$features = trim($product['Product']['features_'.$lang]);
+		$product['Product']['features'] = ($features) ? $this->ArticleVars->list2array($features) : array();
 		$aFeatures = array_merge($aFeatures, $product['Product']['features']);
 	}
 	unset($product);
@@ -104,13 +104,13 @@
 			if (!$group['ParamGroup']['featured']) {
 ?>
 			<tr>
-				<th colspan="<?= $colspan ?>"><?=$group['ParamGroup']['title']?></th>
+				<th colspan="<?= $colspan ?>"><?=$group['ParamGroup']['title_'.$lang]?></th>
 			</tr>
 <?
 				foreach($aForms[$group_id] as $fid => $field) {
 ?>
 			<tr>
-				<td><?=$field['PMFormField']['label']?></td>
+				<td><?=$field['PMFormField']['label_'.$lang]?></td>
 <?
 					foreach($aProducts[$cat_id] as $id => $product) {
 						if (in_array($id, $selected)) {
@@ -147,7 +147,7 @@
 			if ($group['ParamGroup']['featured']) {
 ?>
 			<tr>
-				<th><?=$group['ParamGroup']['title']?></th>
+				<th><?=$group['ParamGroup']['title_'.$lang]?></th>
 <?
 				foreach($aProducts[$cat_id] as $id => $product) {
 					if (in_array($id, $selected)) {
@@ -156,8 +156,8 @@
 								if (in_array($_id, $selected_packs[$id])) {
 ?>
 				<th class="center">
-					<b><?= $product['Product']['title'] ?></b><br/>
-					<?= $pack['ProductPack']['title'] ?>
+					<b><?=$product['Product']['title_'.$lang]?></b><br/>
+					<?=$pack['ProductPack']['title_'.$lang]?>
 				</th>
 <?
 								}
@@ -175,7 +175,7 @@
 				foreach($aForms[$group_id] as $fid => $field) {
 ?>
 			<tr>
-				<td><?=$field['PMFormField']['label']?></td>
+				<td><?=$field['PMFormField']['label_'.$lang]?></td>
 <?
 					foreach($aProducts[$cat_id] as $id => $product) {
 						if (in_array($id, $selected)) {

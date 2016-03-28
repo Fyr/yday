@@ -80,4 +80,8 @@ class AppController extends Controller {
 		$this->set('aProducts', $this->aProducts);
 		$this->set('lang', Configure::read('Config.language'));
 	}
+
+	protected function getLang() {
+		return Configure::read('Config.language');
+	}
 }

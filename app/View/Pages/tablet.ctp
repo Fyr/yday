@@ -1,7 +1,7 @@
 <div class="playerKaraoke karaokeTablet">
     <div class="container">
-        <div class="title"><?=$page['Page']['title']?></div>
-        <div class="smallDesc">Приложение для удаленного управления Вашей караоке системой</div>
+        <div class="title"><?=$page['Page']['title_'.$lang]?></div>
+        <div class="smallDesc"><?=__('The application for remote control of your karaoke system')?></div>
         <div class="outerCarousel">
             <div id="owl-carousel" class="owl-carousel">
 <?
@@ -30,13 +30,13 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-4">
-                Установка на операционные системы Android и iOS
+                <?=__('Installation on the operating system Android and iOS')?>
             </div>
             <div class="col-sm-4">
-                Доступ к полному функционалу караоке плеера
+                <?=__('Access to the full functionality of karaoke player')?>
             </div>
             <div class="col-sm-4">
-                Простая и быстрая установка на планшет
+                <?=__('Easy and quick installation on the tablet')?>
             </div>
         </div>
     </div>
@@ -47,7 +47,7 @@
     foreach($blocks as $block) {
         $class = ($class == 'grey') ? '' : 'grey';
         $this->ArticleVars->init($block, $url, $title, $teaser, $src, 'noresize');
-        $text = $block['PageBlock']['body'];
+        $text = $block['PageBlock']['body_'.$lang];
         if ($block['PageBlock']['slug'] == 'tablet-modes') {
             echo $this->element('tablet_modes', compact('title', 'text', 'src'));
         } elseif ($block['PageBlock']['slug'] == 'tablet-download-app') {

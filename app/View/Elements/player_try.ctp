@@ -5,16 +5,16 @@
         <form class="zakaz">
             <div class="row">
                 <div class="col-sm-3">
-                    <input type="text" class="form-control" placeholder="Имя">
+                    <input type="text" class="form-control" placeholder="<?=__('Name')?>">
                 </div>
                 <div class="col-sm-3">
-                    <input type="text" class="form-control" placeholder="Телефон">
+                    <input type="text" class="form-control" placeholder="<?=__('Phone')?>">
                 </div>
                 <div class="col-sm-3">
                     <input type="text" class="form-control" placeholder="Email">
                 </div>
                 <div class="col-sm-3">
-                    <button class="btn btn-success">Заказать</button>
+                    <button class="btn btn-success"><?=__('Order')?></button>
                 </div>
             </div>
         </form>

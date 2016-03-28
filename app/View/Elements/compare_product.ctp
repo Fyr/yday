@@ -16,12 +16,12 @@
 <?
     if (isset($pack)) {
 ?>
-        <div class="equipment"><?=$pack['ProductPack']['title']?></div>
+        <div class="equipment"><?=$pack['ProductPack']['title_'.$lang]?></div>
 <?
     }
-    if (isset($pack) && $pack['ProductPack']['price']) {
+    if (isset($pack) && $pack['ProductPack']['price_'.$lang]) {
 ?>
-        <div class="price"><?=$this->Price->format($pack['ProductPack']['price'])?></div>
+        <div class="price"><?=$this->Price->format($pack['ProductPack']['price_'.$lang])?></div>
 <?
     }
     if ($buy) {

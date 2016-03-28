@@ -20,6 +20,7 @@ class FaqController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
 			$this->Contact->set($this->request->data('Contact'));
 			if ($this->Contact->validates()) { //
+				Configure::write('Config.language', 'rus');
 				$email = new CakeEmail();
 				$email->template('contact_message')->viewVars(compact('aRowset', 'aParams'))
 					->emailFormat('html')

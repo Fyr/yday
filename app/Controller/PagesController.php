@@ -32,9 +32,9 @@ class PagesController extends AppController {
 		foreach($this->aCategories as $cat_id => $category) {
 			$ids = Hash::extract($this->aProducts[$cat_id], '{n}.Product.id');
 			$conditions = array('parent_id' => $ids);
-			$order = 'price';
+			$order = 'price_'.$this->getLang();
 			$packs = $this->ProductPack->find('first', compact('conditions', 'order'));
-			$aPrices[$cat_id] = ($packs) ? floatval($packs['ProductPack']['price']) : 0;
+			$aPrices[$cat_id] = ($packs) ? floatval($packs['ProductPack']['price_'.$this->getLang()]) : 0;
 		}
 		$this->set('aPrices', $aPrices);
 	}

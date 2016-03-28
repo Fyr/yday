@@ -1,6 +1,6 @@
 <?
     $this->ArticleVars->init($product, $url, $title, $teaser, $src, 'noresize', $featured, $id);
-    $go_title = 'Перейти на страницу просмотра продукта';
+    $go_title = __('Go to View product page');
 ?>
 <div class="col-sm-<?=$col?>">
     <div class="item <?=($checked) ? 'active' : ''?>">
@@ -20,9 +20,9 @@
         <div class="title"><a href="<?=$url?>" title="<?=$go_title?>"><?=$title?></a></div>
 <?
     if (isset($pack) && $pack) {
-        $price = $pack['ProductPack']['price'];
+        $price = $pack['ProductPack']['price_'.$lang];
 ?>
-            <div class="equipment"><?=$pack['ProductPack']['title']?></div>
+            <div class="equipment"><?=$pack['ProductPack']['title_'.$lang]?></div>
 <?
         if ($price) {
 ?>

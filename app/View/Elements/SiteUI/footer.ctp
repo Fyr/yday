@@ -1,6 +1,6 @@
     <div class="row">
         <div class="col-sm-4">
-            <div class="name">Свяжитесь с нами</div>
+            <div class="name"><?=__('Contact us')?></div>
             <p><?=$this->Settings->read('title')?></p>
             <p><?=nl2br($this->Settings->read('address'))?></p>
             <p><?=nl2br($this->Settings->read('phone_footer'))?></p>

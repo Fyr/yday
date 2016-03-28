@@ -4,8 +4,8 @@
 ?>
 <div class="playerKaraoke" style="padding-bottom: 0;">
 	<div class="container">
-		<div class="title"><?=$page['Page']['title']?></div>
-		<div class="smallDesc">Заказ профессиональной звукозаписи караоке песен индивидуально</div>
+		<div class="title"><?=$page['Page']['title_'.$lang]?></div>
+		<div class="smallDesc"><?=__('Order professional recording karaoke songs individually')?></div>
 		<div class="outerCarousel">
 			<div id="owl-carousel" class="owl-carousel">
 <?
@@ -31,12 +31,12 @@
 	<div class="container">
 		<div class="row">
 <?
-	$features = $this->ArticleVars->list2array(Configure::read('Settings.catalog_features'));
+	$features = $this->ArticleVars->list2array($this->Settings->read('catalog_features'));
 	$cols = ceil(12 / (count($features) + 1));
 ?>
 			<div class="col-sm-<?=$cols?>">
-				<div style="padding-bottom: 10px;"><?=$this->Price->format(Configure::read('Settings.song_price_usd'), 'usd')?> за одну песню</div>
-				<?=$this->Price->format(Configure::read('Settings.song_price_rur'))?> за одну песню
+				<div style="padding-bottom: 10px;"><?=__('%s for one song', $this->Price->format($this->Settings->read('song_price', 'rus'), 'rus'))?></div>
+				<?=__('%s for one song', $this->Price->format($this->Settings->read('song_price', 'eng'), 'eng'))?>
 			</div>
 <?
 	foreach($features as $title) {
@@ -53,8 +53,8 @@
 </div>
 <div class="playerKaraoke" style="padding-bottom: 0;">
 	<div class="container">
-		<div class="title">Примеры звучания песен</div>
-		<div class="smallDesc">Вы можете оценить звучание наших фонограмм и качество видеофонов</div>
+		<div class="title"><?=__('Examples of songs sound')?></div>
+		<div class="smallDesc"><?=__('You can appreciate the sound quality and our soundtracks phones')?></div>
 		<div class="row">
 			<div class="col-sm-6">
 <?
@@ -72,13 +72,13 @@
 			<div class="col-sm-6">
 				<!-- img src="/img/temp/youtube.jpg" class="img-responsive" alt="" /-->
 				<!--iframe width="600" height="350" src="https://www.youtube.com/embed/et281UHNoOU" frameborder="0" allowfullscreen></iframe-->
-				<?=Configure::read('Settings.catalog_video')?>
+				<?=$this->Settings->read('catalog_video')?>
 			</div>
 		</div>
 		<div class="row catalogPrice">
 			<div class="col-sm-6">
-				Стоимость песни из полного каталога — <?=$this->Price->format(Configure::read('Settings.song_price_rur'))?>
-				(эквивалент <?=$this->Price->format(Configure::read('Settings.song_price_usd'), 'usd')?> за песню)
+				<?=__('The cost of the full song catalog - %s', $this->Price->format($this->Settings->read('song_price', 'rus'), 'rus'))?><br />
+				(<?=__('The same price %s for song', $this->Price->format($this->Settings->read('song_price', 'rus'), 'rus'))?>)
 			</div>
 			<div class="col-sm-6">
 <?
@@ -94,7 +94,7 @@
 
 			</div>
 		</div>
-		<div class="requestSong"><a href="javascript: void(0)" class="btn btn-success">Заказать песню</a></div>
+		<div class="requestSong"><a href="javascript: void(0)" class="btn btn-success"><?=__('Order song')?></a></div>
 	</div>
 </div>
 <div class="lineGradient"></div>
