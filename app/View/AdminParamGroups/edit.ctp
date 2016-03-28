@@ -5,7 +5,7 @@
     $breadcrumbs = array(
         __('eCommerce') => 'javascript:;',
         $this->ObjectType->getTitle('index', 'Category') => array('controller' => 'AdminCategories', 'action' => 'index'),
-        Hash::get($parentArticle, 'Category.title_'.$this->ArticleVars->getLang()) => array('controller' => 'AdminCategories', 'action' => 'edit', Hash::get($parentArticle, 'Category.id')),
+        Hash::get($parentArticle, 'Category.title_'.$lang) => array('controller' => 'AdminCategories', 'action' => 'edit', Hash::get($parentArticle, 'Category.id')),
         $this->ObjectType->getTitle('index', 'ParamGroup') => $indexURL,
         __('Edit') => ''
     );
@@ -21,7 +21,7 @@
 <?
     echo $this->element('AdminUI/form_title', array('title' => $this->ObjectType->getTitle($id ? 'edit' : 'create', $objectType)));
     echo $this->PHForm->create($objectType);
-    echo $this->PHForm->input('title_'.$this->ArticleVars->getLang(),
+    echo $this->PHForm->input('title_'.$lang,
         array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Title')))
     );
     echo $this->PHForm->input('sorting', array('class' => 'form-control input-small'));

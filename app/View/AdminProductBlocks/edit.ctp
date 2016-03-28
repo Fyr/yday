@@ -6,7 +6,7 @@
     $breadcrumbs = array(
         __('eCommerce') => 'javascript:;',
         $this->ObjectType->getTitle('index', 'Product') => array('controller' => 'AdminProducts', 'action' => 'index'),
-        Hash::get($parentArticle, 'Product.title_'.$this->ArticleVars->getLang()) => $editURL,
+        Hash::get($parentArticle, 'Product.title_'.$lang) => $editURL,
         $this->ObjectType->getTitle('index', 'ProductBlock') => $indexURL,
         __('Edit') => ''
     );
@@ -26,12 +26,12 @@
     $tabs = array(
         __('General') => $this->Html->div('form-body',
             $this->element('AdminUI/checkboxes', array('checkboxes' => array('published')))
-            .$this->PHForm->input('title_'.$this->ArticleVars->getLang(),
+            .$this->PHForm->input('title_'.$lang,
                 array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Title')))
             )
             .$this->PHForm->input('sorting', array('class' => 'form-control input-small'))
         ),
-        __('Text') => $this->element('Article.edit_body', array('field' => 'body_'.$this->ArticleVars->getLang())),
+        __('Text') => $this->element('Article.edit_body', array('field' => 'body_'.$lang)),
     );
 
     if ($id) {

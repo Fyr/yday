@@ -5,7 +5,7 @@
     $breadcrumbs = array(
         __('Static content') => 'javascript:;',
         $this->ObjectType->getTitle('index', 'Page') => array('controller' => 'AdminPages', 'action' => 'index'),
-        Hash::get($parentArticle, 'Page.title_'.$this->ArticleVars->getLang()) => array('controller' => 'AdminPages', 'action' => 'edit', Hash::get($parentArticle, 'Page.id')),
+        Hash::get($parentArticle, 'Page.title_'.$lang) => array('controller' => 'AdminPages', 'action' => 'edit', Hash::get($parentArticle, 'Page.id')),
         $this->ObjectType->getTitle('index', 'PageBlock') => $indexURL,
         __('Edit') => ''
     );
@@ -25,16 +25,16 @@
     $tabs = array(
         __('General') => $this->Html->div('form-body',
             $this->element('AdminUI/checkboxes', array('checkboxes' => array('published')))
-            .$this->PHForm->input('title_'.$this->ArticleVars->getLang(),
+            .$this->PHForm->input('title_'.$lang,
                 array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Title')))
             )
             .$this->PHForm->input('slug')
-            .$this->PHForm->input('teaser_'.$this->ArticleVars->getLang(),
+            .$this->PHForm->input('teaser_'.$lang,
                 array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Teaser')))
             )
             .$this->PHForm->input('sorting', array('class' => 'form-control input-small'))
         ),
-        __('Text') => $this->element('Article.edit_body', array('field' => 'body_'.$this->ArticleVars->getLang())),
+        __('Text') => $this->element('Article.edit_body', array('field' => 'body_'.$lang)),
     );
 
     if ($id) {

@@ -22,7 +22,7 @@
     $tabs = array(
         __('General') => $this->Html->div('form-body',
             $this->element('AdminUI/checkboxes', array('checkboxes' => array('published')))
-            .$this->PHForm->input('title_'.$this->ArticleVars->getLang(),
+            .$this->PHForm->input('title_'.$lang,
                 array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Title')))
             )
             .$this->PHForm->input('sorting', array('class' => 'form-control input-small'))

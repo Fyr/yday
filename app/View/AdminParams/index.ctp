@@ -5,9 +5,9 @@
 	$breadcrumbs = array(
 		__('eCommerce') => 'javascript:;',
 		$this->ObjectType->getTitle('index', 'Category') => array('controller' => 'AdminCategories', 'action' => 'index'),
-		Hash::get($category, 'Category.title_'.$this->ArticleVars->getLang()) => array('controller' => 'AdminCategories', 'action' => 'edit', Hash::get($category, 'Category.id')),
+		Hash::get($category, 'Category.title_'.$lang) => array('controller' => 'AdminCategories', 'action' => 'edit', Hash::get($category, 'Category.id')),
 		$this->ObjectType->getTitle('index', 'ParamGroup') => $indexURL,
-		Hash::get($parentArticle, 'ParamGroup.title_'.$this->ArticleVars->getLang()) => $editURL,
+		Hash::get($parentArticle, 'ParamGroup.title_'.$lang) => $editURL,
 		$title => ''
 	);
 	echo $this->element('AdminUI/breadcrumbs', compact('breadcrumbs'));
@@ -15,7 +15,7 @@
 	echo $this->Flash->render();
 
 	$columns = $this->PHTableGrid->getDefaultColumns($objectType);
-	$columns[$objectType.'.label_'.$this->ArticleVars->getLang()]['label'] = __('Title');
+	$columns[$objectType.'.label_'.$lang]['label'] = __('Title');
 	$columns[$objectType.'.field_type']['format'] = 'string';
 	$rowset = $this->PHTableGrid->getDefaultRowset($objectType);
 	foreach($rowset as &$row) {

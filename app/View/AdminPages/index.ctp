@@ -9,7 +9,7 @@
     echo $this->Flash->render();
 
     $columns = $this->PHTableGrid->getDefaultColumns($objectType);
-    $columns[$objectType.'.title_'.$this->ArticleVars->getLang()]['label'] = __('Title');
+    $columns[$objectType.'.title_'.$lang]['label'] = __('Title');
     $row_actions = '../AdminPages/row_actions';
 ?>
 <div class="row">

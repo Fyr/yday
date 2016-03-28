@@ -6,7 +6,7 @@
     $breadcrumbs = array(
         __('eCommerce') => 'javascript:;',
         $this->ObjectType->getTitle('index', 'Product') => array('controller' => 'AdminProducts', 'action' => 'index'),
-        Hash::get($parentArticle, 'Product.title_'.$this->ArticleVars->getLang()) => $editURL,
+        Hash::get($parentArticle, 'Product.title_'.$lang) => $editURL,
         $this->ObjectType->getTitle('index', 'ProductPack') => $indexURL,
         __('Edit') => ''
     );
@@ -25,10 +25,10 @@
 
     $tabs = array(
         __('General') => $this->Html->div('form-body',
-            $this->PHForm->input('title_'.$this->ArticleVars->getLang(),
+            $this->PHForm->input('title_'.$lang,
                 array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Title')))
             )
-            .$this->PHForm->input('price_'.$this->ArticleVars->getLang(),
+            .$this->PHForm->input('price_'.$lang,
                 array(
                     'class' => 'form-control input-small',
                     'label' => array('class' => 'col-md-3 control-label', 'text' => __('Price'))
@@ -38,7 +38,7 @@
         ),
     );
     foreach($aFormGroups as $id => $group) {
-        $title = $group['ParamGroup']['title_'.$this->ArticleVars->getLang()];
+        $title = $group['ParamGroup']['title_'.$lang];
         if ($form = Hash::get($aForms, $id)) {
             $tabs[$title] = $this->PHForm->renderForm($form, $aValues);
         }

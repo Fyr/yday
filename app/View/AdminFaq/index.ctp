@@ -9,8 +9,8 @@
     echo $this->Flash->render();
 
     $columns = $this->PHTableGrid->getDefaultColumns($objectType);
-    $columns[$objectType.'.title_'.$this->ArticleVars->getLang()]['label'] = __('Question');
-    $columns[$objectType.'.body_'.$this->ArticleVars->getLang()]['label'] = __('Answer');
+    $columns[$objectType.'.title_'.$lang]['label'] = __('Question');
+    $columns[$objectType.'.body_'.$lang]['label'] = __('Answer');
 ?>
 <div class="row">
     <div class="col-md-12">

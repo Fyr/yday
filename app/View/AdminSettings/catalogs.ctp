@@ -17,18 +17,18 @@
 	echo $this->element('AdminUI/form_title', compact('title'));
 	echo $this->PHForm->create('Settings');
 
-	echo $this->PHForm->input('song_price_'.$this->ArticleVars->getLang(), array(
+	echo $this->PHForm->input('song_price_'.$lang, array(
 		'class' => 'form-control input-small',
 		'label' => array('class' => 'col-md-3 control-label', 'text' => __('Song price'))
 	));
-	echo $this->PHForm->input('catalog_features_'.$this->ArticleVars->getLang(), array(
+	echo $this->PHForm->input('catalog_features_'.$lang, array(
 		'label' => array('class' => 'col-md-3 control-label', 'text' => __('Catalog features'))
 	));
-	echo $this->PHForm->input('catalog_video_'.$this->ArticleVars->getLang(), array(
+	echo $this->PHForm->input('catalog_video_'.$lang, array(
 		'label' => array('class' => 'col-md-3 control-label', 'text' => __('Video (HTML-code)'))
 	));
 
-	echo $this->element('AdminUI/form_actions', array('backURL' => array('action' => $this->request->action)));
+	echo $this->element('AdminUI/form_save');
 	echo $this->PHForm->end();
 ?>
 		</div>

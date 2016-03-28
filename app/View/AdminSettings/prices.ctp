@@ -16,7 +16,7 @@
 <?
 	echo $this->element('AdminUI/form_title', compact('title'));
 	echo $this->PHForm->create('Settings');
-	$currency = $this->ArticleVars->getLang();
+	$currency = $lang;
 	echo $this->PHForm->input('price_prefix_'.$currency, array(
 			'class' => 'form-control input-small',
 			'label' => array('text' => __('Price prefix'), 'class' => 'col-md-3 control-label')
@@ -38,7 +38,7 @@
 			'label' => array('text' => __('Decimal point'), 'class' => 'col-md-3 control-label')
 		));
 
-	echo $this->element('AdminUI/form_actions', array('backURL' => array('action' => $this->request->action)));
+	echo $this->element('AdminUI/form_save');
 	echo $this->PHForm->end();
 ?>
 		</div>

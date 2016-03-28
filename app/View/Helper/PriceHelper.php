@@ -1,11 +1,9 @@
 <?php
 App::uses('AppHelper', 'View/Helper');
-App::uses('ArticleVars', 'View/Helper');
 class PriceHelper extends AppHelper {
-	public $helpers = array('ArticleVars');
 
 	public function format($sum, $lang = '') {
-		$lang = ($lang) ? $lang : $this->ArticleVars->getLang();
+		$lang = ($lang) ? $lang : $this->getLang();
 		$sum = number_format(
 			$sum,
 			Configure::read('Settings.decimals_'.$lang),

@@ -3,7 +3,7 @@
     $breadcrumbs = array(
         __('eCommerce') => 'javascript:;',
         $this->ObjectType->getTitle('index', 'Category') => array('controller' => 'AdminCategories', 'action' => 'index'),
-        Hash::get($parentArticle, 'Category.title_'.$this->ArticleVars->getLang()) => array('controller' => 'AdminCategories', 'action' => 'edit', Hash::get($parentArticle, 'Category.id')),
+        Hash::get($parentArticle, 'Category.title_'.$lang) => array('controller' => 'AdminCategories', 'action' => 'edit', Hash::get($parentArticle, 'Category.id')),
         $title => ''
     );
     echo $this->element('AdminUI/breadcrumbs', compact('breadcrumbs'));
@@ -11,7 +11,7 @@
     echo $this->Flash->render();
 
     $columns = $this->PHTableGrid->getDefaultColumns($objectType);
-    $columns[$objectType.'.title_'.$this->ArticleVars->getLang()]['label'] = __('Title');
+    $columns[$objectType.'.title_'.$lang]['label'] = __('Title');
 ?>
 <div class="row">
     <div class="col-md-12">

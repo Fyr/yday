@@ -13,7 +13,7 @@ class AppController extends Controller {
 	}
 
 	protected function _beforeInit() {
-		$this->helpers = array_merge(array('Html', 'Form', 'Paginator'), $this->helpers); // 'ArticleVars', 'Media.PHMedia', 'Core.PHTime', 'Media', 'ObjectType'
+		$this->helpers = array_merge(array('Html', 'Form', 'Paginator', 'Settings'), $this->helpers); // 'ArticleVars', 'Media.PHMedia', 'Core.PHTime', 'Media', 'ObjectType'
 	}
 
 	protected function _afterInit() {
@@ -78,5 +78,6 @@ class AppController extends Controller {
 	protected function beforeRenderLayout() {
 		$this->set('aCategories', $this->aCategories);
 		$this->set('aProducts', $this->aProducts);
+		$this->set('lang', Configure::read('Config.language'));
 	}
 }

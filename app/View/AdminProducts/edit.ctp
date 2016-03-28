@@ -22,27 +22,27 @@
     $tabs = array(
         __('General') => $this->Html->div('form-body',
             $this->element('AdminUI/checkboxes')
-            .$this->PHForm->input('title_'.$this->ArticleVars->getLang(),
+            .$this->PHForm->input('title_'.$lang,
                 array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Title')))
             )
             .$this->PHForm->input('slug')
             .$this->PHForm->input('parent_id', array('options' => $aCategoryOptions, 'label' => array('class' => 'col-md-3 control-label', 'text' => __('Category'))))
-            .$this->PHForm->input('teaser_'.$this->ArticleVars->getLang(),
+            .$this->PHForm->input('teaser_'.$lang,
                 array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Teaser')))
             )
             .$this->PHForm->input('sorting', array('class' => 'form-control input-small'))
         ),
-        __('Text') => $this->element('Article.edit_body', array('field' => 'body_'.$this->ArticleVars->getLang())),
-        __('Features') => $this->PHForm->input('spec_features_'.$this->ArticleVars->getLang(),
+        __('Text') => $this->element('Article.edit_body', array('field' => 'body_'.$lang)),
+        __('Features') => $this->PHForm->input('spec_features_'.$lang,
                 array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Spec.features list')))
             )
-            .$this->PHForm->input('features_'.$this->ArticleVars->getLang(),
+            .$this->PHForm->input('features_'.$lang,
                 array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Features list'))))
 
     );
 
     foreach($aFormGroups as $_id => $group) {
-        $title = $group['ParamGroup']['title_'.$this->ArticleVars->getLang()];
+        $title = $group['ParamGroup']['title_'.$lang];
         if ($form = Hash::get($aForms, $_id)) {
             $tabs[$title] = $this->PHForm->renderForm($form, $aValues);
         }

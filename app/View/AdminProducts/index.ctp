@@ -9,7 +9,7 @@
     echo $this->Flash->render();
 
     $columns = $this->PHTableGrid->getDefaultColumns($objectType);
-    $columns['Product.title_'.$this->ArticleVars->getLang()]['label'] = __('Title');
+    $columns['Product.title_'.$lang]['label'] = __('Title');
     $columns['Product.parent_id']['format'] = 'string';
     $columns['Product.parent_id']['label'] = __('Category');
     $rowset = $this->PHTableGrid->getDefaultRowset($objectType);

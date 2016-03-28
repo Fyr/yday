@@ -19,7 +19,7 @@
 
 	echo $this->PHForm->input('admin_email', array('label' => array('class' => 'col-md-3 control-label', 'text' => __('E-mail of admin'))));
 
-	echo $this->element('AdminUI/form_actions', array('backURL' => array('action' => $this->request->action)));
+	echo $this->element('AdminUI/form_save');
 	echo $this->PHForm->end();
 ?>
 		</div>

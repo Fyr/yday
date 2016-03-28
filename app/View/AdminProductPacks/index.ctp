@@ -4,16 +4,16 @@
     $breadcrumbs = array(
         __('eCommerce') => 'javascript:;',
         $this->ObjectType->getTitle('index', 'Product') => array('controller' => 'AdminProducts', 'action' => 'index'),
-        Hash::get($parentArticle, 'Product.title_'.$this->ArticleVars->getLang()) => $editURL,
+        Hash::get($parentArticle, 'Product.title_'.$lang) => $editURL,
         $title => ''
     );
     echo $this->element('AdminUI/breadcrumbs', compact('breadcrumbs'));
     echo $this->element('AdminUI/title', compact('title'));
     echo $this->Flash->render();
 
-    $price = 'price_'.$this->ArticleVars->getLang();
+    $price = 'price_'.$lang;
     $columns = $this->PHTableGrid->getDefaultColumns($objectType);
-    $columns[$objectType.'.title_'.$this->ArticleVars->getLang()]['label'] = __('Title');
+    $columns[$objectType.'.title_'.$lang]['label'] = __('Title');
 
     $rowset = $this->PHTableGrid->getDefaultRowset($objectType);
     foreach($rowset as &$row) {

@@ -20,9 +20,9 @@
     $breadcrumbs = array(
         __('eCommerce') => 'javascript:;',
         $this->ObjectType->getTitle('index', 'Category') => array('controller' => 'AdminCategories', 'action' => 'index'),
-        Hash::get($category, 'Category.title_'.$this->ArticleVars->getLang()) => array('controller' => 'AdminCategories', 'action' => 'edit', Hash::get($category, 'Category.id')),
+        Hash::get($category, 'Category.title_'.$lang) => array('controller' => 'AdminCategories', 'action' => 'edit', Hash::get($category, 'Category.id')),
         $this->ObjectType->getTitle('index', 'ParamGroup') => $indexURL,
-        Hash::get($parentArticle, 'ParamGroup.title_'.$this->ArticleVars->getLang()) => $editURL,
+        Hash::get($parentArticle, 'ParamGroup.title_'.$lang) => $editURL,
         $title => array('controller' => 'AdminParams', 'action' => 'index', $parent_id),
         __('Edit') => ''
     );
@@ -39,7 +39,7 @@
     echo $this->element('AdminUI/form_title', array('title' => $this->ObjectType->getTitle($id ? 'edit' : 'create', $objectType)));
     echo $this->PHForm->create('PMFormField');
 
-    echo $this->PHForm->input('label_'.$this->ArticleVars->getLang(),
+    echo $this->PHForm->input('label_'.$lang,
         array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Label')))
     );
     echo $this->PHForm->input('field_type', array('options' => $aFieldTypes, 'label' => array('class' => 'col-md-3 control-label', 'text' => __('Field type'))));
