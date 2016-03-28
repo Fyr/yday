@@ -9,16 +9,16 @@ class ArticleVarsHelper extends AppHelper {
 		$id = $article[$objectType]['id'];
 		
 		$url = SiteRouter::url($article);
-		
-		$title = $article[$objectType]['title'];
-		$teaser = nl2br($article[$objectType]['teaser']);
+		$lang = $this->getLang();
+		$title = $article[$objectType]['title_'.$lang];
+		$teaser = nl2br($article[$objectType]['teaser_'.$lang]);
 		$src = (isset($article['Media']) && $article['Media'] && isset($article['Media']['id']) && $article['Media']['id']) 
 			? $this->Media->imageUrl($article, $size) : '';
 		$featured = $article[$objectType]['featured'];
 	}
 
 	public function body($article) {
-		return $article[$this->getObjectType($article)]['body'];
+		return $article[$this->getObjectType($article)]['body_'.$this->getLang()];
 	}
 
 	public function divideColumns($items, $cols) {

@@ -3,16 +3,16 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <span class="closeModal" data-dismiss="modal" aria-label="Close"></span>
-            <div class="title">Вход в личный кабинет</div>
+            <div class="title">Р’С…РѕРґ РІ Р»РёС‡РЅС‹Р№ РєР°Р±РёРЅРµС‚</div>
             <form>
                 <input type="text" class="form-control" placeholder="Email">
-                <input type="password" class="form-control" placeholder="Пароль">
+                <input type="password" class="form-control" placeholder="РџР°СЂРѕР»СЊ">
                 <div class="links">
-                    <a href="javascript: void(0)" class="forgotPassword">Забыли пароль</a>
-                    <a href="javascript: void(0)" class="signUp">Регистрация</a>
+                    <a href="javascript: void(0)" class="forgotPassword">Р—Р°Р±С‹Р»Рё РїР°СЂРѕР»СЊ</a>
+                    <a href="javascript: void(0)" class="signUp">Р РµРіРёСЃС‚СЂР°С†РёСЏ</a>
                 </div>
                 <div class="bottom">
-                    <button class="btn btn-success">Войти</button>
+                    <button class="btn btn-success">Р’РѕР№С‚Рё</button>
                 </div>
             </form>
         </div>

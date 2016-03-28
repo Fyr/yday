@@ -571,3 +571,32 @@ msgstr "Видео (HTML-код)"
 msgid "Page not found"
 msgstr "Страница не найдена"
 
+msgid "Free call"
+msgstr "Бесплатный звонок"
+
+msgid "Order"
+msgstr "Заказать"
+
+msgid "Order a free demo version of our player right now!"
+msgstr "Закажите бесплатно демо-версию нашего плеера прямо сейчас!"
+
+msgid "The latest news from the world of karaoke"
+msgstr "Последние новости из мира караоке"
+
+msgid "User area"
+msgstr "Личный кабинет"
+
+msgid "Site development"
+msgstr "Разработка сайта"
+
+msgid "Name"
+msgstr "Имя"
+
+msgid "Karaoke systems"
+msgstr "Караоке системы"
+
+msgid "About karaoke systems"
+msgstr "О караоке системах"
+
+msgid "Compare systems"
+msgstr "Сравнение систем"

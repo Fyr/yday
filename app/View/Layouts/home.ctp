@@ -22,9 +22,10 @@
 		'vendor/bundle',
 		'vendor/tagcloud.jquery',
 		'vendor/jquery.dotdotdot',
+		'vendor/jquery.cookie',
 		'tagcloud',
-		'rego_custom'
-
+		'rego_custom',
+		'lang'
 	));
 ?>
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

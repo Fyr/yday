@@ -23,7 +23,9 @@
 		'vendor/jquery.1.11.0.min',
 		'vendor/bootstrap.min',
 		'vendor/owl.carousel.min',
-		'rego_custom'
+		'vendor/jquery.cookie',
+		'rego_custom',
+		'lang'
 	));
 	echo $this->fetch('script');
 ?>
