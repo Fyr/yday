@@ -34,6 +34,8 @@ $(document).ready(function(){
 		});		
 	});
 	*/
+	$('input.styler').styler();
+	console.log('input.styler');
 	
 	$('.article img').each(function(index, element){
 		if ( $(this).css('float') == 'left' ) {

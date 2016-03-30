@@ -757,3 +757,15 @@ msgstr "Сравнить %s с другими системами"
 msgid "You can download mobile for %s tablets application here"
 msgstr "Скачать мобильное приложение для планшетов %s Вы можете здесь"
 
+msgid "Log into user area"
+msgstr "Вход в личный кабинет"
+
+msgid "Invalid key.<br />You have left %s attempt(s)"
+msgstr "Ключ введен неверно.<br />У Вас осталось %s попытки."
+
+msgid "Your licence key"
+msgstr "Лицензионный ключ"
+
+msgid "You have no attempts left"
+msgstr "У вас не осталось попыток"
+

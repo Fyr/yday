@@ -8,6 +8,7 @@
 <?
 	echo $this->Html->css(array(
 		'bootstrap.min',
+		'jquery.formstyler',
 		'style.css',
 		'extra'
 	));
@@ -25,7 +26,9 @@
 		'vendor/jquery.cookie',
 		'tagcloud',
 		'rego_custom',
-		'lang'
+		'lang',
+		'vendor/jquery.formstyler.min',
+		'/Core/js/json_handler'
 	));
 ?>
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

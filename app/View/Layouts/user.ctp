@@ -110,7 +110,7 @@ $(function(){
 <!-- BEGIN CONTAINER -->
 <div class="page-container">
 	<!-- BEGIN SIDEBAR -->
-	<?=$this->element('AdminUI/sidebar')?>
+	<?=$this->element('UserUI/sidebar')?>
 	<!-- END SIDEBAR -->
 	<!-- BEGIN CONTENT -->
 	<div class="page-content-wrapper">

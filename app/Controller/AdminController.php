@@ -29,6 +29,15 @@ class AdminController extends AppController {
 		return AuthComponent::user('id') == 1;
 	}
 
+	public function isAuthorized($user) {
+		if ($group_id = Hash::get($user, 'group_id') && $group_id == 10) {
+			$this->set('currUser', $user);
+			return Hash::get($user, 'active');
+		}
+		$this->redirect($this->Auth->loginAction);
+		return false;
+	}
+
 	public function index() {
 		//$this->redirect(array('controller' => 'AdminProducts'));
 	}

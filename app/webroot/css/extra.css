@@ -30,3 +30,11 @@ table.sectionContent td p, .section.downloadMobiles .leftText p { line-height: 1
 #tagcloud {position: relative; z-index: 1;}
 
 .songPlayer { padding-bottom: 80px !important; }
+
+#myLogin .jq-checkbox {
+    float: left;
+    margin-right: 10px;
+}
+#myLogin .forgotPassword {
+
+}

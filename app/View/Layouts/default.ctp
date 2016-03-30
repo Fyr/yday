@@ -11,6 +11,7 @@
 		'bootstrap.min',
 		'owl-carousel/owl.carousel',
 		'owl-carousel/owl.theme',
+		'jquery.formstyler',
 		'style.css',
 		'extra'
 	));
@@ -25,7 +26,9 @@
 		'vendor/owl.carousel.min',
 		'vendor/jquery.cookie',
 		'rego_custom',
-		'lang'
+		'lang',
+		'vendor/jquery.formstyler.min',
+		'/Core/js/json_handler'
 	));
 	echo $this->fetch('script');
 ?>
@@ -46,5 +49,9 @@
 		<?=$this->element('SiteUI/footer')?>
 	</div>
 </div>
+<?
+	echo $this->element('SiteUI/login');
+	echo $this->element('SiteUI/thanks');
+?>
 </body>
 </html>

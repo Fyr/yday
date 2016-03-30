@@ -11,9 +11,19 @@
 				<span class="icon-bar"></span>
 			</button>
 		</div>
-		<a href="javascript: void(0)" class="loginBtn"><?=__('User area')?></a>
+<?
+	if (isset($currUser)) {
+		echo $this->Html->link(__('User area'), array('controller' => 'user', 'action' => 'index'), array('class' => 'loginBtn'));
+	} else {
+?>
+		<a href="javascript: void(0)" class="loginBtn" data-toggle="modal" data-target="#myLogin"><?=__('User area')?></a>
+<?
+	}
+?>
 		<div class="dropdown language">
-			<button class="btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><?=($lang == 'rus') ? 'RU' : 'EN'?> <span class="icon-arrow-down"></span></button>
+			<button class="btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><?=($lang == 'rus') ? 'RU' : 'EN'?>
+				<span class="icon-arrow-down"></span>
+			</button>
 			<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
 				<li><a href="javascript:;" onclick="setLang('rus')">RU</a></li>
 				<li><a href="javascript:;" onclick="setLang('eng')">EN</a></li>
