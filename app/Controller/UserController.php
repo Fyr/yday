@@ -3,17 +3,9 @@ App::uses('AppController', 'Controller');
 class UserController extends AppController {
 	public $name = 'User';
 	public $layout = 'user';
-	public $components = array('RequestHandler', 'UserAuth');
+	public $components = array('RequestHandler', 'Flash');
 	public $uses = array('User');
 	public $helpers = array('Form.PHForm');
-
-	/*
-	public function beforeFilter() {
-		$this->Auth->deny();
-		$this->Auth->allow('login');
-		return parent::beforeFilter();
-	}
-	*/
 
 	public function login() {
 		$tries = (isset($_COOKIE['login'])) ? intval($_COOKIE['login']) - 1 : 2;
@@ -36,5 +28,23 @@ class UserController extends AppController {
 	}
 
 	public function index() {
+		$this->redirect(array('action' => 'profile'));
+	}
+
+	public function profile() {
+		if ($this->request->is(array('post', 'put'))) {
+			$this->request->data('User.id', $this->currUser['id']);
+			if ($this->User->save($this->request->data)) {
+				$this->Flash->success(__('Record has been successfully saved'));
+				$user = $this->User->findById($this->currUser['id']);
+				$this->Auth->login($user['User']);
+				return $this->redirect(array('action' => 'profile'));
+			}
+		} else {
+			$this->request->data('User', $this->currUser);
+		}
+	}
+
+	public function songpacks() {
 	}
 }

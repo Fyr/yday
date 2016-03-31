@@ -60,14 +60,14 @@
 			<div class="col-sm-3 item">
 				<a class="manual" href="<?=$pack['Media']['url_download']?>">
 					<img alt="Скачать PDF" src="/img/pdf.png">
-					<span><?=$pack['SongPack']['title_'.$lang]?></span>
+					<span><?=$pack['SongPack']['title_'.$lang]?> (<?=$this->PHMedia->MediaPath->filesizeFormat($pack['Media']['orig_fsize'], 1)?>)</span>
 				</a>
 			</div>
 <?
 	}
 ?>
 		</div>
-		<a class="btn btn-success" href="javascript: void(0)"><?=__('Order service packs')?></a>
+		<a class="btn btn-success" href="<?=$this->Html->url(array('controller' => 'user', 'action' => 'songpacks'))?>"><?=__('Order service packs')?></a>
 	</div>
 </div>
 <div class="pakets">

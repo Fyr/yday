@@ -769,3 +769,21 @@ msgstr "Лицензионный ключ"
 msgid "You have no attempts left"
 msgstr "У вас не осталось попыток"
 
+msgid "Welcome, %s!"
+msgstr "Добро пожаловать, %s!"
+
+msgid "Full name"
+msgstr "Ф.И.О."
+
+msgid "The name must be between 8 and 50 characters"
+msgstr "Имя должно быть не менее 8 и не более 50 символов"
+
+msgid "Value of key must be between 8 and 32 characters"
+msgstr "Значение ключа должно быть не менее 8 и не более 32 символа"
+
+msgid "That key has already been used"
+msgstr "Это значение ключа уже было использовано"
+
+msgid "Email is incorrect"
+msgstr "Некорректный email"
+

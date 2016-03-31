@@ -12,7 +12,7 @@
 			</button>
 		</div>
 <?
-	if (isset($currUser)) {
+	if ($currUser) {
 		echo $this->Html->link(__('User area'), array('controller' => 'user', 'action' => 'index'), array('class' => 'loginBtn'));
 	} else {
 ?>

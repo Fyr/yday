@@ -5,10 +5,13 @@
 				<div class="sidebar-toggler"> </div>
 			</li>
 			<li class="heading">
+				<div style="text-align: center; margin-bottom: 15px;">
+					<?=__('Welcome, %s!', '<b>'.$currUser['username']).'</b>'?>
+				</div>
 				<h3 class="uppercase"><?=__('User area')?></h3>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="javascript:;">
+				<a class="nav-link" href="<?=$this->Html->url(array('controller' => 'user', 'action' => 'profile'))?>">
 					<span class="title"><?=__('Profile')?></span>
 				</a>
 			</li>
@@ -19,24 +22,24 @@
 				</a>
 				<ul class="sub-menu" style="display: none;">
 					<li class="nav-item" id="menu2">
-						<a class="nav-link" href="/AdminPages">
-							<span class="title"><span class="title"><?=__('Song packs')?></span></span>
+						<a class="nav-link" href="<?=$this->Html->url(array('controller' => 'user', 'action' => 'songpacks'))?>">
+							<span class="title"><?=__('Song packs')?></span>
 						</a>
 					</li>
 					<li class="nav-item" id="menu3">
-						<a class="nav-link" href="/AdminNews">
-							<span class="title"><span class="title"><?=__('Custom song order')?></span></span>
+						<a class="nav-link" href="<?=$this->Html->url(array('controller' => 'user', 'action' => 'songorder'))?>">
+							<span class="title"><?=__('Custom song order')?></span>
 						</a>
 					</li>
 				</ul>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="javascript:;">
+				<a class="nav-link" href="<?=$this->Html->url(array('controller' => 'user', 'action' => 'upgrade'))?>">
 					<span class="title"><?=__('Upgrade')?></span>
 				</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="javascript:;">
+				<a class="nav-link" href="<?=$this->Html->url(array('controller' => 'user', 'action' => 'orders'))?>">
 					<span class="title"><?=__('My orders')?></span>
 				</a>
 			</li>

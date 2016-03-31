@@ -2,9 +2,18 @@
 App::uses('Category', 'Model');
 App::uses('Product', 'Model');
 class AppController extends Controller {
-	public $components = array('DebugKit.Toolbar');
+	public $components = array('DebugKit.Toolbar',
+		'Auth' => array(
+			'authorize'      => array('Controller'),
+			'loginAction'    => array('plugin' => '', 'controller' => 'pages', 'action' => 'home', '?' => array('login' => 1)),
+			'loginRedirect'  => array('plugin' => '', 'controller' => 'user', 'action' => 'index'),
+			'ajaxLogin' => 'Core.ajax_auth_failed',
+			'logoutRedirect' => '/',
+			'authError'      => 'You must sign in to access that page'
+		),
+	);
 
-	protected $aCategories, $aProducts;
+	protected $aCategories, $aProducts, $currUser;
 
 	public function __construct($request = null, $response = null) {
 		$this->_beforeInit();
@@ -48,8 +57,7 @@ class AppController extends Controller {
 
 
 	public function isAuthorized($user) {
-		fdebug('isAuthorized');
-		$this->set('currUser', $user);
+		fdebug("App.isAuthorized\r\n");
 		return Hash::get($user, 'active');
 	}
 
@@ -63,6 +71,13 @@ class AppController extends Controller {
 	}
 
 	public function beforeFilterLayout() {
+		$this->Auth->allow(array('home', 'show', 'view', 'index', 'custom', 'full', 'compare', 'karaoke_systems', 'player', 'tablet', 'select', 'login'));
+		$this->currUser = array();
+		if ($this->Auth->loggedIn()) {
+			$this->currUser = AuthComponent::user();
+		}
+		$this->set('currUser', $this->currUser);
+
 		$this->loadModel('Category');
 		$this->aCategories = $this->Category->find('all', array('order' => 'sorting'));
 		$this->aCategories = Hash::combine($this->aCategories, '{n}.Category.id', '{n}');
