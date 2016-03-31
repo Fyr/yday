@@ -31,4 +31,7 @@ class AdminSettingsController extends AdminController {
 
     public function catalogs() {
     }
+
+    public function songpacks() {
+    }
 }

@@ -21,6 +21,7 @@ class ObjectTypeHelper extends AppHelper {
                 'Service' => __('Personal order services'),
                 'SubscrPlan' => __('Subscription plans'),
                 'ProductPack' => __('Product packs'),
+                'PackDiscount' => __('Song pack discounts'),
                 'User' => __('User profiles'),
             ),
             'create' => array(
@@ -36,6 +37,7 @@ class ObjectTypeHelper extends AppHelper {
                 'ParamGroup' => __('Create tech.param group'),
                 'PMFormField' => __('Create tech.param'),
                 'SongPack' => __('Create PDF-pack'),
+                'PackDiscount' => __('Create discount'),
                 'Service' => __('Create service'),
                 'SubscrPlan' => __('Create subscription plan'),
                 'ProductPack' => __('Create product pack'),
@@ -54,6 +56,7 @@ class ObjectTypeHelper extends AppHelper {
                 'ParamGroup' => __('Edit tech.param group'),
                 'PMFormField' => __('Edit tech.param'),
                 'SongPack' => __('Edit PDF-pack'),
+                'PackDiscount' => __('Edit discount'),
                 'Service' => __('Edit service'),
                 'SubscrPlan' => __('Edit subscription plan'),
                 'ProductPack' => __('Edit product pack'),
