@@ -31,21 +31,22 @@
 		<?=$this->element('SiteUI/title', array('title' => $blocks['monthly-packs-updates']['title_'.$lang]))?>
 		<div class="smallText"><?=$blocks['monthly-packs-updates']['teaser_'.$lang]?></div>
 		<div class="text"><?=$this->ArticleVars->body(array('PageBlock' => $blocks['monthly-packs-updates']))?></div>
-		<div class="price">Стоимость одного пакета — 3000</div>
+		<div class="price"><?=__('Song pack price')?> — <?=$this->Price->format($this->Settings->read('pack_price'))?></div>
 	</div>
 </div>
 <div class="darkGrey characteristics">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-4">
-				200 караоке песен ежемесячно
+<?
+	$features = $this->ArticleVars->list2array($this->Settings->read('pack_features'));
+	foreach($features as $title) {
+?>
+			<div class="col-sm-<?=ceil(12 / count($features))?>">
+				<?=$title?>
 			</div>
-			<div class="col-sm-4">
-				200 караоке песен ежемесячно
-			</div>
-			<div class="col-sm-4">
-				Только новые мировые хиты
-			</div>
+<?
+	}
+?>
 		</div>
 	</div>
 </div>
@@ -106,8 +107,7 @@
 	<div class="container">
 		<div class="outer">
 			<span class="text">
-				<!-- Также у Вас есть возможность <a href="%s">заказать отдельную песню</a> из общего каталога или <a href="%s">сделать индивидуальный заказ</a> песни, которой нет в общем каталоге -->
-				<?=__('Also you have the opportunity to <a href="%s"> order </a> single song from a shared directory or <a href="%s"> make the personal order </a> song that is not in the general catalog', 'javascript:;', 'javascript:;')?>
+				<?=__("Also you have the opportunity to <a href=\"%s\">order single song</a> from a shared directory or <a href=\"%s\">make the personal order</a> song that is not in the general catalog", 'javascript:;', 'javascript:;')?>
 			</span>
 			<i class="vert"></i>
 		</div>

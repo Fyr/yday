@@ -790,3 +790,65 @@ msgstr "Некорректный email"
 msgid "Song pack price"
 msgstr "Стоимость одного пакета"
 
+msgid "Song pack discounts"
+msgstr "Скидки для пакетов"
+
+msgid "Qty"
+msgstr "Кол-во"
+
+msgid "Discount, %"
+msgstr "Cкидка, %"
+
+msgid "more then %s"
+msgstr "свыше %s"
+
+msgid "Song pack features"
+msgstr "Возможности пакетов обновлений"
+
+msgid "Old song"
+msgstr "Старая песня"
+
+msgid "All the most current songs for karaoke in one package"
+msgstr "Все самые актуальные песни для караоке в одном пакете"
+
+msgid "Profile"
+msgstr "Профиль"
+
+msgid "Updates"
+msgstr "Обновления"
+
+msgid "Custom song order"
+msgstr "Индивиуальный заказ песни"
+
+msgid "Upgrade"
+msgstr "Модернизация"
+
+msgid "My orders"
+msgstr "Мои заказы"
+
+msgid "Logout"
+msgstr "Выход"
+
+msgid "Thank you for your message!"
+msgstr "Спасибо за ваше сообщение!"
+
+msgid "Create discount"
+msgstr "Создать скидку"
+
+msgid "Edit discount"
+msgstr "Редактировать скидку"
+
+msgid "The application for remote control of your karaoke system"
+msgstr "Приложение для удаленного контроля вашей системой караоке"
+
+msgid "Edit profile"
+msgstr "Редактировать профиль"
+
+msgid "Have questions? Call us!"
+msgstr "Есть вопросы? Звоните нам!"
+
+msgid "Free phone number"
+msgstr "Бесплатный номер"
+
+msgid "Also you have the opportunity to <a href=\"%s\">order single song</a> from a shared directory or <a href=\"%s\">make the personal order</a> song that is not in the general catalog"
+msgstr "Также у Вас есть возможность <a href=\"%s\">заказать отдельную песню</a> из общего каталога или <a href=\"%s\">сделать индивидуальный заказ</a> песни, которой нет в общем каталоге"
