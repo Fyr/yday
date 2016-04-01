@@ -21,15 +21,4 @@ class Product extends AppModel {
         )
     );
 
-    /*
-    public function beforeDelete($cascade = true) {
-        fdebug($this->id);
-        return false;
-    }
-    */
-    /*
-    public function delete($id = null, $cascade = true) {
-        parent::delete($id);
-    }
-    */
 }

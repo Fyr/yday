@@ -9,10 +9,8 @@ class AdminAuthController extends AppController {
 	}
 
 	public function login() {
-		fdebug("Admin.login\r\n");
 		if ($this->request->is('post')) {
 			if ($this->Auth->login()) {
-				fdebug("Admin.success\r\n");
 				return $this->redirect($this->Auth->loginRedirect);
 			}
 			$this->Flash->error('Invalid username or password');
