@@ -1,10 +1,17 @@
 <table class="table table-striped table-bordered table-hover table-header-fixed dataTable">
 	<thead>
-	<tr class="">
+	<tr>
 <?
-	list($order) = array_keys($_paginate['order']);
-	list($dir) = array_values($_paginate['order']);
-	foreach($_paginate['_columns'] as $field) {
+	if (isset($options['checkboxes'])) {
+?>
+		<th class="checkboxes">
+			<input type="checkbox" />
+		</th>
+<?
+	}
+	list($order) = array_keys($options['order']);
+	list($dir) = array_values($options['order']);
+	foreach($options['columns'] as $field) {
 		$class = 'sorting';
 		if ($field['key'] == $order) {
 			$class = 'sorting_'.$dir;
@@ -15,18 +22,29 @@
 		</th>
 <?
 	}
+	if ($options['row_actions']) {
 ?>
 		<th><?=__('Actions')?></th>
+<?
+	}
+?>
 	</tr>
 	</thead>
 	<tbody>
 <?
-	foreach($_paginate['_rowset'] as $row) {
-		$id = Hash::get($row, $_paginate['_model'].'.id');
+	foreach($options['rowset'] as $row) {
+		$id = Hash::get($row, $options['model'].'.id');
 ?>
 		<tr>
 <?
-		foreach($_paginate['_columns'] as $field) {
+		if (isset($options['checkboxes'])) {
+?>
+			<td class="checkboxes">
+				<input type="checkbox" name="data[checked][]" value="<?=$id?>" />
+			</td>
+<?
+		}
+		foreach($options['columns'] as $field) {
 			$field['value'] = Hash::get($row, $field['key']);
 			if ($field['format'] == 'date' || $field['format'] == 'datetime') {
 				echo $this->element('Table.date', $field);
@@ -38,13 +56,10 @@
 				echo $this->element('Table.string', $field);
 			}
 		}
+		if ($options['row_actions']) {
+			echo '<td nowrap="nowrap">'.$this->element($options['row_actions'], compact('id', 'row')).'</td>';
+		}
 ?>
-			<td nowrap="nowrap">
-<?
-		$tmpl = (isset($options['row_actions']) && $options['row_actions']) ? $options['row_actions'] : 'Table.row_actions';
-		echo $this->element($tmpl, compact('id', 'row'));
-?>
-			</td>
 		</tr>
 
 <?
