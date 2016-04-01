@@ -21,10 +21,12 @@
 
 	$spec_features = trim($product['Product']['spec_features_'.$lang]);
 	$features = trim($product['Product']['features_'.$lang]);
+
+	$header = ($product['Product']['header_'.$lang]) ? $product['Product']['header_'.$lang] : $product['Category']['title_'.$lang].': '.$product['Product']['title_'.$lang];
 ?>
 <div class="subMenu">
 	<div class="container">
-		<div class="name"><?=$product['Category']['title_'.$lang]?>: <?=$product['Product']['title_'.$lang]?></div>
+		<div class="name"><?=$header?></div>
 		<a class="btn btn-success orderBtn" href="javascript: void(0)"><?=__('Order')?></a>
 		<ul class="menu">
 <?

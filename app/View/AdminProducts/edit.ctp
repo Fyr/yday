@@ -25,6 +25,9 @@
             .$this->PHForm->input('title_'.$lang,
                 array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Title')))
             )
+            .$this->PHForm->input('header_'.$lang,
+                array('label' => array('class' => 'col-md-3 control-label', 'text' => __('Header')))
+            )
             .$this->PHForm->input('slug')
             .$this->PHForm->input('parent_id', array('options' => $aCategoryOptions, 'label' => array('class' => 'col-md-3 control-label', 'text' => __('Category'))))
             .$this->PHForm->input('teaser_'.$lang,
