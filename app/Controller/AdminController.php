@@ -33,7 +33,6 @@ class AdminController extends AppController {
 		$group_id = Hash::get($user, 'group_id');
 		if ($group_id == 10) {
 			$this->set('currUser', $user);
-			fdebug("Admin.isAuthorized\r\n");
 			return Hash::get($user, 'active');
 		}
 		$this->redirect($this->Auth->loginAction);

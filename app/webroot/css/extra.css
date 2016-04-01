@@ -38,3 +38,10 @@ table.sectionContent td p, .section.downloadMobiles .leftText p { line-height: 1
 #myLogin .forgotPassword {
 
 }
+table.dataTable thead th.checkboxes, table.dataTable tbody td.checkboxes {
+    padding: 10px;
+    width: 1%;
+}
+.rubl {
+    font-family: "PT Sans";
+}

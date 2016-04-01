@@ -16,6 +16,5 @@ class PCAuthComponent extends Component {
 		$this->_->Auth->ajaxLogin = 'Core.ajax_auth_failed';
 
         $this->_->Auth->allow('login');
-        fdebug("PCAuth.init\r\n");
     }
 }

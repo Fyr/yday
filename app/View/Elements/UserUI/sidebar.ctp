@@ -6,7 +6,8 @@
 			</li>
 			<li class="heading">
 				<div style="text-align: center; margin-bottom: 15px;">
-					<?=__('Welcome, %s!', '<b>'.$currUser['username']).'</b>'?>
+					<?=__('Welcome, %s!', '<b>'.$currUser['username']).'</b>'?><br />
+					<?=__('Your balance: %s', '<b>'.$this->Price->format($currUser['balance'], 'rus').'</b>')?>
 				</div>
 				<h3 class="uppercase"><?=__('User area')?></h3>
 			</li>

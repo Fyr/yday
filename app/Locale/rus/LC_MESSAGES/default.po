@@ -679,9 +679,6 @@ msgstr "Одно приложение для всех ваших развлеч�
 msgid "Buy player"
 msgstr "Купить плеер"
 
-msgid "Buy player"
-msgstr "Приложение для удаленного управления Вашей караоке системой"
-
 msgid "Installation on the operating system Android and iOS"
 msgstr "Установка на операционные системы Android и iOS"
 
@@ -852,3 +849,12 @@ msgstr "Бесплатный номер"
 
 msgid "Also you have the opportunity to <a href=\"%s\">order single song</a> from a shared directory or <a href=\"%s\">make the personal order</a> song that is not in the general catalog"
 msgstr "Также у Вас есть возможность <a href=\"%s\">заказать отдельную песню</a> из общего каталога или <a href=\"%s\">сделать индивидуальный заказ</a> песни, которой нет в общем каталоге"
+
+msgid "Add to cart"
+msgstr "В корзину"
+
+msgid "Your balance: %s"
+msgstr "Ваш баланс: %s"
+
+msgid "File size"
+msgstr "Размер"

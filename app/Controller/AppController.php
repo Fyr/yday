@@ -57,7 +57,6 @@ class AppController extends Controller {
 
 
 	public function isAuthorized($user) {
-		fdebug("App.isAuthorized\r\n");
 		return Hash::get($user, 'active');
 	}
 
