@@ -3,9 +3,11 @@ App::uses('AppController', 'Controller');
 class UserController extends AppController {
 	public $name = 'User';
 	public $layout = 'user';
-	public $components = array('RequestHandler', 'Flash');
-	public $uses = array('User');
-	public $helpers = array('Form.PHForm');
+	public $components = array('RequestHandler', 'Flash', 'Table.PCTableGrid');
+	public $uses = array('User', 'SongPack', 'Media.Media');
+	public $helpers = array('Form.PHForm', 'Table.PHTableGrid', 'Media.PHMedia');
+
+	public $paginate = array();
 
 	public function login() {
 		$tries = (isset($_COOKIE['login'])) ? intval($_COOKIE['login']) - 1 : 2;
@@ -45,6 +47,26 @@ class UserController extends AppController {
 		}
 	}
 
+	protected function _index($model) {
+		foreach($this->paginate as &$field) {
+			$field = str_replace('$lang', Configure::read('Config.language'), $field);
+		}
+		$this->set('objectType', $model);
+		return $this->PCTableGrid->paginate($model);
+	}
+
 	public function songpacks() {
+		$this->paginate = array(
+			'fields' => array('title_$lang'),
+			'order' => array('sorting' => 'desc'),
+			'conditions' => array('published' => 1),
+			'limit' => 20
+		);
+		$rowset = $this->_index('SongPack');
+		$ids = Hash::extract($rowset, '{n}.SongPack.id');
+		$conditions = array('media_type' => 'raw_file', 'object_type' => 'SongPack', 'object_id' => $ids);
+		$aMedia = $this->Media->find('all', compact('conditions'));
+		$aMedia = Hash::combine($aMedia, '{n}.Media.object_id', '{n}');
+		$this->set(compact('rowset', 'aMedia'));
 	}
 }

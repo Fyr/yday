@@ -13,6 +13,7 @@
 	<meta content="width=device-width, initial-scale=1" name="viewport" />
 	<!-- BEGIN GLOBAL MANDATORY STYLES -->
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+	<link href="http://fonts.googleapis.com/css?family=PT+Sans&subset=latin,latin-ext" rel="stylesheet" type="text/css" />
 	<link href="http://<?=Configure::read('domain.url')?>/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 	<link href="http://<?=Configure::read('domain.url')?>/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
 	<link href="http://<?=Configure::read('domain.url')?>/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -46,10 +47,9 @@
 	<link href="http://<?=Configure::read('domain.url')?>/assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css" />
 	<link href="http://<?=Configure::read('domain.url')?>/assets/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" />
 	
-	<!--link href="http://<?=Configure::read('domain.url')?>/css/header_footer.css" rel="stylesheet" type="text/css" /-->
 	<!-- END PAGE LEVEL PLUGINS -->
 <?
-	echo $this->Html->css('user');
+	echo $this->Html->css(array('user', 'extra'));
 
 	echo $this->Html->meta('icon');
 	echo $this->fetch('meta');
@@ -61,6 +61,15 @@
 	<script src="http://<?=Configure::read('domain.url')?>/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(function(){
+	// fixes for menu
+	if ($('ul.nav > li.dropdown')) {
+		$('ul.nav > li.dropdown').hover(function() {
+			$(this).find('.dropdown-menu').stop(true, true).delay(100).fadeIn();
+		}, function() {
+			$(this).find('.dropdown-menu').stop(true, true).delay(100).fadeOut();
+		});
+	}
+
 	// Fixes for forms
 	$('.form-group.error').addClass('has-error');
 	$('.error-message').each(function(){
