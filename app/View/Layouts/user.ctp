@@ -62,13 +62,17 @@
 <script type="text/javascript">
 $(function(){
 	// fixes for menu
-	if ($('ul.nav > li.dropdown')) {
-		$('ul.nav > li.dropdown').hover(function() {
-			$(this).find('.dropdown-menu').stop(true, true).delay(100).fadeIn();
-		}, function() {
-			$(this).find('.dropdown-menu').stop(true, true).delay(100).fadeOut();
-		});
-	}
+
+	$('ul.nav > li.dropdown').hover(function() {
+		$(this).find('.dropdown-menu').stop(true, true).delay(100).fadeIn();
+	}, function() {
+		$(this).find('.dropdown-menu').stop(true, true).delay(100).fadeOut();
+	});
+	$('ul.nav > li.dropdown a.dropdown-toggle').click(function(){
+		if ($(this).prop('href') != 'javascript:;') {
+			window.location.href = $(this).prop('href');
+		}
+	});
 
 	// Fixes for forms
 	$('.form-group.error').addClass('has-error');

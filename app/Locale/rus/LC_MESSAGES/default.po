@@ -389,7 +389,7 @@ msgid "Company name"
 msgstr "Наименование компании"
 
 msgid "Song packs"
-msgstr "Пакеты обновлений"
+msgstr "Пакеты песен"
 
 msgid "Song PDF-packs"
 msgstr "PDF пакеты обновлений"
