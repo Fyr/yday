@@ -856,5 +856,41 @@ msgstr "В корзину"
 msgid "Your balance: %s"
 msgstr "Ваш баланс: %s"
 
+msgid "Balance"
+msgstr "Баланс"
+
 msgid "File size"
 msgstr "Размер"
+
+msgid "Country"
+msgstr "Страна"
+
+msgid "City"
+msgstr "Город"
+
+msgid "Active"
+msgstr "Активен"
+
+msgid "Licence key"
+msgstr "Лицензионный ключ"
+
+msgid "Songs"
+msgstr "Песни"
+
+msgid "Create song"
+msgstr "Создать песню"
+
+msgid "Edit song"
+msgstr "Редактировать песню"
+
+msgid "Artist"
+msgstr "Исполнитель"
+
+msgid "Song"
+msgstr "Песня"
+
+msgid "Back vocals"
+msgstr "Бэк вокал"
+
+msgid "Video clip"
+msgstr "Видео клип"

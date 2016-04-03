@@ -16,9 +16,10 @@
 			'label' => false,
 			'div' => false
 		);
+		$label = (isset($labels) && isset($labels[$modelField])) ? $labels[$modelField] : ucfirst($field);
 ?>
 			<label class="checkbox-inline">
-				<?=$this->Form->input($model.'.'.$field, $options)?> <?=__(ucfirst($field))?>
+				<?=$this->Form->input($model.'.'.$field, $options)?> <?=__($label)?>
 			</label>
 <?
 	}
