@@ -8,7 +8,7 @@ class AdminUsersController extends AdminContentController {
 
     public $paginate = array(
         'conditions' => array('User.id <> ' => 1),
-        'fields' => array('created', 'username', 'email', 'active'),
+        'fields' => array('created', 'username', 'email', 'key', 'balance', 'active'),
         'order' => array('created' => 'desc'),
         'limit' => 20
     );

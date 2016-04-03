@@ -7,14 +7,14 @@
 	echo $this->element('AdminUI/breadcrumbs', compact('breadcrumbs'));
 	echo $this->element('AdminUI/title', compact('title'));
 	echo $this->Flash->render();
-/*
+
 	$columns = $this->PHTableGrid->getDefaultColumns($objectType);
-	$columns['PMFormField.field_type']['format'] = 'string';
+	$columns[$objectType.'.key']['label'] = __('Licence key');
+
 	$rowset = $this->PHTableGrid->getDefaultRowset($objectType);
 	foreach($rowset as &$row) {
-		$row['PMFormField']['field_type'] = $aFieldTypes[$row['PMFormField']['field_type']];
+		$row[$objectType]['balance'] = $this->Price->format($row[$objectType]['balance'], 'rus');
 	}
-*/
 ?>
 <div class="row">
 	<div class="col-md-12">
@@ -35,7 +35,7 @@
 						</div>
 					</div>
 				</div>
-				<?=$this->PHTableGrid->render($objectType)?>
+				<?=$this->PHTableGrid->render($objectType, compact('columns', 'rowset'))?>
 			</div>
 		</div>
 	</div>
