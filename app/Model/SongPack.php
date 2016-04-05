@@ -9,4 +9,8 @@ class SongPack extends AppModel {
             'dependent' => false
         )
     );
+
+    public function getStatus($ids) {
+        // if (is_array($ids))
+    }
 }

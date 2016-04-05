@@ -41,10 +41,14 @@ table.sectionContent td p, .section.downloadMobiles .leftText p { line-height: 1
 table.dataTable thead th.checkboxes, table.dataTable tbody td.checkboxes {
     padding: 10px;
     width: 1%;
+    text-align: center;
 }
 .rubl {
     font-family: "PT Sans";
 }
 .form-inline .form-group {
     margin-right: 10px;
+}
+.has-error .multiselect-container label.checkbox {
+    color: #555;
 }

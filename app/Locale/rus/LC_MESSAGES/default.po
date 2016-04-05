@@ -818,7 +818,7 @@ msgid "Updates"
 msgstr "Обновления"
 
 msgid "Custom song order"
-msgstr "Индивиуальный заказ песни"
+msgstr "Индивидуальный заказ песни"
 
 msgid "Upgrade"
 msgstr "Модернизация"
@@ -909,3 +909,25 @@ msgstr "- любой формат -"
 
 msgid "Find"
 msgstr "Найти"
+
+msgid "Services"
+msgstr "Услуги"
+
+msgid "Comment"
+msgstr "Примечание"
+
+msgid "Choose services"
+msgstr "Выберите услуги"
+
+msgid "service(s) choosen"
+msgstr "услуг(а) выбрано"
+
+msgid "Current system"
+msgstr "Текущая система"
+
+msgid "Your custom order have been added to the %s"
+msgstr "Ваш индивидуальный заказ был добавлен в %s"
+
+msgid "cart"
+msgstr "корзину"
+

@@ -4,7 +4,7 @@ class UserController extends AppController {
 	public $name = 'User';
 	public $layout = 'user';
 	public $components = array('RequestHandler', 'Flash', 'Table.PCTableGrid');
-	public $uses = array('User', 'Media.Media', 'SongPack', 'Song', 'SubscrPlan');
+	public $uses = array('User', 'Media.Media', 'SongPack', 'Song', 'SubscrPlan', 'Service', 'OrderCustom', 'OrderService');
 	public $helpers = array('Form.PHForm', 'Table.PHTableGrid', 'Media.PHMedia');
 
 	public $paginate = array();
@@ -67,10 +67,13 @@ class UserController extends AppController {
 		);
 		$rowset = $this->_index('SongPack');
 		$ids = Hash::extract($rowset, '{n}.SongPack.id');
+
 		$conditions = array('media_type' => 'raw_file', 'object_type' => 'SongPack', 'object_id' => $ids);
 		$aMedia = $this->Media->find('all', compact('conditions'));
 		$aMedia = Hash::combine($aMedia, '{n}.Media.object_id', '{n}');
-		$this->set(compact('rowset', 'aMedia'));
+
+		$aStatus = $this->SongPack->getStatus($ids);
+		$this->set(compact('rowset', 'aMedia', 'aStatus'));
 	}
 
 	public function songs() {
@@ -103,6 +106,24 @@ class UserController extends AppController {
 	}
 
 	public function customorder() {
+		if ($this->request->is(array('put', 'post'))) {
+			$this->request->data = array(
+				'OrderCustom' => array(
+					'artist' => 'Metallica',
+					'song' => 'Whiplash',
+					'comment' => "Yeah\r\nDo it!"
+				),
+				'OrderServices' => array(
+					array('service_id' => 3),
+					array('service_id' => 4),
+					array('service_id' => 6)
+				)
+			);
 
+			$this->OrderCustom->saveAll($this->request->data);
+		}
+
+
+		$this->set('aServices', $this->Service->getOptions());
 	}
 }
