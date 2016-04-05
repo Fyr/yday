@@ -12,4 +12,9 @@ class AdminSongsController extends AdminContentController {
         'limit' => 20
     );
 
+    public function edit($id = 0, $parent_id = '') {
+        parent::edit($id, $parent_id);
+
+        $this->set('aFormatOptions', $this->Song->getFormatOptions());
+    }
 }

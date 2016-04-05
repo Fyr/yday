@@ -45,3 +45,6 @@ table.dataTable thead th.checkboxes, table.dataTable tbody td.checkboxes {
 .rubl {
     font-family: "PT Sans";
 }
+.form-inline .form-group {
+    margin-right: 10px;
+}

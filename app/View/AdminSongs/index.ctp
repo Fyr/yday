@@ -7,9 +7,6 @@
     echo $this->element('AdminUI/breadcrumbs', compact('breadcrumbs'));
     echo $this->element('AdminUI/title', compact('title'));
     echo $this->Flash->render();
-
-    $columns = $this->PHTableGrid->getDefaultColumns($objectType);
-    //$columns[$objectType.'.title_'.$lang]['label'] = __('Title');
 ?>
 <div class="row">
     <div class="col-md-12">
@@ -30,7 +27,7 @@
                         </div>
                     </div>
                 </div>
-                <?=$this->PHTableGrid->render($objectType, compact('columns'))?>
+                <?=$this->PHTableGrid->render($objectType)?>
             </div>
         </div>
     </div>

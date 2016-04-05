@@ -11,60 +11,68 @@
 				</div>
 				<h3 class="uppercase"><?=__('User area')?></h3>
 			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="<?=$this->Html->url(array('controller' => 'user', 'action' => 'profile'))?>">
-					<span class="title"><?=__('Profile')?></span>
+<?
+	$aMenu = array(
+		array('label' => __('Profile'), 'url' => array('controller' => 'user', 'action' => 'profile')),
+		array('label' => __('Updates'), 'url' => 'javascript:;', 'submenu' => array(
+			array('label' => __('Song packs'), 'url' => array('controller' => 'user', 'action' => 'songpacks')),
+			array('label' => __('Order song'), 'url' => array('controller' => 'user', 'action' => 'songs')),
+			array('label' => __('Custom order'), 'url' => array('controller' => 'user', 'action' => 'customorder'))
+		)),
+		array('label' => __('Upgrade'), 'url' => array('controller' => 'user', 'action' => 'upgrade')),
+		array('label' => __('My orders'), 'url' => array('controller' => 'user', 'action' => 'orders')),
+		array('label' => __('Logout'), 'url' => array('controller' => 'user', 'action' => 'logout'))
+	);
+	$currMenu = 0;
+	$menuID = 0;
+	foreach($aMenu as $menu) {
+		$menuID++;
+?>
+			<li class="nav-item" id="menu<?=$menuID?>">
+<?
+		if (!isset($menu['submenu'])) {
+			if ($this->request->action == $menu['url']['action']) {
+				$currMenu = $menuID;
+			}
+?>
+				<a class="nav-link" href="<?=$this->Html->url($menu['url'])?>">
+					<span class="title"><?=$menu['label']?></span>
 				</a>
-			</li>
-			<li class="nav-item" id="menu1">
-				<a class="nav-link nav-toggle" href="javascript:;">
-					<span class="title"><?=__('Updates')?></span>
+<?
+		} else {
+?>
+				<a class="nav-link nav-toggle" href="<?=$this->Html->url($menu['url'])?>">
+					<span class="title"><?=$menu['label']?></span>
 					<span class="arrow"></span>
 				</a>
-				<ul class="sub-menu" style="display: none;">
-					<li class="nav-item" id="menu2">
-						<a class="nav-link" href="<?=$this->Html->url(array('controller' => 'user', 'action' => 'songpacks'))?>">
-							<span class="title"><?=__('Song packs')?></span>
+				<ul class="sub-menu">
+<?
+			foreach($menu['submenu'] as $_menu) {
+				$menuID++;
+				if ($this->request->action == $_menu['url']['action']) {
+					$currMenu = $menuID;
+				}
+?>
+					<li class="nav-item submenu" id="menu<?=$menuID?>">
+						<a class="nav-link" href="<?=$this->Html->url($_menu['url'])?>">
+							<span class="title"><?=$_menu['label']?></span>
 						</a>
 					</li>
-					<li class="nav-item" id="menu3">
-						<a class="nav-link" href="<?=$this->Html->url(array('controller' => 'user', 'action' => 'songorder'))?>">
-							<span class="title"><?=__('Custom song order')?></span>
-						</a>
-					</li>
+<?
+			}
+?>
 				</ul>
+<?
+		}
+?>
 			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="<?=$this->Html->url(array('controller' => 'user', 'action' => 'upgrade'))?>">
-					<span class="title"><?=__('Upgrade')?></span>
-				</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="<?=$this->Html->url(array('controller' => 'user', 'action' => 'orders'))?>">
-					<span class="title"><?=__('My orders')?></span>
-				</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="<?=$this->Html->url(array('controller' => 'user', 'action' => 'logout'))?>">
-					<span class="title"><?=__('Logout')?></span>
-				</a>
-			</li>
+<?
+	}
+?>
 		</ul>
 	</div>
 </div>
-<? /*
-	if ($this->request->controller == 'AdminPageBlocks') {
-		$currMenu = 2;
-	} elseif (in_array($this->request->controller,  array('AdminCategoryBlocks', 'AdminParamGroups', 'AdminParams'))) {
-		$currMenu = 6;
-	} elseif (in_array($this->request->controller, array('AdminProductBlocks', 'AdminProductPacks'))) {
-		$currMenu = 7;
-	} elseif ($this->request->controller == 'AdminSettings') {
-		$submenu = array('index' => 16, 'contacts' => 17, 'prices' => 18, 'apps' => 19, 'catalogs' => 20);
-		$currMenu = $submenu[$this->request->action];
-	} elseif ($this->request->controller == 'AdminUsers') {
-		$currMenu = ($this->request->action == 'edit' && $this->request->pass[0] == 1) ? 14 : 13;
-	}
+<?
 	if ($currMenu) {
 ?>
 <script>
@@ -72,11 +80,12 @@
 		var $currMenu = $('#menu<?=$currMenu?>');
 		$currMenu.addClass('active');
 		$currMenu.addClass('open');
-		$currMenu.parent().closest('li').addClass('active');
-		$currMenu.parent().closest('li').addClass('open');
+		if ($currMenu.hasClass('submenu')) {
+			$currMenu.parent().closest('li').addClass('active');
+			$currMenu.parent().closest('li').addClass('open');
+		}
 	});
 </script>
 <?
 	}
- */
 ?>

@@ -538,8 +538,11 @@ msgstr "Выход"
 msgid "Log out"
 msgstr "Выход"
 
-msgid "Custom orders"
+msgid "Custom order"
 msgstr "Индивидуальный заказ"
+
+msgid "Order song"
+msgstr "Заказ песни"
 
 msgid "Log out"
 msgstr "Выход"
@@ -894,3 +897,15 @@ msgstr "Бэк вокал"
 
 msgid "Video clip"
 msgstr "Видео клип"
+
+msgid "Subscription plan"
+msgstr "План подписки"
+
+msgid "Current state"
+msgstr "Текущее состояние"
+
+msgid "- any format -"
+msgstr "- любой формат -"
+
+msgid "Find"
+msgstr "Найти"

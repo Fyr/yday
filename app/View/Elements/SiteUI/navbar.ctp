@@ -51,7 +51,7 @@
 					<ul class="dropdown-menu">
 						<li><?=$this->Html->link(__('Full catalog'), array('controller' => 'catalog', 'action' => 'full'))?></li>
 						<li><?=$this->Html->link(__('Song packs'), array('controller' => 'catalog', 'action' => 'index'))?></li>
-						<li><?=$this->Html->link(__('Custom orders'), array('controller' => 'catalog', 'action' => 'custom'))?></li>
+						<li><?=$this->Html->link(__('Custom order'), array('controller' => 'catalog', 'action' => 'custom'))?></li>
 					</ul>
 				</li>
 				<li class="dropdown">

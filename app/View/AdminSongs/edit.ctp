@@ -19,7 +19,6 @@
     echo $this->element('AdminUI/form_title', array('title' => $this->ObjectType->getTitle($id ? 'edit' : 'create', $objectType)));
     echo $this->PHForm->create($objectType);
 
-    $options = array('MIDI', 'WAV', 'MP3');
     $tabs = array(
         __('General') => $this->Html->div('form-body',
             $this->element('AdminUI/checkboxes', array(
@@ -30,7 +29,7 @@
             .$this->PHForm->input('song')
             .$this->PHForm->input('format', array(
                 'class' => 'form-control input-small',
-                'options' => array_combine($options, $options)
+                'options' => $aFormatOptions
             ))
         )
     );

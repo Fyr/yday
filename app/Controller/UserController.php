@@ -4,7 +4,7 @@ class UserController extends AppController {
 	public $name = 'User';
 	public $layout = 'user';
 	public $components = array('RequestHandler', 'Flash', 'Table.PCTableGrid');
-	public $uses = array('User', 'SongPack', 'Media.Media');
+	public $uses = array('User', 'Media.Media', 'SongPack', 'Song', 'SubscrPlan');
 	public $helpers = array('Form.PHForm', 'Table.PHTableGrid', 'Media.PHMedia');
 
 	public $paginate = array();
@@ -45,6 +45,9 @@ class UserController extends AppController {
 		} else {
 			$this->request->data('User', $this->currUser);
 		}
+
+		$this->set('product', $this->Product->findById($this->currUser['product_id']));
+		$this->set('subscription', $this->SubscrPlan->findById($this->currUser['subscr_plan_id']));
 	}
 
 	protected function _index($model) {
@@ -68,5 +71,38 @@ class UserController extends AppController {
 		$aMedia = $this->Media->find('all', compact('conditions'));
 		$aMedia = Hash::combine($aMedia, '{n}.Media.object_id', '{n}');
 		$this->set(compact('rowset', 'aMedia'));
+	}
+
+	public function songs() {
+		$this->paginate = array(
+			'fields' => array('artist', 'song', 'format', 'back_vocals', 'video_clip'),
+			'order' => array('artist'),
+			'conditions' => array('published' => 1),
+			'limit' => 3
+		);
+
+		if ($artist = $this->request->query('artist')) {
+			$this->paginate['conditions']['artist'] = $artist;
+		}
+		if ($song = $this->request->query('song')) {
+			$this->paginate['conditions']['song'] = $song;
+		}
+		if ($format = $this->request->query('format')) {
+			$this->paginate['conditions']['format'] = $format;
+		}
+		if ($back_vocals = $this->request->query('back_vocals')) {
+			$this->paginate['conditions']['back_vocals'] = $back_vocals;
+		}
+		if ($video_clip = $this->request->query('video_clip')) {
+			$this->paginate['conditions']['video_clip'] = $video_clip;
+		}
+
+		$this->_index('Song');
+
+		$this->set('aFormatOptions', $this->Song->getFormatOptions());
+	}
+
+	public function customorder() {
+
 	}
 }
