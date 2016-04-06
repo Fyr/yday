@@ -9,8 +9,13 @@
 		</th>
 <?
 	}
-	list($order) = array_keys($options['order']);
-	list($dir) = array_values($options['order']);
+	if ($options['order']) {
+		list($order) = array_keys($options['order']);
+		list($dir) = array_values($options['order']);
+	} else {
+		$order = '';
+		$dir = '';
+	}
 	foreach($options['columns'] as $field) {
 		$class = 'sorting';
 		if ($field['key'] == $order) {
@@ -69,5 +74,7 @@
 	</tbody>
 </table>
 <?
-	echo $this->element('AdminUI/pagination');
+	if ($options['pagination']) {
+		echo $this->element('AdminUI/pagination');
+	}
 ?>

@@ -11,15 +11,14 @@ $(function(){
 	});
 
 	$('.dataTable th.checkboxes input[type=checkbox]').change(function(){
-		// console.log($(this).prop('checked'), $('.dataTable td.checkboxes input[type=checkbox]').length);
 		var checked = $(this).prop('checked');
-		var $checkboxes = $('.dataTable td.checkboxes');
+		var $table = $(this).closest('table.dataTable');
 		if ($(this).prop('checked')) {
-			$('.checker span', $checkboxes).addClass('checked');
+			$('td.checkboxes .checker span', $table).addClass('checked');
 		} else {
-			$('.checker span', $checkboxes).removeClass('checked');
+			$('td.checkboxes .checker span', $table).removeClass('checked');
 		}
-		$('input', $checkboxes).prop('checked', checked);
+		$('td.checkboxes input', $table).prop('checked', checked);
 		// $('input', $checkboxes).change();
 		// console.log($(':checked').length);
 	});
