@@ -27,7 +27,8 @@
     foreach($packs as $row) {
         $id = $row['SongPack']['id'];
         $row[$objectType]['title'] = $row[$objectType]['title_'.$lang];
-        $row[$objectType]['price'] = $this->Price->format($this->Settings->read('pack_price'), $lang);
+        $price = $this->Settings->read('pack_price');
+        $row[$objectType]['price'] = $this->Price->format($price, $lang).'<span class="price hidden">'.$price.'</span>';
         $row[$objectType]['filesize'] = $this->PHMedia->MediaPath->filesizeFormat($aMedia[$id]['Media']['orig_fsize'], 1);
         $rowset[] = $row;
     }

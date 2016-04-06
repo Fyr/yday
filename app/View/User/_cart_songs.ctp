@@ -35,7 +35,8 @@
     $rowset = array();
     foreach($songs as $row) {
         $row['Song']['title'] = $row['Song']['artist'].'<br />'.$row['Song']['song'];
-        $row['Song']['price'] = $this->Price->format($this->Settings->read('song_price'), $lang);
+        $price = $this->Settings->read('song_price');
+        $row['Song']['price'] = $this->Price->format($price, $lang).'<span class="price hidden">'.$price.'</span>';
         $rowset[] = $row;
     }
 ?>
