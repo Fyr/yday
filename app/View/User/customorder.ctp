@@ -89,7 +89,5 @@
 			}
 		});
 
-		$('.portlet-body').hide();
-		$('#afterAdd').show();
 	});
 </script>

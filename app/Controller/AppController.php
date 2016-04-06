@@ -13,7 +13,7 @@ class AppController extends Controller {
 		),
 	);
 
-	protected $aCategories, $aProducts, $currUser;
+	protected $aCategories, $aProducts, $currUser, $cart;
 
 	public function __construct($request = null, $response = null) {
 		$this->_beforeInit();
@@ -72,10 +72,11 @@ class AppController extends Controller {
 	public function beforeFilterLayout() {
 		$this->Auth->allow(array('home', 'show', 'view', 'index', 'custom', 'full', 'compare', 'karaoke_systems', 'player', 'tablet', 'select', 'login'));
 		$this->currUser = array();
+		$this->cart = array();
 		if ($this->Auth->loggedIn()) {
 			$this->currUser = AuthComponent::user();
+			$this->cart = (isset($_COOKIE['cart']) && $_COOKIE['cart']) ? json_decode($_COOKIE['cart'], true) : array();
 		}
-		$this->set('currUser', $this->currUser);
 
 		$this->loadModel('Category');
 		$this->aCategories = $this->Category->find('all', array('order' => 'sorting'));
@@ -94,6 +95,8 @@ class AppController extends Controller {
 		$this->set('aCategories', $this->aCategories);
 		$this->set('aProducts', $this->aProducts);
 		$this->set('lang', Configure::read('Config.language'));
+		$this->set('currUser', $this->currUser);
+		$this->set('cart', $this->cart);
 	}
 
 	protected function getLang() {

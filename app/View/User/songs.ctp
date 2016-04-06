@@ -9,6 +9,7 @@
     echo $this->Flash->render();
 
     $checkboxes = true;
+    // $columns = $this->PHTableGrid->getDefaultColumns($objectType);
 /*
     $columns = $this->PHTableGrid->getDefaultColumns($objectType);
     $columns[$objectType.'.title_'.$lang]['label'] = __('Title');

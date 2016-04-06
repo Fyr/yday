@@ -21,6 +21,7 @@
 		)),
 		array('label' => __('Upgrade'), 'url' => array('controller' => 'user', 'action' => 'upgrade')),
 		array('label' => __('My orders'), 'url' => array('controller' => 'user', 'action' => 'orders')),
+		array('label' => __('Cart'), 'url' => array('controller' => 'user', 'action' => 'cart')),
 		array('label' => __('Logout'), 'url' => array('controller' => 'user', 'action' => 'logout'))
 	);
 	$currMenu = 0;

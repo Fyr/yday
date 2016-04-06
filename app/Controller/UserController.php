@@ -123,7 +123,25 @@ class UserController extends AppController {
 			$this->OrderCustom->saveAll($this->request->data);
 		}
 
-
 		$this->set('aServices', $this->Service->getOptions());
+	}
+
+	public function cart() {
+		$songs = (isset($this->cart['songs'])) ? $this->Song->findAllById($this->cart['songs']) : array();
+
+		$packs = (isset($this->cart['packs'])) ? $this->SongPack->findAllById($this->cart['packs']) : array();
+		if ($packs) {
+			$ids = Hash::extract($packs, '{n}.SongPack.id');
+			$conditions = array('media_type' => 'raw_file', 'object_type' => 'SongPack', 'object_id' => $ids);
+			$aMedia = $this->Media->find('all', compact('conditions'));
+			$aMedia = Hash::combine($aMedia, '{n}.Media.object_id', '{n}');
+		} else {
+			$amedia = array();
+		}
+
+		$customOrders = (isset($this->cart['custom'])) ? $this->cart['custom'] : array();
+		$aServices = $this->Service->find('all', array('order' => 'sorting'));
+		$aServices = Hash::combine($aServices, '{n}.Service.id', '{n}.Service');
+		$this->set(compact('songs', 'packs', 'customOrders', 'aMedia', 'aServices'));
 	}
 }
