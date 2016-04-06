@@ -60,60 +60,6 @@
 </style>
 	<script src="http://<?=Configure::read('domain.url')?>/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript">
-function json_encode(param, lEscapeQuotes) {
-	var _ret = JSON.stringify(param);
-	return (lEscapeQuotes) ? _ret.replace(/\"/g, "'"): _ret;
-}
-
-function json_decode(json, lEscapeQuotes) {
-	return JSON.parse((lEscapeQuotes) ? json.replace(/\'/g, '"') : json);
-}
-
-function in_array(needle, haystack) {
-	return $.inArray(needle, haystack) > -1;
-}
-
-function getCart() {
-	return json_decode($.cookie('cart') || '{}');
-}
-
-function setCart(cart) {
-	$.cookie('cart', json_encode(cart), {expires: 7, path: '/'});
-}
-
-function cartAdd(type, id) {
-	var cart = getCart();
-	if (!cart[type]) {
-		cart[type] = [];
-	}
-	cart[type].push(id);
-	setCart(cart);
-}
-
-function cartDel(type, id) {
-	var cart = getCart();
-	if (!cart[type]) {
-		cart[type] = [];
-	}
-
-	var a = [];
-	for(var i = 0 ; i < cart[type].length; i++) {
-		if (cart[type][i] != id) {
-			a.push(cart[type][i]);
-		}
-	}
-	cart[type] = a;
-	setCart(cart);
-}
-
-function inCart(type, id) {
-	var cart = getCart();
-	if (cart[type]) {
-		return in_array(id, cart[type]);
-	}
-	return false;
-}
-
 $(function(){
 	// fixes for menu
 
@@ -252,7 +198,12 @@ $(function(){
 <script src="http://<?=Configure::read('domain.url')?>/assets/global/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.ru.min.js" type="text/javascript"></script>
 
 <?
-	echo $this->Html->script(array('vendor/jquery.cookie'));
+	echo $this->Html->script(array(
+		'vendor/jquery.cookie',
+		'util',
+		'admin',
+		'cart'
+	));
 	echo $this->fetch('script');
 ?>
 

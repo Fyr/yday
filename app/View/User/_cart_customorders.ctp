@@ -34,7 +34,7 @@
         $rowset[] = array('OrderCustom' => array(
             'title' => $row['artist'].'<br />'.$row['song'],
             'services' => implode('<br />', $services),
-            'price' => $this->Price->format($price, $lang)
+            'price' => $this->Price->format($price, $lang).'<span class="price hidden">'.$price.'</span>'
         ));
     }
 ?>
