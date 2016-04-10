@@ -40,6 +40,6 @@
 ?>
 
             <?=$this->element('AdminUI/form_title', array('title' => __('Custom song order')))?>
-            <div class="portlet-body dataTables_wrapper">
+            <div id="customOrders" class="portlet-body dataTables_wrapper">
                 <?=$this->PHTableGrid->render($objectType, compact('row_actions', 'checkboxes', 'rowset', 'columns', 'order', 'pagination'))?>
             </div>

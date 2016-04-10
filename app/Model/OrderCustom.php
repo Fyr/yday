@@ -4,7 +4,7 @@ class OrderCustom extends AppModel {
     public $useTable = 'order_custom';
 
     public $hasMany = array(
-        'OrderServices' => array(
+        'OrderService' => array(
             'dependent' => true
         )
     );

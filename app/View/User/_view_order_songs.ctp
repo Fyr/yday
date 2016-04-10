@@ -1,10 +1,7 @@
 <?
-    $checkboxes = true;
     $row_actions = false;
     $pagination = false;
     $order = '';
-    $rowset = $songs;
-
     $columns = array(
         'Song.title' => array(
             'key' => 'Song.title',
@@ -25,23 +22,38 @@
             'key' => 'Song.video_clip',
             'label' => __('Video clip'),
             'format' => 'boolean'
-        ),
+        ),/*
         'Song.price' => array(
             'key' => 'Song.price',
             'label' => __('Price'),
             'format' => 'integer'
         )
+*/
+        'OrderSong.status' => array(
+            'key' => 'OrderSong.status',
+            'label' => __('Status'),
+            'format' => 'string'
+        ),
+        'OrderSong.url' => array(
+            'key' => 'OrderSong.url',
+            'label' => __('URL'),
+            'format' => 'string'
+        ),
     );
     $rowset = array();
-    foreach($songs as $row) {
+    foreach($orderData['OrderSongs'] as $row) {
+        $song_id = $row['OrderSong']['song_id'];
+        $row['Song'] = $orderData['Songs'][$song_id];
         $row['Song']['title'] = $row['Song']['artist'].'<br />'.$row['Song']['song'];
-        $price = $this->Settings->read('song_price');
-        $row['Song']['price'] = $this->Price->format($price, $lang).'<span class="price hidden">'.$price.'</span>';
+
+        // $price = $this->Settings->read('song_price');
+        // $row['Song']['price'] = $this->Price->format($price, $lang).'<span class="price hidden">'.$price.'</span>';
         $rowset[] = $row;
     }
+
 ?>
 
             <?=$this->element('AdminUI/form_title', array('title' => __('Songs')))?>
             <div id="songs" class="portlet-body dataTables_wrapper">
-                <?=$this->PHTableGrid->render('Song', compact('row_actions', 'checkboxes', 'rowset', 'columns', 'order', 'pagination'))?>
+                <?=$this->PHTableGrid->render('Song', compact('row_actions', 'rowset', 'columns', 'order', 'pagination'))?>
             </div>

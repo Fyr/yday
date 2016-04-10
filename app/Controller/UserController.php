@@ -4,8 +4,8 @@ class UserController extends AppController {
 	public $name = 'User';
 	public $layout = 'user';
 	public $components = array('RequestHandler', 'Flash', 'Table.PCTableGrid');
-	public $uses = array('User', 'Media.Media', 'SongPack', 'Song', 'SubscrPlan', 'Service', 'OrderCustom', 'OrderService');
-	public $helpers = array('Form.PHForm', 'Table.PHTableGrid', 'Media.PHMedia');
+	public $uses = array('User', 'Media.Media', 'SongPack', 'Song', 'SubscrPlan', 'Service', 'Order');
+	public $helpers = array('Form.PHForm', 'Table.PHTableGrid', 'Media.PHMedia', 'Core.PHTime');
 
 	public $paginate = array();
 
@@ -51,7 +51,7 @@ class UserController extends AppController {
 	}
 
 	protected function _index($model) {
-		foreach($this->paginate as &$field) {
+		foreach($this->paginate['fields'] as &$field) {
 			$field = str_replace('$lang', Configure::read('Config.language'), $field);
 		}
 		$this->set('objectType', $model);
@@ -106,29 +106,54 @@ class UserController extends AppController {
 	}
 
 	public function customorder() {
-		if ($this->request->is(array('put', 'post'))) {
-			$this->request->data = array(
-				'OrderCustom' => array(
-					'artist' => 'Metallica',
-					'song' => 'Whiplash',
-					'comment' => "Yeah\r\nDo it!"
-				),
-				'OrderServices' => array(
-					array('service_id' => 3),
-					array('service_id' => 4),
-					array('service_id' => 6)
-				)
-			);
-
-			$this->OrderCustom->saveAll($this->request->data);
-		}
-
 		$this->set('aServices', $this->Service->getOptions());
 	}
 
 	public function cart() {
-		$songs = (isset($this->cart['songs'])) ? $this->Song->findAllById($this->cart['songs']) : array();
 
+		if ($this->request->is(array('put', 'post'))) {
+			$songs = $this->request->data('songs');
+			$packs = $this->request->data('packs');
+			$custom = $this->request->data('customOrders');
+
+			if ($songs || $packs || $custom) {
+				$this->Order->save(array('user_id' => $this->currUser['id']));
+				if ($songs) {
+					$this->OrderSong = $this->loadModel('OrderSong');
+					$data = array();
+					foreach($songs as $id) {
+						$data[] = array('order_id' => $this->Order->id, 'song_id' => $id);
+					}
+					$this->OrderSong->saveAll($data);
+				}
+				if ($packs) {
+					$this->OrderPack = $this->loadModel('OrderPack');
+					$data = array();
+					foreach($packs as $id) {
+						$data[] = array('order_id' => $this->Order->id, 'pack_id' => $id);
+					}
+					$this->OrderPack->saveAll($data);
+				}
+				if ($custom) {
+					$this->OrderCustom = $this->loadModel('OrderCustom');
+					// fdebug($this->cart['custom']);
+					foreach($custom as $id) {
+						$order = $this->cart['custom'][$id];
+						$order['order_id'] = $this->Order->id;
+						$data = array('OrderCustom' => $order, 'OrderService' => array());
+						foreach($order['services'] as $_id) {
+							$data['OrderService'][] = array('service_id' => $_id);
+						}
+						$this->OrderCustom->clear();
+						$this->OrderCustom->saveAll($data);
+					}
+				}
+				// TODO - clean cart
+				$this->Flash->success(__('Your order has been successfully saved'));
+				$this->redirect(array('action' => 'orders'));
+			}
+		}
+		$songs = (isset($this->cart['songs'])) ? $this->Song->findAllById($this->cart['songs']) : array();
 		$packs = (isset($this->cart['packs'])) ? $this->SongPack->findAllById($this->cart['packs']) : array();
 		if ($packs) {
 			$ids = Hash::extract($packs, '{n}.SongPack.id');
@@ -143,5 +168,29 @@ class UserController extends AppController {
 		$aServices = $this->Service->find('all', array('order' => 'sorting'));
 		$aServices = Hash::combine($aServices, '{n}.Service.id', '{n}.Service');
 		$this->set(compact('songs', 'packs', 'customOrders', 'aMedia', 'aServices'));
+	}
+
+	public function orders() {
+		$this->paginate = array(
+			'fields' => array('id', 'created', 'status'),
+			'conditions' => array('user_id' => $this->currUser['id']),
+			'order' => array('created' => 'DESC')
+		);
+		$rowset = $this->_index('Order');
+		$ids = Hash::extract($rowset, '{n}.Order.id');
+
+		$orders = $this->Order->getOrder($ids);
+		$this->set('orders', $orders);
+	}
+
+	public function viewOrder($id) {
+		$order = $this->Order->getOrder($id);
+		$this->set('orderData', $order);
+
+		$aServices = $this->Service->getOptions(true);
+		$this->set('aServices', $aServices);
+	}
+
+	public function upgrade() {
 	}
 }

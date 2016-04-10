@@ -19,7 +19,6 @@ $(function(){
 			$('td.checkboxes .checker span', $table).removeClass('checked');
 		}
 		$('td.checkboxes input', $table).prop('checked', checked);
-		// $('input', $checkboxes).change();
-		// console.log($(':checked').length);
+		$('td.checkboxes input', $table).change();
 	});
 });

@@ -74,6 +74,9 @@
 	</div>
 </div>
 <?
+	if ($this->request->action == 'viewOrder') {
+		$currMenu = 7;
+	}
 	if ($currMenu) {
 ?>
 <script>
