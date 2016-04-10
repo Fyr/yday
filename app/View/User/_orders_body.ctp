@@ -30,5 +30,6 @@
             $_custom = $_order['OrderCustom'];
             echo $_custom['artist'].' - '.$_custom['song'].'<br />';
         }
+        echo '<br />';
     }
 ?>

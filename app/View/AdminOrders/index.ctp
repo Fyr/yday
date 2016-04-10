@@ -1,7 +1,7 @@
 <?
-    $title = __('My orders');
+    $title = $this->ObjectType->getTitle('index', $objectType);
     $breadcrumbs = array(
-        __('User area') => 'javascript:;',
+        __('Catalogs') => 'javascript:;',
         $title => ''
     );
     echo $this->element('AdminUI/breadcrumbs', compact('breadcrumbs'));
@@ -14,6 +14,11 @@
             'key' => 'Order.id',
             'label' => __('Order N'),
             'format' => 'integer'
+        ),
+        'Order.user_id' => array(
+            'key' => 'Order.user_id',
+            'label' => __('User'),
+            'format' => 'string'
         ),
         'Order.created' => $columns['Order.created'],
         'Order.order_body' => array(
@@ -34,25 +39,16 @@
         $row['Order']['order_body'] = $this->element('../User/_orders_body', compact('row', 'orders', 'lang'));
         $row['Order']['status'] = $this->Settings->getStatus('Order', $row['Order']['status']);
         $row['Order']['total_'.$lang] = $this->Price->format($row['Order']['total_'.$lang], $lang);
+        $user_id = $row['Order']['user_id'];
+        $row['Order']['user_id'] = $this->Html->link($users[$user_id]['username'], 'mailto:'.$users[$user_id]['email']);
     }
-    $row_actions = '../User/_orders_rowactions';
+    $row_actions = '../AdminOrders/_index_row_actions';
 ?>
 <div class="row">
     <div class="col-md-12">
         <div class="portlet light bordered">
             <?=$this->element('AdminUI/form_title', array('title' => $title))?>
             <div class="portlet-body dataTables_wrapper">
-                <!--div class="table-toolbar">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="btn-group">
-                                <button id="addCart" class="btn green" onclick="item_addCart()" disabled="disabled">
-                                    <i class="fa fa-shopping-cart"></i> <?=__('Add to cart')?>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div-->
                 <?=$this->PHTableGrid->render($objectType, compact('row_actions', 'rowset', 'columns'))?>
             </div>
         </div>

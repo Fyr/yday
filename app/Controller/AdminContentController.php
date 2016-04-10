@@ -36,7 +36,7 @@ class AdminContentController extends AdminController {
 		foreach($this->paginate as &$field) {
 			$field = str_replace('$lang', Configure::read('Config.language'), $field);
 		}
-		$this->PCTableGrid->paginate($this->getModel());
+		return $this->PCTableGrid->paginate($this->getModel());
     }
 
 	protected function beforeSave($id) {

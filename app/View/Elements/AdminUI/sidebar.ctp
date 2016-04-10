@@ -64,6 +64,7 @@
 			array('label' => __('Song PDF-packs'), 'url' => array('controller' => 'AdminSongPacks', 'action' => 'index')),
 			array('label' => __('Subscription plans'), 'url' => array('controller' => 'AdminSubscrPlans', 'action' => 'index')),
 			array('label' => __('Personal order services'), 'url' => array('controller' => 'AdminServices', 'action' => 'index')),
+			array('label' => __('Orders'), 'url' => array('controller' => 'AdminOrders', 'action' => 'index')),
 		)),
 		array('label' => __('Users'), 'icon' => 'icon-user', 'url' => '', 'submenu' => array(
 			array('label' => __('User profiles'), 'url' => array('controller' => 'AdminUsers', 'action' => 'index')),
@@ -144,12 +145,12 @@
 	} elseif (in_array($this->request->controller, array('AdminProductBlocks', 'AdminProductPacks'))) {
 		$currMenu = 7;
 	} elseif ($this->request->controller == 'AdminSettings') {
-		$submenu = array('index' => 17, 'contacts' => 18, 'prices' => 19, 'apps' => 20, 'catalogs' => 21, 'songpacks' => 22, 'statuses' => 24);
+		$submenu = array('index' => 18, 'contacts' => 19, 'prices' => 20, 'apps' => 21, 'catalogs' => 22, 'songpacks' => 23, 'statuses' => 25);
 		$currMenu = $submenu[$this->request->action];
 	} elseif ($this->request->controller == 'AdminUsers') {
-		$currMenu = ($this->request->action == 'edit' && $this->request->pass[0] == 1) ? 15 : 14;
+		$currMenu = ($this->request->action == 'edit' && $this->request->pass[0] == 1) ? 16 : 15;
 	} elseif ($this->request->controller == 'AdminPackDiscounts') {
-		$currMenu = 23;
+		$currMenu = 24;
 	}
 	if ($currMenu) {
 ?>

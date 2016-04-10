@@ -13,7 +13,6 @@
     $title = __('View order');
     echo $this->element('AdminUI/title', compact('title'));
     echo $this->Flash->render();
-
 ?>
 
 <div class="row">

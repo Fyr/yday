@@ -24,6 +24,7 @@ class ObjectTypeHelper extends AppHelper {
                 'ProductPack' => __('Product packs'),
                 'PackDiscount' => __('Song pack discounts'),
                 'User' => __('User profiles'),
+                'Order' => __('Orders'),
             ),
             'create' => array(
                 'Article' => __('Create article'),
@@ -44,6 +45,7 @@ class ObjectTypeHelper extends AppHelper {
                 'SubscrPlan' => __('Create subscription plan'),
                 'ProductPack' => __('Create product pack'),
                 'User' => __('Create user'),
+                'Order' => __('Create order'),
             ),
             'edit' => array(
                 'Article' => __('Edit article'),
@@ -64,11 +66,13 @@ class ObjectTypeHelper extends AppHelper {
                 'SubscrPlan' => __('Edit subscription plan'),
                 'ProductPack' => __('Edit product pack'),
                 'User' => __('Edit user'),
+                'Order' => __('Edit order'),
             ),
             'view' => array(
             	'Article' => __('View article'),
             	'News' => __('View news article'),
             	'Product' => __('View product'),
+                'Order' => __('View order'),
             )
         );
         return $Titles;
