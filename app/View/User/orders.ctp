@@ -21,12 +21,15 @@
             'label' => __('Ordered'),
             'format' => 'string'
         ),
-        'Order.statuc' => $columns['Order.status'],
+        'Order.total_'.$lang => $columns['Order.total_'.$lang],
+        'Order.status' => $columns['Order.status'],
     );
 
     $rowset = $this->PHTableGrid->getDefaultRowset($objectType);
     foreach($rowset as &$row) {
         $row['Order']['order_body'] = $this->element('../User/_orders_body', compact('row', 'orders', 'lang'));
+        $row['Order']['status'] = $this->Settings->getStatus('Order', $row['Order']['status']);
+        $row['Order']['total_'.$lang] = $this->Price->format($row['Order']['total_'.$lang], $lang);
     }
     $row_actions = '../User/_orders_rowactions';
 ?>

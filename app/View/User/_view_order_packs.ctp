@@ -35,6 +35,7 @@
         $pack_id = $row['OrderPack']['pack_id'];
         $row['SongPack'] = $orderData['Packs'][$pack_id];
         $row['SongPack']['title'] = $row['SongPack']['title_'.$lang];
+        $row['OrderPack']['status'] = $this->Settings->getStatus('OrderPack', $row['OrderPack']['status']);
         /*
         $price = $this->Settings->read('pack_price');
         $row[$objectType]['price'] = $this->Price->format($price, $lang).'<span class="price hidden">'.$price.'</span>';

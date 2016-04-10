@@ -77,6 +77,7 @@
 			array('label' => __('Catalogs'), 'url' => array('controller' => 'AdminSettings', 'action' => 'catalogs')),
 			array('label' => __('Song packs'), 'url' => array('controller' => 'AdminSettings', 'action' => 'songpacks')),
 			array('label' => __('Song pack discounts'), 'url' => array('controller' => 'AdminPackDiscounts', 'action' => 'index')),
+			array('label' => __('Statuses'), 'url' => array('controller' => 'AdminSettings', 'action' => 'statuses')),
 		)),
 	);
 
@@ -143,7 +144,7 @@
 	} elseif (in_array($this->request->controller, array('AdminProductBlocks', 'AdminProductPacks'))) {
 		$currMenu = 7;
 	} elseif ($this->request->controller == 'AdminSettings') {
-		$submenu = array('index' => 17, 'contacts' => 18, 'prices' => 19, 'apps' => 20, 'catalogs' => 21, 'songpacks' => 22);
+		$submenu = array('index' => 17, 'contacts' => 18, 'prices' => 19, 'apps' => 20, 'catalogs' => 21, 'songpacks' => 22, 'statuses' => 24);
 		$currMenu = $submenu[$this->request->action];
 	} elseif ($this->request->controller == 'AdminUsers') {
 		$currMenu = ($this->request->action == 'edit' && $this->request->pass[0] == 1) ? 15 : 14;

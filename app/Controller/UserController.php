@@ -110,6 +110,8 @@ class UserController extends AppController {
 	}
 
 	public function cart() {
+		$aServices = $this->Service->find('all', array('order' => 'sorting'));
+		$aServices = Hash::combine($aServices, '{n}.Service.id', '{n}.Service');
 
 		if ($this->request->is(array('put', 'post'))) {
 			$songs = $this->request->data('songs');
@@ -121,8 +123,17 @@ class UserController extends AppController {
 				if ($songs) {
 					$this->OrderSong = $this->loadModel('OrderSong');
 					$data = array();
+					$total_rus = 0;
+					$total_eng = 0;
 					foreach($songs as $id) {
-						$data[] = array('order_id' => $this->Order->id, 'song_id' => $id);
+						$data[] = array(
+							'order_id' => $this->Order->id,
+							'song_id' => $id,
+							'price_rus' => floatval(Configure::read('Settings.song_price_rus')),
+							'price_eng' => floatval(Configure::read('Settings.song_price_eng'))
+						);
+						$total_rus+= floatval(Configure::read('Settings.song_price_rus'));
+						$total_eng+= floatval(Configure::read('Settings.song_price_eng'));
 					}
 					$this->OrderSong->saveAll($data);
 				}
@@ -130,24 +141,37 @@ class UserController extends AppController {
 					$this->OrderPack = $this->loadModel('OrderPack');
 					$data = array();
 					foreach($packs as $id) {
-						$data[] = array('order_id' => $this->Order->id, 'pack_id' => $id);
+						$data[] = array(
+							'order_id' => $this->Order->id,
+							'pack_id' => $id,
+							'price_rus' => floatval(Configure::read('Settings.pack_price_rus')),
+							'price_eng' => floatval(Configure::read('Settings.pack_price_eng'))
+						);
+						$total_rus+= floatval(Configure::read('Settings.pack_price_rus'));
+						$total_eng+= floatval(Configure::read('Settings.pack_price_eng'));
 					}
 					$this->OrderPack->saveAll($data);
 				}
 				if ($custom) {
 					$this->OrderCustom = $this->loadModel('OrderCustom');
-					// fdebug($this->cart['custom']);
 					foreach($custom as $id) {
 						$order = $this->cart['custom'][$id];
 						$order['order_id'] = $this->Order->id;
 						$data = array('OrderCustom' => $order, 'OrderService' => array());
 						foreach($order['services'] as $_id) {
-							$data['OrderService'][] = array('service_id' => $_id);
+							$data['OrderService'][] = array(
+								'service_id' => $_id,
+								'price_rus' => floatval($aServices[$_id]['price_rus']),
+								'price_eng' => floatval($aServices[$_id]['price_eng']),
+							);
+							$total_rus+= floatval($aServices[$_id]['price_rus']);
+							$total_eng+= floatval($aServices[$_id]['price_eng']);
 						}
 						$this->OrderCustom->clear();
 						$this->OrderCustom->saveAll($data);
 					}
 				}
+				$this->Order->save(compact('total_rus', 'total_eng'));
 				// TODO - clean cart
 				$this->Flash->success(__('Your order has been successfully saved'));
 				$this->redirect(array('action' => 'orders'));
@@ -165,14 +189,12 @@ class UserController extends AppController {
 		}
 
 		$customOrders = (isset($this->cart['custom'])) ? $this->cart['custom'] : array();
-		$aServices = $this->Service->find('all', array('order' => 'sorting'));
-		$aServices = Hash::combine($aServices, '{n}.Service.id', '{n}.Service');
 		$this->set(compact('songs', 'packs', 'customOrders', 'aMedia', 'aServices'));
 	}
 
 	public function orders() {
 		$this->paginate = array(
-			'fields' => array('id', 'created', 'status'),
+			'fields' => array('id', 'created', 'total_$lang', 'status'),
 			'conditions' => array('user_id' => $this->currUser['id']),
 			'order' => array('created' => 'DESC')
 		);

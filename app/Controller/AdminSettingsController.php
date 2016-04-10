@@ -34,4 +34,7 @@ class AdminSettingsController extends AdminController {
 
     public function songpacks() {
     }
+
+    public function statuses() {
+    }
 }

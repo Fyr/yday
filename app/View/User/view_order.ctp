@@ -13,6 +13,7 @@
     $title = __('View order');
     echo $this->element('AdminUI/title', compact('title'));
     echo $this->Flash->render();
+
 ?>
 
 <div class="row">
@@ -29,16 +30,16 @@
                         <td><?=$orderData['Order']['id']?></td>
                     </tr>
                     <tr>
-                        <td width="1%"><?=__('Created')?></td>
+                        <td><?=__('Created')?></td>
                         <td><?=$this->PHTime->niceShort($orderData['Order']['created'])?></td>
                     </tr>
                     <tr>
-                        <td width="1%"><?=__('Sum')?></td>
-                        <td><?=$this->Price->format($orderData['Order']['sum'])?></td>
+                        <td><?=__('Sum')?></td>
+                        <td><?=$this->Price->format($orderData['Order']['total_rus'])?></td>
                     </tr>
                     <tr>
-                        <td width="1%"><?=__('Status')?></td>
-                        <td><?=$orderData['Order']['status']?></td>
+                        <td><?=__('Status')?></td>
+                        <td><?=$this->Settings->getStatus('Order', $orderData['Order']['status'])?></td>
                     </tr>
                     </tbody>
                 </table>

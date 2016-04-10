@@ -45,7 +45,7 @@
         $song_id = $row['OrderSong']['song_id'];
         $row['Song'] = $orderData['Songs'][$song_id];
         $row['Song']['title'] = $row['Song']['artist'].'<br />'.$row['Song']['song'];
-
+        $row['OrderSong']['status'] = $this->Settings->getStatus('OrderSong', $row['OrderSong']['status']);
         // $price = $this->Settings->read('song_price');
         // $row['Song']['price'] = $this->Price->format($price, $lang).'<span class="price hidden">'.$price.'</span>';
         $rowset[] = $row;
