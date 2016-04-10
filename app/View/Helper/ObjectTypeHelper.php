@@ -66,7 +66,7 @@ class ObjectTypeHelper extends AppHelper {
                 'SubscrPlan' => __('Edit subscription plan'),
                 'ProductPack' => __('Edit product pack'),
                 'User' => __('Edit user'),
-                'Order' => __('Edit order'),
+                'Order' => __('View order'),
             ),
             'view' => array(
             	'Article' => __('View article'),

@@ -21,7 +21,6 @@ class SettingsHelper extends AppHelper {
 		);
 		$option = Configure::read('Settings.'.$aTypes[$objectType]);
 		$aStatus = $this->ArticleVars->list2array($option);
-		// fdebug(compact('option', 'aStatus', 'status'));
 		return ($status === null) ? $aStatus : $aStatus[$status];
 	}
 }

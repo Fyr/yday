@@ -957,3 +957,25 @@ msgstr "N заказа"
 
 msgid "View order"
 msgstr "Просмотр заказа"
+
+msgid "Order info"
+msgstr "Информация о заказе"
+
+msgid "Sum"
+msgstr "Сумма"
+
+msgid "Filesize"
+msgstr "Размер файла"
+
+msgid "Format"
+msgstr "Формат"
+
+msgid "Statuses"
+msgstr "Статусы"
+
+msgid "Orders"
+msgstr "Заказы"
+
+msgid "Edit order"
+msgstr "Редактировать заказ"
+

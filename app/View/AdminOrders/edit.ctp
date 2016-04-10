@@ -3,7 +3,7 @@
     .form-text { margin-top: 8px;}
 </style>
 <?
-    $title = __('View order');
+    $title = $this->ObjectType->getTitle('edit', $objectType);
     $breadcrumbs = array(
         __('Catalogs') => 'javascript:;',
         $this->ObjectType->getTitle('index', $objectType) => array('action' => 'orders'),
