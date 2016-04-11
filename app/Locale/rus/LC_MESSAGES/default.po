@@ -13,6 +13,12 @@ msgstr "Вход"
 msgid "Remember me"
 msgstr "Запомнить"
 
+msgid "Yes"
+msgstr "Да"
+
+msgid "No"
+msgstr "Нет"
+
 msgid "Jan"
 msgstr "Янв"
 
@@ -955,6 +961,9 @@ msgstr "Заказано"
 msgid "Order N"
 msgstr "N заказа"
 
+msgid "Order N %s"
+msgstr "Заказ N %s"
+
 msgid "View order"
 msgstr "Просмотр заказа"
 
@@ -978,4 +987,8 @@ msgstr "Заказы"
 
 msgid "Edit order"
 msgstr "Редактировать заказ"
+
+msgid "Edit status"
+msgstr "Редактировать статус"
+
 

@@ -57,6 +57,7 @@
 	.pagination .prev.disabled, .pagination .next.disabled { display: none; }
 	.table.dataTable p {margin: 0 0 0.13em 0;}
 	.rubl {font-family: 'PT Sans'}
+	.form-text { margin-top: 8px;}
 </style>
 	<script src="http://<?=Configure::read('domain.url')?>/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
 </head>

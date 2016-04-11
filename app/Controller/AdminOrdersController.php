@@ -4,7 +4,7 @@ App::uses('AdminController', 'Controller');
 App::uses('AdminContentController', 'Controller');
 class AdminOrdersController extends AdminContentController {
     public $name = 'AdminOrders';
-    public $uses = array('Order', 'OrderSong', 'OrderPack', 'OrderCustom', 'OrderService', 'Service', 'User');
+    public $uses = array('Order', 'OrderSong', 'OrderPack', 'OrderCustom', 'OrderService', 'Service', 'User', 'Song', 'SongPack');
 
     public $paginate = array(
         'fields' => array('id', 'user_id', 'created', 'total_$lang', 'status'),
@@ -31,5 +31,28 @@ class AdminOrdersController extends AdminContentController {
 
         $aServices = $this->Service->getOptions(true);
         $this->set('aServices', $aServices);
+    }
+
+    public function editStatus($objectType, $id) {
+        $row = $this->{$objectType}->findById($id);
+        $order = $this->Order->findById($row[$objectType]['order_id']);
+        if ($this->request->is(array('put', 'post'))) {
+            $this->request->data($objectType.'.id', $id);
+            $this->{$objectType}->save($this->request->data($objectType));
+            $this->Flash->success(__('Record has been successfully saved'));
+            $this->redirect(array('action' => 'edit', $row[$objectType]['order_id']));
+            return ;
+        } else {
+            $this->request->data = array_merge($row, $order);
+        }
+        if ($objectType == 'OrderSong') {
+            $this->set('song', $this->Song->findById($this->request->data('OrderSong.song_id')));
+        } elseif ($objectType == 'OrderPack') {
+            $this->set('pack', $this->SongPack->findById($this->request->data('OrderPack.pack_id')));
+        } elseif ($objectType == 'OrderCustom') {
+            $aServices = $this->Service->getOptions(true);
+            $this->set('aServices', $aServices);
+        }
+        // $this->request->data('Order', $order)
     }
 }

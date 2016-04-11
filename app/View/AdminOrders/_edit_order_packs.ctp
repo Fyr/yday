@@ -36,6 +36,7 @@
         $row['SongPack'] = $orderData['Packs'][$pack_id];
         $row['SongPack']['title'] = $row['SongPack']['title_'.$lang];
         $row['OrderPack']['status'] = $this->Settings->getStatus('OrderPack', $row['OrderPack']['status']);
+        $row['OrderPack']['url'] = ($row['OrderPack']['url']) ? $this->Html->link(__('Download'), $row['OrderPack']['url'], array('target' => '_blank')) : '';
         /*
         $price = $this->Settings->read('pack_price');
         $row[$objectType]['price'] = $this->Price->format($price, $lang).'<span class="price hidden">'.$price.'</span>';

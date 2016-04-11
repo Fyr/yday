@@ -42,6 +42,7 @@
         }
         $row['OrderCustom']['services'] = implode('<br />', $services);
         $row['OrderCustom']['status'] = $this->Settings->getStatus('OrderCustom', $row['OrderCustom']['status']);
+        $row['OrderCustom']['url'] = ($row['OrderCustom']['url']) ? $this->Html->link(__('Download'), $row['OrderCustom']['url'], array('target' => '_blank')) : '';
             /*
         $rowset[] = array('OrderCustom' => array(
             'title' => $row['artist'].'<br />'.$row['song'],

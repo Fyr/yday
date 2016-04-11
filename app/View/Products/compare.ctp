@@ -51,9 +51,6 @@
 ?>
 
 			</tr>
-			<tr>
-				<th colspan="<?=$colspan?>"><?=__('System features')?></th>
-			</tr>
 <?
 	$aFeatures = array();
 	foreach($aProducts[$cat_id] as $id => &$product) {
@@ -62,36 +59,43 @@
 		$aFeatures = array_merge($aFeatures, $product['Product']['features']);
 	}
 	unset($product);
-	$aFeatures = array_unique($aFeatures);
-	sort($aFeatures);
-	foreach($aFeatures as $feature) {
+	if ($aFeatures) {
+?>
+			<tr>
+				<th colspan="<?=$colspan?>"><?=__('System features')?></th>
+			</tr>
+
+<?
+		$aFeatures = array_unique($aFeatures);
+		sort($aFeatures);
+		foreach($aFeatures as $feature) {
 ?>
 			<tr>
 				<td><?=$feature?></td>
 <?
-		foreach($aProducts[$cat_id] as $id => $product) {
-			if (in_array($id, $selected)) {
-				$class = (in_array($feature, $product['Product']['features'])) ? 'icon-check' : 'icon-close';
-				if (isset($aPacks[$id])) {
-					foreach ($aPacks[$id] as $_id =>$pack) {
-						if (in_array($_id, $selected_packs[$id])) {
+			foreach($aProducts[$cat_id] as $id => $product) {
+				if (in_array($id, $selected)) {
+					$class = (in_array($feature, $product['Product']['features'])) ? 'icon-check' : 'icon-close';
+					if (isset($aPacks[$id])) {
+						foreach ($aPacks[$id] as $_id =>$pack) {
+							if (in_array($_id, $selected_packs[$id])) {
 ?>
 				<td class="center"><span class="<?= $class ?>"></span></td>
 <?
+							}
 						}
-					}
-				} else {
+					} else {
 ?>
 				<td class="center"><span class="<?= $class ?>"></span></td>
 <?
+					}
 				}
 			}
-		}
 ?>
 			</tr>
 <?
+		}
 	}
-
 	$lShowParams = false;
 	foreach($aFormGroups as $group_id => $group) {
 		if (!$group['ParamGroup']['featured']) {

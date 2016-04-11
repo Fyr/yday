@@ -52,3 +52,4 @@ table.dataTable thead th.checkboxes, table.dataTable tbody td.checkboxes {
 .has-error .multiselect-container label.checkbox {
     color: #555;
 }
+.form-text { margin-top: 8px;}

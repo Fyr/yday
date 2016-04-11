@@ -69,6 +69,10 @@ class PHFormHelper extends FormHelper {
 	public function inlineCheckboxes($checkboxes) {
 
 	}
+
+	public function textOnly($label, $text) {
+		return $this->_View->element('Form.form_text', compact('label', 'text'));
+	}
 	
 	/**
 	 * Create a input with CKEditor
