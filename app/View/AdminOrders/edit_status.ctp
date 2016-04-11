@@ -5,7 +5,7 @@
     // $title = $this->ObjectType->getTitle('edit', $objectType);
     $breadcrumbs = array(
         __('Catalogs') => 'javascript:;',
-        $this->ObjectType->getTitle('index', $objectType) => array('action' => 'orders'),
+        $this->ObjectType->getTitle('index', $objectType) => array('action' => 'index'),
         __('Order N %s', $this->request->data('Order.id')) => array('action' => 'edit', $this->request->data('Order.id')),
         __('Edit status') => ''
     );

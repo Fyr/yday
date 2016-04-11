@@ -5,7 +5,7 @@
     $title = $this->ObjectType->getTitle('edit', $objectType);
     $breadcrumbs = array(
         __('Catalogs') => 'javascript:;',
-        $this->ObjectType->getTitle('index', $objectType) => array('action' => 'orders'),
+        $this->ObjectType->getTitle('index', $objectType) => array('action' => 'index'),
         $title => ''
     );
     echo $this->element('AdminUI/breadcrumbs', compact('breadcrumbs'));
