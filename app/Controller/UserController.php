@@ -1,5 +1,6 @@
 <?php
 App::uses('AppController', 'Controller');
+App::uses('SiteRouter', 'Lib/Routing');
 class UserController extends AppController {
 	public $name = 'User';
 	public $layout = 'user';

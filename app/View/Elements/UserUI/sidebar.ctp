@@ -13,16 +13,17 @@
 			</li>
 <?
 	$aMenu = array(
-		array('label' => __('Profile'), 'url' => array('controller' => 'user', 'action' => 'profile')),
-		array('label' => __('Updates'), 'url' => 'javascript:;', 'submenu' => array(
+		array('label' => __('Profile'), 'icon' => 'icon-user', 'url' => array('controller' => 'user', 'action' => 'profile')),
+		array('label' => __('Updates'), 'icon' => 'icon-playlist', 'url' => 'javascript:;', 'submenu' => array(
 			array('label' => __('Song packs'), 'url' => array('controller' => 'user', 'action' => 'songpacks')),
 			array('label' => __('Order song'), 'url' => array('controller' => 'user', 'action' => 'songs')),
 			array('label' => __('Custom order'), 'url' => array('controller' => 'user', 'action' => 'customorder'))
 		)),
-		array('label' => __('Upgrade'), 'url' => array('controller' => 'user', 'action' => 'upgrade')),
-		array('label' => __('My orders'), 'url' => array('controller' => 'user', 'action' => 'orders')),
-		array('label' => __('Cart'), 'url' => array('controller' => 'user', 'action' => 'cart')),
-		array('label' => __('Logout'), 'url' => array('controller' => 'user', 'action' => 'logout'))
+		array('label' => __('Upgrade'), 'icon' => 'icon-diamond', 'url' => array('controller' => 'user', 'action' => 'upgrade')),
+		array('label' => __('My orders'), 'icon' => 'icon-docs', 'url' => array('controller' => 'user', 'action' => 'orders')),
+		array('label' => __('Cart'), 'icon' => 'icon-basket', 'url' => array('controller' => 'user', 'action' => 'cart')),
+		array('label' => __('Recharge balance'), 'icon' => 'icon-wallet', 'url' => array('controller' => 'user', 'action' => 'recharge')),
+		array('label' => __('Logout'), 'icon' => 'icon-logout', 'url' => array('controller' => 'user', 'action' => 'logout'))
 	);
 	$currMenu = 0;
 	$menuID = 0;
@@ -37,12 +38,14 @@
 			}
 ?>
 				<a class="nav-link" href="<?=$this->Html->url($menu['url'])?>">
+					<i class="<?=$menu['icon']?>"></i>
 					<span class="title"><?=$menu['label']?></span>
 				</a>
 <?
 		} else {
 ?>
 				<a class="nav-link nav-toggle" href="<?=$this->Html->url($menu['url'])?>">
+					<i class="<?=$menu['icon']?>"></i>
 					<span class="title"><?=$menu['label']?></span>
 					<span class="arrow"></span>
 				</a>
