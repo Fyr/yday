@@ -49,6 +49,40 @@
         <div class="portlet light bordered">
             <?=$this->element('AdminUI/form_title', array('title' => $title))?>
             <div class="portlet-body dataTables_wrapper">
+                <div class="table-toolbar">
+                    <div class="row">
+                        <div class="col-md-12">
+<?
+    $options = array(
+        'class' => 'form-inline',
+        'type' => 'get',
+        'url' => array('controller' => 'AdminOrders', 'action' => 'index'),
+        'inputDefaults' => array(
+            'div' => 'form-group',
+            'class' => 'form-control',
+            'label' => array('class' => 'sr-only'),
+            // 'between' => '<div class="col-md-9">',
+            // 'after' => '</div>',
+        )
+
+    );
+    echo $this->Form->create('Order', $options);
+    echo $this->Form->input('id', array('type' => 'text', 'placeholder' => __('Order N')));
+
+    $aOptions = Hash::merge(array('' => __('- any user -')), $aUserOptions);
+    $value = $this->request->query('user_id');
+    echo $this->Form->input('user_id', array('options' => $aOptions, 'value' => $value, 'autocomplete' => 'off'));
+
+    $aOptions = Hash::merge(array('' => __('- any status -')), $this->Settings->getStatus('Order'));
+    $value = $this->request->query('status');
+    echo $this->Form->input('status', array('options' => $aOptions, 'value' => $value, 'autocomplete' => 'off'));
+
+    echo $this->Form->button('<i class="fa fa-search"></i>&nbsp;'.__('Find'), array('class' => 'btn btn-primary'));
+    echo $this->Form->end();
+?>
+                        </div>
+                    </div>
+                </div>
                 <?=$this->PHTableGrid->render($objectType, compact('row_actions', 'rowset', 'columns'))?>
             </div>
         </div>

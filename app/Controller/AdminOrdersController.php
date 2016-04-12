@@ -12,6 +12,22 @@ class AdminOrdersController extends AdminContentController {
     );
 
     public function index($parent_id = '') {
+        // Process filter
+        if ($user_id = $this->request->query('user_id')) {
+            $this->paginate['conditions']['user_id'] = $user_id;
+        }
+        $status = $this->request->query('status');
+        if ($status != '') {
+            $this->paginate['conditions']['status'] = $status;
+        }
+        $id = $this->request->query('id');
+        if ($id) {
+            if (strpos($id, ',') !== false) {
+                $id = explode(',', $id);
+            }
+            $this->paginate['conditions']['id'] = $id;
+        }
+
         $rowset = parent::index();
 
         $ids = Hash::extract($rowset, '{n}.Order.id');
@@ -20,7 +36,8 @@ class AdminOrdersController extends AdminContentController {
         $ids = Hash::extract($rowset, '{n}.Order.user_id');
         $users = Hash::combine($this->User->findAllById($ids), '{n}.User.id', '{n}.User');
 
-        $this->set(compact('orders', 'users'));
+        $aUserOptions = $this->User->find('list', array('fields' => array('id', 'username') ));
+        $this->set(compact('orders', 'users', 'aUserOptions'));
     }
 
     public function edit($id = 0, $parent_id = '') {

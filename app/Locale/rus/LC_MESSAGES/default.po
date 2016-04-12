@@ -992,3 +992,11 @@ msgid "Edit status"
 msgstr "Редактировать статус"
 
 
+msgid "- any user -"
+msgstr "- любой пользователь -"
+
+msgid "- any status -"
+msgstr "- любой статус -"
+
+msgid "Recharge balance"
+msgstr "Пополнить баланс"
