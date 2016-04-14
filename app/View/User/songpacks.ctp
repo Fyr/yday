@@ -56,7 +56,7 @@
         $('td.checkboxes :checked').each(function(){
             cartAdd(type, $(this).val());
         });
-        window.location.reload();
+        window.location.href = (window.location.href + '?items=' + $('td.checkboxes :checked').length);
     }
 
     function updateCartBtn() {

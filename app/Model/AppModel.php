@@ -33,6 +33,22 @@ class AppModel extends Model {
         return $this->getDataSource()->fullTableName($this);
     }
 
+    public function setTableName($table) {
+        $this->setSource($table);
+    }
+
+    public function trxBegin() {
+        $this->getDataSource()->begin();
+    }
+
+    public function trxCommit() {
+        $this->getDataSource()->commit();
+    }
+
+    public function trxRollback() {
+        $this->getDataSource()->rollback();
+    }
+
     public function getLang() {
         return Configure::read('Config.language');
     }

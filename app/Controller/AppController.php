@@ -74,7 +74,6 @@ class AppController extends Controller {
 		$this->loadModel('Category');
 
 		$this->Auth->allow(array('home', 'show', 'view', 'index', 'custom', 'full', 'compare', 'karaoke_systems', 'player', 'tablet', 'select', 'login'));
-
 		$this->currUser = array();
 		$this->cart = array();
 		if ($this->Auth->loggedIn()) {
@@ -98,6 +97,18 @@ class AppController extends Controller {
 		$this->set('lang', Configure::read('Config.language'));
 		$this->set('currUser', $this->currUser);
 		$this->set('cart', $this->cart);
+
+		$cartItems = 0;
+		if (isset($this->cart['songs'])) {
+			$cartItems+= count($this->cart['songs']);
+		}
+		if (isset($this->cart['packs'])) {
+			$cartItems+= count($this->cart['packs']);
+		}
+		if (isset($this->cart['custom'])) {
+			$cartItems+= count($this->cart['custom']);
+		}
+		$this->set('cartItems', $cartItems);
 	}
 
 	protected function getLang() {
@@ -118,6 +129,5 @@ class AppController extends Controller {
 		$this->currUser['product'] = ($this->currUser['product_id']) ? $this->Product->findById($this->currUser['product_id']) : array();
 		$this->currUser['subscription'] = ($this->currUser['product_id']) ? $this->SubscrPlan->findById($this->currUser['subscr_plan_id']) : array();
 		$this->cart = (isset($_COOKIE['cart']) && $_COOKIE['cart']) ? json_decode($_COOKIE['cart'], true) : array();
-
 	}
 }

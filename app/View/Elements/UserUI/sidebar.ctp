@@ -21,7 +21,7 @@
 		)),
 		array('label' => __('Upgrade'), 'icon' => 'icon-diamond', 'url' => array('controller' => 'user', 'action' => 'upgrade')),
 		array('label' => __('My orders'), 'icon' => 'icon-docs', 'url' => array('controller' => 'user', 'action' => 'orders')),
-		array('label' => __('Cart'), 'icon' => 'icon-basket', 'url' => array('controller' => 'user', 'action' => 'cart')),
+		array('label' => ($cartItems) ? __('Cart (%s)', $cartItems) : __('Cart'), 'icon' => 'icon-basket', 'url' => array('controller' => 'user', 'action' => 'cart')),
 		array('label' => __('Recharge balance'), 'icon' => 'icon-wallet', 'url' => array('controller' => 'user', 'action' => 'recharge')),
 		array('label' => __('Logout'), 'icon' => 'icon-logout', 'url' => array('controller' => 'user', 'action' => 'logout'))
 	);

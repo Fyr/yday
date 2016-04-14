@@ -63,6 +63,12 @@ class UserController extends AppController {
 	}
 
 	public function songpacks() {
+		if ($items = $this->request->query('items')) {
+			$this->Flash->success(__('%s item(s) have been added to cart', $items));
+			$this->redirect(array('action' => 'songpacks'));
+			return;
+		}
+
 		$this->paginate = array(
 			'fields' => array('title_$lang'),
 			'order' => array('sorting' => 'desc'),
@@ -81,11 +87,17 @@ class UserController extends AppController {
 	}
 
 	public function songs() {
+		if ($items = $this->request->query('items')) {
+			$this->Flash->success(__('%s item(s) have been added to cart', $items));
+			$this->redirect(array('action' => 'songs'));
+			return;
+		}
+
 		$this->paginate = array(
 			'fields' => array('artist', 'song', 'format', 'back_vocals', 'video_clip'),
 			'order' => array('artist'),
 			'conditions' => array('published' => 1),
-			'limit' => 3
+			'limit' => 20
 		);
 
 		if ($artist = $this->request->query('artist')) {
@@ -118,67 +130,14 @@ class UserController extends AppController {
 		$aServices = Hash::combine($aServices, '{n}.Service.id', '{n}.Service');
 
 		if ($this->request->is(array('put', 'post'))) {
-			$songs = $this->request->data('songs');
-			$packs = $this->request->data('packs');
-			$custom = $this->request->data('customOrders');
-
-			if ($songs || $packs || $custom) {
-				$this->Order->save(array('user_id' => $this->currUser['id']));
-				if ($songs) {
-					$this->OrderSong = $this->loadModel('OrderSong');
-					$data = array();
-					$total_rus = 0;
-					$total_eng = 0;
-					foreach($songs as $id) {
-						$data[] = array(
-							'order_id' => $this->Order->id,
-							'song_id' => $id,
-							'price_rus' => floatval(Configure::read('Settings.song_price_rus')),
-							'price_eng' => floatval(Configure::read('Settings.song_price_eng'))
-						);
-						$total_rus+= floatval(Configure::read('Settings.song_price_rus'));
-						$total_eng+= floatval(Configure::read('Settings.song_price_eng'));
-					}
-					$this->OrderSong->saveAll($data);
-				}
-				if ($packs) {
-					$this->OrderPack = $this->loadModel('OrderPack');
-					$data = array();
-					foreach($packs as $id) {
-						$data[] = array(
-							'order_id' => $this->Order->id,
-							'pack_id' => $id,
-							'price_rus' => floatval(Configure::read('Settings.pack_price_rus')),
-							'price_eng' => floatval(Configure::read('Settings.pack_price_eng'))
-						);
-						$total_rus+= floatval(Configure::read('Settings.pack_price_rus'));
-						$total_eng+= floatval(Configure::read('Settings.pack_price_eng'));
-					}
-					$this->OrderPack->saveAll($data);
-				}
-				if ($custom) {
-					$this->OrderCustom = $this->loadModel('OrderCustom');
-					foreach($custom as $id) {
-						$order = $this->cart['custom'][$id];
-						$order['order_id'] = $this->Order->id;
-						$data = array('OrderCustom' => $order, 'OrderService' => array());
-						foreach($order['services'] as $_id) {
-							$data['OrderService'][] = array(
-								'service_id' => $_id,
-								'price_rus' => floatval($aServices[$_id]['price_rus']),
-								'price_eng' => floatval($aServices[$_id]['price_eng']),
-							);
-							$total_rus+= floatval($aServices[$_id]['price_rus']);
-							$total_eng+= floatval($aServices[$_id]['price_eng']);
-						}
-						$this->OrderCustom->clear();
-						$this->OrderCustom->saveAll($data);
-					}
-				}
-				$this->Order->save(compact('total_rus', 'total_eng'));
-				// TODO - clean cart
-				$this->Flash->success(__('Your order has been successfully saved'));
-				$this->redirect(array('action' => 'orders'));
+			if ($this->Order->saveCart($this->request->data, $this->currUser, $this->cart)) {
+				setcookie('cart', '', null, '/');
+				$this->_refreshUser(true);
+				$this->Flash->success(__('Thank you! Your order has been accepted'));
+				$this->redirect(array('action' => 'viewOrder', $this->Order->id));
+				return;
+			} else {
+				$this->Flash->error($this->Order->validationErrors['Order']['error']);
 			}
 		}
 		$songs = (isset($this->cart['songs'])) ? $this->Song->findAllById($this->cart['songs']) : array();
@@ -189,7 +148,7 @@ class UserController extends AppController {
 			$aMedia = $this->Media->find('all', compact('conditions'));
 			$aMedia = Hash::combine($aMedia, '{n}.Media.object_id', '{n}');
 		} else {
-			$amedia = array();
+			$aMedia = array();
 		}
 
 		$customOrders = (isset($this->cart['custom'])) ? $this->cart['custom'] : array();

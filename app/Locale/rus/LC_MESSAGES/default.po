@@ -940,6 +940,9 @@ msgstr "корзину"
 msgid "Cart"
 msgstr "Корзина"
 
+msgid "Cart (%s)"
+msgstr "Корзина (%s)"
+
 msgid "Your cart is empty"
 msgstr "Ваша корзина пуста"
 
@@ -952,8 +955,8 @@ msgstr "Всего"
 msgid "Create order"
 msgstr "Создать заказ"
 
-msgid "Your order has been successfully saved"
-msgstr "Ваш заказ успешно сохранен"
+msgid "Thank you! Your order has been accepted"
+msgstr "Спасибо! Ваш заказ принят"
 
 msgid "Ordered"
 msgstr "Заказано"
@@ -1040,4 +1043,8 @@ msgstr "Неудачно"
 msgid "Success"
 msgstr "Успешно"
 
+msgid "Not enough money to pay for! Please, recharge your balance by %s"
+msgstr "Не хватает средств для оплаты! Пожалуйста, пополните ваш баланс на %s руб."
 
+msgid "%s item(s) have been added to cart"
+msgstr "%s позиций было добавлено в корзину"
