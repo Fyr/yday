@@ -11,6 +11,10 @@ class PriceHelper extends AppHelper {
 			Configure::read('Settings.int_div_'.$lang)
 		);
 		$sum = Configure::read('Settings.price_prefix_'.$lang).$sum.Configure::read('Settings.price_postfix_'.$lang);
-		return str_replace('$P', '<span class="rubl">₽</span>', $sum);
+		return str_replace('$P', $this->symbolP(), $sum);
+	}
+
+	public function symbolP() {
+		return '<span class="rubl">₽</span>';
 	}
 }

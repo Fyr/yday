@@ -70,19 +70,20 @@ class AppController extends Controller {
 	}
 
 	public function beforeFilterLayout() {
+		$this->loadModel('Product');
+		$this->loadModel('Category');
+
 		$this->Auth->allow(array('home', 'show', 'view', 'index', 'custom', 'full', 'compare', 'karaoke_systems', 'player', 'tablet', 'select', 'login'));
+
 		$this->currUser = array();
 		$this->cart = array();
 		if ($this->Auth->loggedIn()) {
-			$this->currUser = AuthComponent::user();
-			$this->cart = (isset($_COOKIE['cart']) && $_COOKIE['cart']) ? json_decode($_COOKIE['cart'], true) : array();
+			$this->_refreshUser();
 		}
 
-		$this->loadModel('Category');
 		$this->aCategories = $this->Category->find('all', array('order' => 'sorting'));
 		$this->aCategories = Hash::combine($this->aCategories, '{n}.Category.id', '{n}');
 
-		$this->loadModel('Product');
 		$this->aProducts = $this->Product->find('all', array('order' => 'Product.sorting'));
 		$this->aProducts = Hash::combine($this->aProducts, '{n}.Product.id', '{n}', '{n}.Product.parent_id');
 	}
@@ -101,5 +102,22 @@ class AppController extends Controller {
 
 	protected function getLang() {
 		return Configure::read('Config.language');
+	}
+
+	protected function _refreshUser($lForce = false) {
+		if ($lForce) {
+			$this->loadModel('User');
+			$user = $this->User->findById($this->currUser['id']);
+			$this->Auth->login($user['User']);
+		}
+
+		$this->loadModel('Product');
+		$this->loadModel('SubscrPlan');
+
+		$this->currUser = AuthComponent::user();
+		$this->currUser['product'] = ($this->currUser['product_id']) ? $this->Product->findById($this->currUser['product_id']) : array();
+		$this->currUser['subscription'] = ($this->currUser['product_id']) ? $this->SubscrPlan->findById($this->currUser['subscr_plan_id']) : array();
+		$this->cart = (isset($_COOKIE['cart']) && $_COOKIE['cart']) ? json_decode($_COOKIE['cart'], true) : array();
+
 	}
 }

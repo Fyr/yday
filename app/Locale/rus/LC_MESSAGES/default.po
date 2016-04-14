@@ -973,6 +973,9 @@ msgstr "Информация о заказе"
 msgid "Sum"
 msgstr "Сумма"
 
+msgid "Sum, %s"
+msgstr "Сумма, %s"
+
 msgid "Filesize"
 msgstr "Размер файла"
 
@@ -1000,3 +1003,41 @@ msgstr "- любой статус -"
 
 msgid "Recharge balance"
 msgstr "Пополнить баланс"
+
+msgid "Make payment"
+msgstr "Оплатить"
+
+msgid "Incorrect CRC"
+msgstr "Некорректный CRC"
+
+msgid "Incorrect sum"
+msgstr "Некорректная сумма"
+
+msgid "Thank you for your payment"
+msgstr "Спасибо за ваш платеж"
+
+msgid "Aborted by user"
+msgstr "Прервано пользователем"
+
+msgid "Sorry, your payment have not been completed"
+msgstr "Извините, ваш платеж не был завершен"
+
+msgid "Incorrect payment data"
+msgstr "Некорректные данные платежа"
+
+msgid "Balance recharge"
+msgstr "Пополнение баланса"
+
+msgid "Withdraw balance"
+msgstr "Списание средств"
+
+msgid "Pending"
+msgstr "Ожидание"
+
+msgid "Failed"
+msgstr "Неудачно"
+
+msgid "Success"
+msgstr "Успешно"
+
+

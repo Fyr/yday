@@ -32,6 +32,14 @@ Configure::write('media', array(
 	'path' => $_SERVER['DOCUMENT_ROOT'].'/files/'
 ));
 
+Configure::write('robokassa', array(
+	'url' => 'https://merchant.roboxchange.com/Index.aspx',
+	'merchant' => 'karaokeyourday',
+	'password' => 'gE41k41orgpoAP9RocPQ', // 'yyK3N32oQycmJ7e3HLBc'
+	'password2' => 'CcPswE99qFnbiT4c1K4r',
+	'log' => ROOT.DS.APP_DIR.DS.'tmp'.DS.'logs'.DS.'robokassa.log'
+));
+
 function fdebug($data, $logFile = 'tmp.log', $lAppend = true) {
 	file_put_contents($logFile, mb_convert_encoding(print_r($data, true), 'cp1251', 'utf8'), ($lAppend) ? FILE_APPEND : null);
 }

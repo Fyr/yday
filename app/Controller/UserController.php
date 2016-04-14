@@ -1,11 +1,18 @@
 <?php
 App::uses('AppController', 'Controller');
 App::uses('SiteRouter', 'Lib/Routing');
+App::uses('Media', 'Media.Model');
+App::uses('User', 'Model');
+App::uses('Song', 'Model');
+App::uses('SongPack', 'Model');
+App::uses('Service', 'Model');
+App::uses('Order', 'Model');
+App::uses('Payment', 'Model');
 class UserController extends AppController {
 	public $name = 'User';
 	public $layout = 'user';
 	public $components = array('RequestHandler', 'Flash', 'Table.PCTableGrid');
-	public $uses = array('User', 'Media.Media', 'SongPack', 'Song', 'SubscrPlan', 'Service', 'Order');
+	public $uses = array('User', 'Media.Media', 'SongPack', 'Song', 'Service', 'Order', 'Payment');
 	public $helpers = array('Form.PHForm', 'Table.PHTableGrid', 'Media.PHMedia', 'Core.PHTime');
 
 	public $paginate = array();
@@ -39,16 +46,12 @@ class UserController extends AppController {
 			$this->request->data('User.id', $this->currUser['id']);
 			if ($this->User->save($this->request->data)) {
 				$this->Flash->success(__('Record has been successfully saved'));
-				$user = $this->User->findById($this->currUser['id']);
-				$this->Auth->login($user['User']);
+				$this->_refreshUser(true);
 				return $this->redirect(array('action' => 'profile'));
 			}
 		} else {
 			$this->request->data('User', $this->currUser);
 		}
-
-		$this->set('product', $this->Product->findById($this->currUser['product_id']));
-		$this->set('subscription', $this->SubscrPlan->findById($this->currUser['subscr_plan_id']));
 	}
 
 	protected function _index($model) {
@@ -216,4 +219,36 @@ class UserController extends AppController {
 
 	public function upgrade() {
 	}
+
+	public function recharge() {
+		if ($this->request->is(array('put', 'post'))) {
+			$hash = md5($this->currUser['id'].time().Configure::read('Security.salt'));
+			$data = array(
+				'user_id' => $this->currUser['id'],
+				'oper_type' => Payment::OPER_INCOME,
+				'status' => Payment::ST_CREATED,
+				'hash' => $hash,
+				'sum' => $this->request->data('Payment.sum')
+			);
+			$this->Payment->save($data);
+			$this->redirect(array('action' => 'payment', $this->Payment->id));
+			return;
+		}
+
+		$this->_refreshUser(true);
+	}
+
+	public function payment($id) {
+		$this->layout = false;
+
+		$oper = $this->Payment->findById($id);
+		if (!$oper) {
+			$this->Flash->success(__('Incorrect payment data'));
+			$this->redirect(array('action' => 'recharge'));
+			return;
+		}
+		$crc = $this->Payment->hash($oper['Payment']);
+		$this->set(compact('oper', 'crc'));
+	}
+
 }
