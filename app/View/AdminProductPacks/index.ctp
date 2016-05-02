@@ -14,6 +14,7 @@
     $price = 'price_'.$lang;
     $columns = $this->PHTableGrid->getDefaultColumns($objectType);
     $columns[$objectType.'.title_'.$lang]['label'] = __('Title');
+    $columns[$objectType.'.price_'.$lang]['label'] = __('Price');
 
     $rowset = $this->PHTableGrid->getDefaultRowset($objectType);
     foreach($rowset as &$row) {

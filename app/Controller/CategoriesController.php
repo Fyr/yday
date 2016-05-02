@@ -23,7 +23,8 @@ class CategoriesController extends AppController {
 		$ids = array_keys($this->aProducts[$cat_id]);
 		$conditions = array('parent_id' => $ids);
 		$order = 'price_'.$this->getLang();
-		$packs = $this->ProductPack->find('all', compact('conditions', 'order'));
+		$group = 'parent_id';
+		$packs = $this->ProductPack->find('all', compact('conditions', 'order', 'group'));
 		foreach($packs as $pack) {
 			$aPrices[$pack['ProductPack']['parent_id']] = floatval($pack['ProductPack']['price_'.$this->getLang()]);
 		}
