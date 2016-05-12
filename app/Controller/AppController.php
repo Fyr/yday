@@ -30,7 +30,28 @@ class AppController extends Controller {
 		$this->loadModel('Settings');
 		$this->Settings->initData();
 
-		$lang = (isset($_COOKIE['lang']) && $_COOKIE['lang'] == 'eng') ? 'eng' : 'rus';
+		$this->_initLang();
+	}
+
+	public function _initLang() {
+		$lang = 'eng';
+		if (isset($_COOKIE['lang'])) {
+			$lang = ($_COOKIE['lang'] == 'eng') ? 'eng' : 'rus';
+		} else {
+			preg_match_all('/([a-z]{1,8}(?:-[a-z]{1,8})?)(?:;q=([0-9.]+))?/', strtolower($_SERVER["HTTP_ACCEPT_LANGUAGE"]), $matches);
+			$langs = array_combine($matches[1], $matches[2]);
+			foreach ($langs as $n => $v)
+				$langs[$n] = $v ? $v : 1;
+			arsort($langs);
+
+			$aSupportLang = array('ru-ru' => 'rus', 'ru' => 'rus');
+			foreach($aSupportLang as $code => $_lang) {
+				if (isset($langs[$code])) {
+					$lang = $_lang;
+					break;
+				}
+			}
+		}
 		Configure::write('Config.language', $lang);
 	}
 
